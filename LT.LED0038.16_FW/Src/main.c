@@ -86,7 +86,9 @@ int main(void)
   /* Infinite loop */
   while (1)
   {
+
     system_UpdateSysParams();
+    //system_Monitor(); //Added By Chinna
     SM_ThreeSl();    
   }
 }

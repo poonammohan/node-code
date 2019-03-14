@@ -153,6 +153,7 @@ bool system_GetBattTick_10(void);
 void system_SetBattTick_10(bool);
 bool system_GetBattTick_1000s(void);
 void system_SetBattTick_1000s(bool);
+bool system_GetTim3ACCCr_val(void);//Added by sunil
 
 #ifdef __cplusplus
 }

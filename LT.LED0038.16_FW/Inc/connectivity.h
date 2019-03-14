@@ -64,6 +64,8 @@
 #define SUB_SYSTEM_INDEX                        4   
 #define SENSOR_STATUS_INDEX                     5
 #define BATTERY_STATUS_INDEX                    6
+#define LED_CURRENT_INDEX                       12      // Added By Chinna
+#define LED_VOLTAGE_INDEX                       13      // Added By Chinna
 #define BATTERY_CURRENT_INDEX                   14
 #define BATTERY_VOLTAGE_INDEX                   15
 #define PANEL_CURRENT_INDEX                     16

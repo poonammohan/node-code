@@ -59,6 +59,7 @@ uint32_t LedStateChangeTick;
 uint8_t State_SubSystem;
 uint8_t State_SensorStatus;
 uint8_t State_BatteryStatus;
+uint8_t ledIntensityDefault=1;//Added By Chinna for setting Initial LED Intensity
 
 BatteryChargingModeTypeDef currentBattState = BATTERY_CHARGING_MODE_OFF;
 uint16_t countBattLow = 0;
@@ -68,6 +69,8 @@ extern uint8_t UartRxData[UART_RX_DATABUFF_SIZE];
 extern uint8_t UartTxData[UART_TX_DATABUFF_SIZE];
 extern uint16_t UartRxDataStartPntr;
 extern uint16_t UartRxDataLength;
+extern uint32_t LedCurrent;
+extern uint16_t DcDcLdOutVoltage;
 
 /* Private function prototypes -----------------------------------------------*/
 /* Different state functions */
@@ -165,6 +168,7 @@ void state_StartUp_Led(void)
   /* Ignore LED current monitoring in startup, to avoid false triggering of
      output short circuit protection */
   system_SetIgnoreLedCurrent(true);  
+  GPIOB->BSRR = (uint32_t)GPIO_PIN_5;//Added by Sunil
   
   ThreeSL_State.state_LED = LED_STATE_ON;
 }
@@ -193,7 +197,28 @@ void state_On_Led(void)
     
     if (led_GetFlag(LED_MASK_DIM_ENABLE))
     {
-      led_SetThreshI((uint32_t)(0.7*LED_I_MAX));//DC DC
+ //////////////Added by Sunil to check brightness////////////////////
+#if 0
+          if (conn_GetPacketData(ON_OFF_INDEX) >= 0x01 && \
+            conn_GetPacketData(ON_OFF_INDEX) <= 0x19) //25% bright
+          { 
+            led_SetThreshI(85+((LED_I_MAX-85)/4));
+          }   
+          else if (conn_GetPacketData(ON_OFF_INDEX) >= 0x1A && \
+            conn_GetPacketData(ON_OFF_INDEX) <= 0x32)//50% bright
+          { 
+            led_SetThreshI(85+((LED_I_MAX-85)/2));
+          }
+          else                                       //75% bright
+          { 
+            led_SetThreshI(85+(((LED_I_MAX-85)*3)/4));
+          }   
+          GPIOB->BSRR = (uint32_t)GPIO_PIN_5;
+    //      led_ResetFlag(LED_MASK_DIM_ENABLE);
+ //         state_StartUp_Led();
+#endif
+//////////////Added by Sunil to check brightness////////////////////
+      led_SetThreshI((uint32_t)(0.7*LED_I_MAX));//DC DC originally was there
       if (ac_dc_ld_GetFlag(AC_DC_LD_MASK_ENABLE))//AC DC
       {
         system_AcDcSetDim(20);
@@ -380,7 +405,7 @@ static void state_BattChg_SCC()
         
         pwmDuty = mppt_Routine((battery_GetMaxVoltage()),
                                battery_GetMaxCurrent(),
-                               battery_GetVoltage(),battery_GetChargngCurrent(),
+                               battery_GetVoltage(),battery_GetChargngCurrent(),//battery_GetChargngCurrent()
                                system_GetSccPwm());
       }
       
@@ -450,21 +475,63 @@ void state_Conn_On(void)
   
   if (conn_GetReadPacketDataStatus() == true)
   {
+    system_Monitor();
     system_ResetUartTick();
     
     conn_SetReadPacketDataStatus(false);
     
     if (conn_GetPacketData(COMMAND_CODE_INDEX) == COMMAND_ON_OFF)
     {
+      
+       // system_Monitor();
+      
       if (conn_GetPacketData(ON_OFF_INDEX) == 0)
       {
         /* LED enable/disable is also dependent on panel voltage */
         system_SetServerLightCommand(false);
-        led_ResetFlag(LED_MASK_DIM_ENABLE);
+        led_ResetFlag(LED_MASK_DIM_ENABLE);//--->originally present but commented by Sunil
+   //     system_DcDcLdOutEnable();//----->Added by Sunil
+     //  system_DcDcLdOutDisable();//----->Added by Sunil
+     //   system_AcDcLdOutDisable();//----->Added by Sunil
+     //   state_Critical_Led();//------------>Added by Sunil
         
+      //  state_Off_Led();//------------------>Added by Sunil
+ //   if (panel_GetFlag(PANEL_MASK_OK))
+ //   { 
+#if 0   //**************** Switching from Battery to AC ************//
+        system_DcDcLdOutDisable();
+        system_AcDcLdOutEnable();//Added By Chinna For Switching Battery to AC
+        ac_dc_ld_SetFlag(AC_DC_LD_MASK_ENABLE);//Added By Chinna For Switching Battery to AC
+        dc_dc_ld_ResetFlag(DC_DC_LD_MASK_ENABLE);
+        
+        //**************** Switching from Battery to AC ************//
+#endif
+ 
+        system_DcDcLdOutDisable();//------------------>Added by Sunil
+        system_AcDcLdOutDisable();//------------------>Added by Sunil
+ //       system_AcDcLdDisable();//------------------>Added by Sunil
+        ac_dc_ld_ResetFlag(AC_DC_LD_MASK_ENABLE);//------------------>Added by Sunil
+        dc_dc_ld_ResetFlag(DC_DC_LD_MASK_ENABLE);//------------------>Added by Sunil
         /* On board LED places at test button */
-        GPIOB->BRR = (uint32_t)GPIO_PIN_5;
+         GPIOB->BRR = (uint32_t)GPIO_PIN_5;//BRR means switching off test LED
+ //    }   
+     //   HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5,GPIO_PIN_RESET);//Added by Sunil
+         
+         conn_SetPacketData(ON_OFF_INDEX, 0 | 0x80);     //Added By Chinna for User Action
+         
+         State_SubSystem = State_SubSystem & 0xFD;      //Added By Chinna 
+         State_SubSystem = State_SubSystem | 0x01;       //Added By Chinna 
+         
+
+ 
       }
+  //    else if(conn_GetPacketData(ON_OFF_INDEX) == 0x32)
+  //    {
+  //      system_DcDcLdOutEnable();//---->added by sunil
+  //      dc_dc_ld_SetFlag(DC_DC_LD_MASK_ENABLE);//---->added by sunil
+  //      ac_dc_ld_ResetFlag(AC_DC_LD_MASK_ENABLE);//---->added by sunil
+  //      battery_ResetFlag(BATTERY_MASK_CHRGD);//---->added by sunil
+  //    }
       else
       {
         /* LED enable/disable is also dependent on panel voltage */      
@@ -472,15 +539,129 @@ void state_Conn_On(void)
         
         if (conn_GetPacketData(ON_OFF_INDEX) < 100)
         {
+        //  system_DcDcLdOutEnable();//----->Added by Sunil
           led_SetFlag(LED_MASK_DIM_ENABLE);
+ //////////////Added by Sunil to check brightness////////////////////
+//#if 1
+          if (conn_GetPacketData(ON_OFF_INDEX) >= 0x01 && conn_GetPacketData(ON_OFF_INDEX) <= 0x19) //25% bright
+          { 
+            led_SetThreshI(85+((LED_I_MAX-85)/4));
+              conn_SetPacketData(ON_OFF_INDEX, 25 | 0x80);     //Added By Chinna for User Action
+
+          }   
+          else if (conn_GetPacketData(ON_OFF_INDEX) >= 0x1A && conn_GetPacketData(ON_OFF_INDEX) <= 0x32)//50% bright
+          { 
+            led_SetThreshI(85+((LED_I_MAX-85)/2));
+              conn_SetPacketData(ON_OFF_INDEX, 50 | 0x80);     //Added By Chinna for User Action
+            
+          }
+          else if (conn_GetPacketData(ON_OFF_INDEX) >= 0x33 && conn_GetPacketData(ON_OFF_INDEX) <= 0x4B)                                    //75% bright
+          { 
+            led_SetThreshI(85+(((LED_I_MAX-85)*3)/4));
+              conn_SetPacketData(ON_OFF_INDEX, 75 | 0x80);     //Added By Chinna for User Action
+            
+          }   
+          //GPIOB->BSRR = (uint32_t)GPIO_PIN_5; //Commented By Chinna
+          //led_ResetFlag(LED_MASK_DIM_ENABLE);//Commented By Chinna
+ //         state_StartUp_Led();
+//#endif
+//////////////Added by Sunil to check brightness////////////////////
+          
         }
-        else
+        else if(conn_GetPacketData(ON_OFF_INDEX) ==100)
         {
-          led_ResetFlag(LED_MASK_DIM_ENABLE);
-        }
+          //system_Monitor();
+          
+          /********** Added By Chinna For giving the priority to solar panel *********/
+#if 0
+          if(panel_GetFlag(PANEL_MASK_OK))
+          {
+            SM_ThreeSl();
+            
+#if 0
+            if(ThreeSL_State.state_LED == LED_STATE_OFF)
+            {
+              StateTable_LED[LED_STATE_OFF]();
+              StateTable_SCC[SCC_STATE_START_UP]();
+              StateTable_Conn[Conn_STATE_START_UP]();
+              
+            }
+#endif
+            //ThreeSL_State.state_LED == LED_STATE_OFF;
+             //ThreeSL_State.state_SCC = SCC_STATE_BATT_CHG;
+          }
+#endif        
+          /*********** Added By Chinna For giving the priority to Solar Panel *********/
+          
+          
+          
+          
+         conn_SetPacketData(ON_OFF_INDEX, 100 | 0x80);  //Added By Chinna for User Action
+        led_ResetFlag(LED_MASK_DIM_ENABLE);//--->originally was there but commented by sunil
+
+        GPIOB->BSRR = (uint32_t)GPIO_PIN_5;     //Added By Chinns
+ /////////////////////Added by Sunil//////////////////////////////////////////////////
+        
+#if 0    
+          /* Preference is to DC-DC over AC-DC */
+  if ((battery_GetFlag(BATTERY_MASK_OK)) && 
+      (!(battery_GetFlag(BATTERY_MASK_DSCHRG))))
+  {
+    system_DcDcLdOutEnable();
+    dc_dc_ld_SetFlag(DC_DC_LD_MASK_ENABLE);
+    ac_dc_ld_ResetFlag(AC_DC_LD_MASK_ENABLE);
+    battery_ResetFlag(BATTERY_MASK_CHRGD);
+  }
+  else
+  {
+    system_DcDcLdOutDisable();
+    system_AcDcLdOutEnable();
+    dc_dc_ld_ResetFlag(DC_DC_LD_MASK_ENABLE);
+    ac_dc_ld_SetFlag(AC_DC_LD_MASK_ENABLE);
+  }
+  
+  CurrentState_LED = LED_STATE_OFF;
+  CurrentState_SCC = SCC_STATE_OFF;      
+  CurrentState_Conn=Conn_STATE_START_UP;      
+    SM_ThreeSl();  
+#endif
+state_StartUp_Led();//---------->    // Added by Sunil
+ /////////////////////Added by Sunil////////////////////////////////////////////////// 
+                  }
+          //**************** Switching from Battery to AC ************//
+       if(conn_GetPacketData(ON_OFF_INDEX) > 100 && conn_GetPacketData(ON_OFF_INDEX)<=150)
+       {
+        system_DcDcLdOutDisable();
+        system_AcDcLdOutEnable();//Added By Chinna For Switching Battery to AC
+        ac_dc_ld_SetFlag(AC_DC_LD_MASK_ENABLE);//Added By Chinna For Switching Battery to AC
+        dc_dc_ld_ResetFlag(DC_DC_LD_MASK_ENABLE);//Added By Chinna For Switching Battery to AC
+       State_SubSystem = State_SubSystem | 0x02;//Added By Chinna For Switching Battery to AC
+       State_SubSystem = State_SubSystem & 0xFE;//Added By Chinna For Switching Battery to AC
+        
+       }
+        //**************** Switching from Battery to AC ************//
+
+       
+          //**************** Switching from Battery to AC ************//
+       if(conn_GetPacketData(ON_OFF_INDEX) > 150 )
+       {
+         
+         
+         
+        system_DcDcLdOutEnable();
+        system_AcDcLdOutDisable();//Added By Chinna For Switching Battery to AC
+        ac_dc_ld_ResetFlag(AC_DC_LD_MASK_ENABLE);//Added By Chinna For Switching Battery to AC
+        dc_dc_ld_SetFlag(DC_DC_LD_MASK_ENABLE);//Added By Chinna For Switching Battery to AC
+       State_SubSystem = State_SubSystem | 0x01;//Added By Chinna For Switching Battery to AC
+       State_SubSystem = State_SubSystem & 0xFE;//Added By Chinna For Switching Battery to AC
+        
+       }
+        //**************** Switching from Battery to AC ************//       
+       
+        
         
         /* On board LED places at test button */
-        GPIOB->BSRR = (uint32_t)GPIO_PIN_5;
+        //GPIOB->BSRR = (uint32_t)GPIO_PIN_5;//
       }    
     }    
     
@@ -489,22 +670,79 @@ void state_Conn_On(void)
     {
       conn_SetPacketData(COMMAND_CODE_INDEX, COMMAND_SEND_STATUS);
       
+        system_Monitor();//Added By Chinna
+ /**************** Added By Chinna for setting the default LED Brightness when it is resetted ************************/
+   if (led_GetFlag(LED_MASK_ENABLE))                
+      {
+        if(ledIntensityDefault==1)
+        {
+          
+          conn_SetPacketData(ON_OFF_INDEX,100);
+          ledIntensityDefault++;
+        }
+      }
+   else
+   {
+        if(ledIntensityDefault==1)
+        {
+          
+          conn_SetPacketData(ON_OFF_INDEX,0);
+          ledIntensityDefault++;  
+   }
+   }
+/**************** Added By Chinna for setting the default LED Brightness when it is resetted ************************/   
+#if 0
+       if (led_GetFlag(LED_MASK_ENABLE))                //Added By Chinna for Default LED Brightness when it is resetted
+      {
+        if (!led_GetFlag(LED_MASK_DIM_ENABLE))
+        {
+        conn_SetPacketData(ON_OFF_INDEX,100);
+      
+      }
+      }
+#endif  
+      
+#if 0            //Disabled By Chinna
       if (led_GetFlag(LED_MASK_ENABLE))
       {
         if (led_GetFlag(LED_MASK_DIM_ENABLE))
         {
-          conn_SetPacketData(ON_OFF_INDEX, 50);
+ ///////////////Added by Sunil///////////////////////////////////         
+           if (conn_GetPacketData(ON_OFF_INDEX) >= 0x01 && conn_GetPacketData(ON_OFF_INDEX) <= 0x19) //25% bright
+           { 
+             // conn_SetPacketData(ON_OFF_INDEX, 25);
+              conn_SetPacketData(ON_OFF_INDEX, 25 | 0x80);     //Added By Chinna
+           }   
+           else if (conn_GetPacketData(ON_OFF_INDEX) >= 0x1A && conn_GetPacketData(ON_OFF_INDEX) <= 0x32) //50% bright
+           { 
+              //conn_SetPacketData(ON_OFF_INDEX, 50);
+              conn_SetPacketData(ON_OFF_INDEX, 50 | 0x80);     //Added By Chinna
+           }  
+           else if (conn_GetPacketData(ON_OFF_INDEX) >= 0x32 && conn_GetPacketData(ON_OFF_INDEX) <= 0x4B)                                                                                       //75% bright       
+           { 
+              //conn_SetPacketData(ON_OFF_INDEX, 75);
+              conn_SetPacketData(ON_OFF_INDEX, 75 | 0x80);            //Added By Chinna
+           } 
+           else 
+           {
+             conn_SetPacketData(ON_OFF_INDEX, 100 |0x80);
+             
+           }
+///////////////Added by Sunil///////////////////////////////////
         }
+#if 0
         else
         {
           conn_SetPacketData(ON_OFF_INDEX, 100);          
         }
+#endif
       }
+
       else
       {
           conn_SetPacketData(ON_OFF_INDEX, 0);
       }
-      
+  #endif    
       /* Set status for DC DC LED driver */
       if (dc_dc_ld_GetFlag(DC_DC_LD_MASK_OVER_VOLTAGE) || 
           dc_dc_ld_GetFlag(DC_DC_LD_MASK_OVER_CURRENT))
@@ -524,8 +762,21 @@ void state_Conn_On(void)
       else
       {
         State_SubSystem = State_SubSystem & 0xDF;
-      }    
-      
+      }      
+#if 0      
+/************Added by Sunil***********************************************/
+      /* Set status for AC-DC driver fault */
+      if (ac_dc_ld_GetFlag(AC_DC_LD_MASK_ENABLE))
+      {
+        State_SubSystem = State_SubSystem & 0xEF;
+      } 
+      else
+      {
+        State_SubSystem = State_SubSystem  | 0x10;
+      }  
+          
+/************Added by Sunil***********************************************/          
+#endif      
       /* Set status for solar availability */
       if (panel_GetFlag(PANEL_MASK_OK))
       {
@@ -536,18 +787,36 @@ void state_Conn_On(void)
         State_SubSystem = State_SubSystem & 0xF7;
       }
       
+
       /* Set status for current source for LED */
       if (led_GetFlag(LED_MASK_ENABLE))
       {
+        if(battery_GetFlag(BATTERY_MASK_OK))
+        {
+        
         if (dc_dc_ld_GetFlag(DC_DC_LD_MASK_ENABLE))
         {
           State_SubSystem = State_SubSystem & 0xFD;
           State_SubSystem = State_SubSystem | 0x01;
         }
+        }
         else
         {
+/*********************Added by Sunil***********************************/          
+ //         if(battery_GetFlag(BATTERY_MASK_DSCHRG)) //
+ //         {
+           if(!(system_GetTim3ACCCr_val()))
+           {
+            State_SubSystem = State_SubSystem & 0xFC;
+ //           State_SubSystem = State_SubSystem | 0x10;
+           }
+//          }
+/*********************Added by Sunil***********************************/          
+          else
+          {
           State_SubSystem = State_SubSystem | 0x02;
           State_SubSystem = State_SubSystem & 0xFE;
+          }
         }
       }
       else
@@ -572,11 +841,11 @@ void state_Conn_On(void)
       /* Set status for battery */
       if (battery_GetFlag(BATTERY_MASK_OK))
       {
-        State_BatteryStatus = State_BatteryStatus & 0x3F;
+        State_BatteryStatus = State_BatteryStatus | 0x01;
       }
       else
       {
-        State_BatteryStatus = State_BatteryStatus | 0xC0;
+        State_BatteryStatus = State_BatteryStatus & 0xFE;
       }
       
       /* Set status for battery charging */
@@ -599,6 +868,19 @@ void state_Conn_On(void)
       }
       
       conn_SetPacketData(BATTERY_STATUS_INDEX, State_BatteryStatus);       
+     
+      /************Added By Chinna *******************/
+      /*********** Sending the LED Current & LED Voltage ***************/
+      if (led_GetFlag(LED_MASK_ENABLE))
+      {
+        if(dc_dc_ld_GetFlag(DC_DC_LD_MASK_ENABLE)|ac_dc_ld_GetFlag(AC_DC_LD_MASK_ENABLE))
+        {
+        conn_SetPacketData(LED_CURRENT_INDEX,0.1*LedCurrent);
+      conn_SetPacketData(LED_VOLTAGE_INDEX,0.0129*DcDcLdOutVoltage);
+        }
+      }
+      /*********** Added By Chinna ******************/
+      
       
       /* Set battery current */
       if (ThreeSL_State.state_LED == LED_STATE_OFF)
@@ -611,8 +893,14 @@ void state_Conn_On(void)
       }
       else
       {
+        if(led_GetFlag(LED_MASK_ENABLE))
+        {
+          if(dc_dc_ld_GetFlag(DC_DC_LD_MASK_ENABLE))
+          {
         /* 10 times of aprroximate current */
         conn_SetPacketData(BATTERY_CURRENT_INDEX, system_CalcBattDischgCurrent());
+          }
+        }
       }
       
       /* Set battery voltage 
@@ -628,15 +916,19 @@ void state_Conn_On(void)
         conn_SetPacketData(PANEL_CURRENT_INDEX, (uint8_t)(((battery_GetVoltage()*
                                          battery_GetChargngCurrent())/
                                         panel_GetVoltage())*0.0424));
+        conn_SetPacketData(PANEL_VOLTAGE_INDEX, (uint8_t)(panel_GetVoltage()*0.057));
+
       }
       else
       {
         /* zero panel current while LED is on */
         conn_SetPacketData(PANEL_CURRENT_INDEX, 0);
+        conn_SetPacketData(PANEL_VOLTAGE_INDEX, 0);
+
       }
       
       /* Set for panel voltage */      
-      conn_SetPacketData(PANEL_VOLTAGE_INDEX, (uint8_t)(panel_GetVoltage()*0.057));
+      //conn_SetPacketData(PANEL_VOLTAGE_INDEX, (uint8_t)(panel_GetVoltage()*0.057));
       
       conn_SetSendPacketStatus(true);
     }
@@ -710,6 +1002,7 @@ void SM_ThreeSl(void)
     {
       led_SetFlag(LED_MASK_DIM_ENABLE);
     }
+#if 0
     else
     {
       if((GPIOA->IDR & GPIO_PIN_10) != (uint32_t)GPIO_PIN_RESET)
@@ -721,6 +1014,7 @@ void SM_ThreeSl(void)
         led_SetFlag(LED_MASK_DIM_ENABLE);
       }
     }    
+#endif
   }
   
   system_Monitor();

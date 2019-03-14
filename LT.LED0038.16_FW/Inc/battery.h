@@ -51,14 +51,14 @@
 #define BATTERY_MASK_OK                         0x20   
 #define BATTERY_MASK_SHRT_CKT                   0x40 //used for over current   
    
-#define BATTERY_DISCHRG_VOLT_OFFSET_PA          30
+#define BATTERY_DISCHRG_VOLT_OFFSET_PA          40
    
 #define BATTERY_MINIMUM_VOLTAGE                 1550//8 V
-#define BATTERY_MIN_DISCHRG_VOLT                2350//12.2V at 0A discharge current   
-#define BATTERY_FLOAT_VOLTAGE                   2630//13.7 V
-#define BATTERY_MAXIMUM_VOLTAGE                 2825//14.7 V
+#define BATTERY_MIN_DISCHRG_VOLT                2000//2350//Sunil//2350//12.2V at 0A discharge current 2200--->11.44,2080---->10.816   
+#define BATTERY_FLOAT_VOLTAGE                   2630//2653//(2630-->13.7 V)(2653-->13.8 V)
+#define BATTERY_MAXIMUM_VOLTAGE                 2825//(2825-->14.7 V)(2999-->15.6 V)
 #define BATTERY_FLOAT_CURRENT_TH                200//~ 1A
-#define BATTERY_MAXIMUM_CHARGING_CURRENT        3000//12 A
+#define BATTERY_MAXIMUM_CHARGING_CURRENT        3000//3000//3000//2000//1538//(3000//12 A)----Changed by sunil as 1538-->6.25amp-->75 Ah battery//246i-->ADC value 
 #define BATTERY_FLOAT_CURRENT_OFFSET            100   
 #define BATTERY_DEEP_DISCHRG_THRESHOLD          1540//8V   
    

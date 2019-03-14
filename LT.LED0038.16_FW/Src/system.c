@@ -66,12 +66,13 @@ uint8_t TempCal1L,TempCal1H,TempCal2L,TempCal2H;
 float TempSlope,TempOffset;
 int32_t Temperature;
 
+
 uint32_t DcDcBoostPeriod;
 int32_t DcDcLdDutyChange = 0;
 int32_t DcDcLdDutyPeriod;
 uint32_t DcDcLdMaxDutyPeriod = (uint32_t)(DC_DC_LD_DUTY_MAX*DC_DC_BOOST_PEIROD);
 uint32_t DcDcLdMinDutyPeriod = (uint32_t)(DC_DC_LD_DUTY_MIN*DC_DC_BOOST_PEIROD);
-
+uint32_t AcDcCcrPeriod=0;
 uint32_t LedI[NO_OF_INJ_SAMPLES];
 int32_t LedCurrentErrorP = 0;
 int32_t LedCurrentErrorI = 0;
@@ -219,11 +220,11 @@ void system_GPIO_Init(void)
   __GPIOD_CLK_ENABLE();
   
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6|GPIO_PIN_7, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7, GPIO_PIN_RESET);//Added by Sunil GPIO_PIN_5
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10, GPIO_PIN_RESET);//AC DC Enable
   
   /*Configure GPIO pins : PB6 PB7 */
-  GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_7;
+  GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7;//Added by Sunil GPIO_PIN_5
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
@@ -649,6 +650,7 @@ void system_Monitor(void)
   else
   {
     battery_ResetFlag(BATTERY_MASK_OK);
+    battery_SetFlag(BATTERY_MASK_DEEP_DSCHRG);
   }
   
   if (panel_GetVoltage() > (panel_GetMinVoltage() - 150))
@@ -876,7 +878,7 @@ void system_DisableCharging(void)
 /**
 * @brief This function turn-on battery charging
 */
-void system_EnableCharging(void)
+void system_EnableCharging(void)        
 {
   HAL_TIM_PWM_Start(&ThreeSlSccTim, THREE_SL_SCC_TIM_CHANNEL);  
 }
@@ -1070,7 +1072,8 @@ void system_DcDcLdSetDuty(uint32_t duty)
 void system_AcDcLdDisable(void)
 {
   /* Disable AC DC */
-  GPIOC->BSRR = (uint32_t)GPIO_PIN_10;
+ GPIOC->BSRR = (uint32_t)GPIO_PIN_10;//------>originally was there commented by me
+//  GPIOC->BRR = (uint32_t)GPIO_PIN_10;// Added by Sunil
 }
 
 /**
@@ -1079,7 +1082,8 @@ void system_AcDcLdDisable(void)
 void system_AcDcLdEnable(void)
 {
   /* Enable AC DC */
-  GPIOC->BRR = (uint32_t)GPIO_PIN_10;
+  GPIOC->BRR = (uint32_t)GPIO_PIN_10;//------>originally was there commented by me
+//  GPIOC->BSRR = (uint32_t)GPIO_PIN_10;// Added by Sunil
 }
 
 /**
@@ -1089,7 +1093,8 @@ void system_AcDcLdOutDisable(void)
 {
   /* Disable Output */
   __HAL_TIM_SET_COMPARE(&ThreeSlLedEnTim, THREE_SL_LED_EN_TIM_AC_DC_OUT_CH,
-                        THREE_SL_LED_EN_TIM_OUT_OFF);    
+                        THREE_SL_LED_EN_TIM_OUT_OFF); 
+ // AcDcCcrPeriod = __HAL_TIM_GET_COMPARE(&ThreeSlLedEnTim,THREE_SL_LED_EN_TIM_AC_DC_OUT_CH);
 }
 
 /**
@@ -1103,9 +1108,31 @@ void system_AcDcLdOutEnable(void)
   /* Enable Output */
   __HAL_TIM_SET_COMPARE(&ThreeSlLedEnTim, THREE_SL_LED_EN_TIM_AC_DC_OUT_CH,
                         THREE_SL_LED_EN_TIM_OUT_ON);  
+ // AcDcCcrPeriod = __HAL_TIM_GET_COMPARE(&ThreeSlLedEnTim,THREE_SL_LED_EN_TIM_AC_DC_OUT_CH);
   
   system_AcDcLdEnable();  
 }
+/*********************Added by Sunil***********************************/  
+bool system_GetTim3ACCCr_val(void)
+{
+  AcDcCcrPeriod = __HAL_TIM_GET_COMPARE(&ThreeSlLedEnTim,THREE_SL_LED_EN_TIM_AC_DC_OUT_CH);
+  if((AcDcCcrPeriod > 0) )//&& (dc_dc_ld_GetOutVoltage()> DC_DC_LD_OUT_VOLT_25) )
+  {
+   if(dc_dc_ld_GetOutVoltage()> DC_DC_LD_OUT_VOLT_25)
+   {  
+    return true;
+   } 
+   else
+   {  
+     return false;
+   } 
+  }
+  else
+ {
+   return true;
+ }
+}
+/*********************Added by Sunil***********************************/  
 
 void system_AcDcSetDim(uint8_t dim)
 {

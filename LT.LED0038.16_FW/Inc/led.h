@@ -42,13 +42,17 @@
 /* Includes ------------------------------------------------------------------*/
 #include "common.h"
 
-#define LED_I_MAX               150//225   
+//#define LED_I_MAX               85//225   //Minimum threshold current
+//   #define LED_I_MAX               168//225   //50% threshold current
+
+#define LED_I_MAX               150//225   //Maximum threshold current
 #define LED_I_OC                400
    
 #define LED_ALL_FLAGS           0xFF
 
 #define LED_MASK_ENABLE         0x01    
 #define LED_MASK_DIM_ENABLE     0x02
+#define LED_DEFAULT             0x03    // Added By Chinna for User Action
    
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/

@@ -1,0 +1,127 @@
+[Stack]
+FillEnabled=0
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnLogOnly=1
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[StLinkDriver]
+CStepIntDis=_ 0
+LeaveTargetRunning=_ 0
+stlinkserialNo=45241387
+stlinkfoundProbes=
+[DebugChecksum]
+Checksum=-1171847963
+[Exceptions]
+StopOnUncaught=_ 0
+StopOnThrow=_ 0
+[CodeCoverage]
+Enabled=_ 0
+[CallStack]
+ShowArgs=0
+[SWOTraceHWSettings]
+OverrideDefaultClocks=0
+CpuClock=64000000
+ClockAutoDetect=0
+ClockWanted=2000000
+JtagSpeed=2000000
+Prescaler=32
+TimeStampPrescIndex=0
+TimeStampPrescData=0
+PcSampCYCTAP=1
+PcSampPOSTCNT=15
+PcSampIndex=0
+DataLogMode=0
+ITMportsEnable=0
+ITMportsTermIO=0
+ITMportsLogFile=0
+ITMlogFile=$PROJ_DIR$\ITM.log
+[Disassembly]
+MixedMode=1
+[watch_formats]
+Fmt0={W}42:BattDischgCurrent	3	0
+Fmt1={W}42:TempCal1H	3	0
+Fmt2={W}42:TempCal1L	3	0
+Fmt3={W}42:TempCal2H	3	0
+Fmt4={W}42:TempCal2L	3	0
+[Trace2]
+Enabled=0
+ShowSource=0
+[SWOTraceWindow]
+PcSampling=0
+InterruptLogs=0
+ForcedTimeStamps=0
+EventCPI=0
+EventEXC=0
+EventFOLD=0
+EventLSU=0
+EventSLEEP=0
+[DataLog]
+LogEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+SumEnabled=0
+ShowTimeSum=1
+[EventLog]
+Title_0=Ch3
+Symbol_0=0 4 1
+Title_1=Ch2
+Symbol_1=0 4 1
+Title_2=Ch1
+Symbol_2=0 4 1
+Title_3=Ch0
+Symbol_3=0 4 1
+LogEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+SumEnabled=0
+ShowTimeSum=1
+SumSortOrder=0
+[InterruptLog]
+LogEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+SumEnabled=0
+ShowTimeSum=1
+SumSortOrder=0
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[DriverProfiling]
+Enabled=0
+Mode=3
+Graph=0
+Symbiont=0
+Exclusions=
+[CallStackLog]
+Enabled=0
+[CallStackStripe]
+ShowTiming=1
+[Disassemble mode]
+mode=0
+[Breakpoints2]
+Bp0=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\system.c}.1075.1" 0 0 1 "" 0 "" 0
+Bp1=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.158.5" 0 0 1 "" 0 "" 0
+Bp2=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.309.3" 0 0 1 "" 0 "" 0
+Bp3=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.314.3" 0 0 1 "" 0 "" 0
+Bp4=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.335.3" 0 0 1 "" 0 "" 0
+Bp5=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.768.3" 0 0 1 "" 0 "" 0
+Bp6=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.295.5" 0 0 1 "" 0 "" 0
+Bp7=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\system.c}.1317.7" 0 0 1 "" 0 "" 0
+Bp8=_ 0 "STD_LOG2" "{$PROJ_DIR$\..\Src\state.c}.544.9" "" 1 "" 0 0 0
+Count=9
+[Aliases]
+A0=_ "C:\Projects\Solar Streetlight\solar-street-light\Firmware\LT.LED0038.16_FW\Drivers\CMSIS\Device\ST\STM32F3xx\Source\Templates\system_stm32f3xx.c" ""
+A1=_ "C:\Projects\Solar Streetlight\solar-street-light\Firmware\LT.LED0038.16_FW\Drivers\STM32F3xx_HAL_Driver\Src\stm32f3xx_hal.c" ""
+A2=_ "C:\Projects\Solar Streetlight\solar-street-light\Firmware\LT.LED0038.16_FW\Src\main.c" ""
+A3=_ "C:\Projects\Solar Streetlight\solar-street-light\Firmware\LT.LED0038.16_FW\Src\mppt.c" "D:\Project\3SL_NODE_ORIGINAL\LT.LED0038.16_FW\Src\mppt.c"
+A4=_ "C:\Projects\Solar Streetlight\solar-street-light\Firmware\LT.LED0038.16_FW\Src\stm32f3xx_it.c" ""
+Count=5
+SuppressDialog=0
