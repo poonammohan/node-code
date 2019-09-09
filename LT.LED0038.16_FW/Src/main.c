@@ -34,6 +34,14 @@
 #include "stm32f3xx_hal.h"
 #include "state.h"
 #include "system.h"
+#include "led.h"
+#include "state.h"
+#include "battery.h"
+#include "panel.h"
+#include "mppt.h"
+#include "dc_dc_ld.h"
+#include "ac_dc_ld.h"
+#include "connectivity.h"
 
 /* Private variables ---------------------------------------------------------*/
 extern ThreeSL_StateTypeDef ThreeSL_State;
@@ -73,6 +81,9 @@ int main(void)
   ThreeSL_State.state_SCC = SCC_STATE_START_UP;
   ThreeSL_State.state_Conn = Conn_STATE_ON;
   
+  /* Setting the DIM flag so that the defaultly the light will be in dimm condition depending on PIR output the light will turn on Fully */
+    //led_SetFlag(LED_MASK_DIM_ENABLE);   //Added By Chinna
+
   /* Take several values of analog signals to stabilize system at startup */
   for (uint16_t count=0; count<60000; count++)
   {
@@ -81,8 +92,7 @@ int main(void)
     
   /* Calculate constant multiplier for computing battery current from 
      output LED current */
-  system_CalcBattCurrK();
-  
+  system_CalcBattCurrK();  
   /* Infinite loop */
   while (1)
   {
@@ -115,6 +125,8 @@ void assert_failed(uint8_t* file, uint32_t line)
     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
 
 }
+
+
 
 #endif
 

@@ -1,14 +1,14 @@
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\bin\armproc.dll" 
+"I:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\bin\armproc.dll" 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\bin\armstlink2.dll" 
+"I:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\bin\armstlink2.dll" 
 
-"C:\Users\r1219\Desktop\3SL Node Code with Packet Rectified\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Exe\HRTIM_test_master.out" 
+"I:\Desktop Until 4th April 2019\3SL_Node_Buzzer_PIR_Chinna\3SL_Node_ Edited\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Exe\HRTIM_test_master.out" 
 
---plugin "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\bin\armbat.dll" 
+--plugin "I:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\bin\armbat.dll" 
 
---device_macro "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\config\debugger\ST\STM32F3xx.dmac" 
+--device_macro "I:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\config\debugger\ST\STM32F3xx.dmac" 
 
---flash_loader "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\config\flashloader\ST\FlashSTM32F33xx8.board" 
+--flash_loader "I:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\config\flashloader\ST\FlashSTM32F33xx8.board" 
 
 
 

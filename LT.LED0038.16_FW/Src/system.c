@@ -47,6 +47,8 @@ ADC_HandleTypeDef hadc1Pr;
 DMA_HandleTypeDef hdma_adc1;
 HRTIM_HandleTypeDef hhrtim1;
 static TIM_HandleTypeDef ThreeSlSccTim;
+TIM_HandleTypeDef htm16; //Added by Madhava (htm16)
+
 TIM_HandleTypeDef ThreeSlLedEnTim;
 TIM_HandleTypeDef ThreeSlLedAnaDimTim;
 TIM_HandleTypeDef ThreeSlDcDcLdLoopTim;
@@ -120,7 +122,7 @@ static void system_TIM17_Init(void);
 static void system_TIM15_Init(void);
 static void system_TempSensorInit(void);
 static void system_WWDG_Init(void);
-
+static void MX_TIM16_Init(void);  //Added by Madhava
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 void HAL_HRTIM_MspPostInit(HRTIM_HandleTypeDef *hhrtim);
                 
@@ -177,6 +179,7 @@ void system_Init(void)
   system_TIM17_Init();
   system_TIM3_Init();
   system_TIM15_Init();
+  MX_TIM16_Init(); //Added by Madhava
   system_USART3_UART_Init();
   
   /* Temperature sensor init */
@@ -196,7 +199,55 @@ void system_Init(void)
   /* Monitor battery and panel voltage */
   system_Monitor();   
 }
+/**
+  * @brief TIM2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM16_Init(void)  //Added by Madhava
+{
 
+
+  TIM_ClockConfigTypeDef sClockSourceConfig;
+  TIM_MasterConfigTypeDef sMasterConfig ;
+  TIM_OC_InitTypeDef sConfigOC;
+
+  htm16.Instance = TIM16;
+  htm16.Init.Prescaler = 159;
+  htm16.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htm16.Init.Period = 99;      //200 is replaced by 100(chinna) 
+  htm16.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  if (HAL_TIM_Base_Init(&htm16) != HAL_OK)
+  {
+   // Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htm16, &sClockSourceConfig) != HAL_OK)
+  {
+    //Error_Handler();
+  }
+  if (HAL_TIM_PWM_Init(&htm16) != HAL_OK)
+  {
+    //Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htm16, &sMasterConfig) != HAL_OK)
+  {
+    //Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 50;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_PWM_ConfigChannel(&htm16, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+
+  }
+
+  HAL_TIM_MspPostInit(&htm16);
+
+}
 /** Configure pins as 
         * Analog 
         * Input 
@@ -222,7 +273,7 @@ void system_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7, GPIO_PIN_RESET);//Added by Sunil GPIO_PIN_5
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10, GPIO_PIN_RESET);//AC DC Enable
-  
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);//PIR OUT reset (added by Madhava)
   /*Configure GPIO pins : PB6 PB7 */
   GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7;//Added by Sunil GPIO_PIN_5
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -230,11 +281,19 @@ void system_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);  
   
-  GPIO_InitStruct.Pin = GPIO_PIN_10;
+  /*GPIO_InitStruct.Pin = GPIO_PIN_10;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);       
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct); */     
+ 
+  GPIO_InitStruct.Pin = GPIO_PIN_10;          //added by Madhava for PIR_OUT
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
   
   /* SP1ML reset pin configuration, PB14 */
   GPIO_InitStruct.Pin = GPIO_PIN_14;
@@ -627,7 +686,7 @@ void system_WWDG_Init(void)
   WwdgHandle.Instance = WWDG;
   WwdgHandle.Init.Prescaler = WWDG_PRESCALER_1;
   WwdgHandle.Init.Window    = 0x7F;
-  WwdgHandle.Init.Counter   = 0x7F;
+  WwdgHandle.Init.Counter   = 0x7E;
   HAL_WWDG_Init(&WwdgHandle);
 
   HAL_WWDG_Start(&WwdgHandle);

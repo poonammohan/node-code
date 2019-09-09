@@ -12,15 +12,15 @@
         <ByteLimit>50</ByteLimit>
     </Stack>
     <StLinkDriver>
-        <stlinkserialNo>45340887</stlinkserialNo>
-        <stlinkfoundProbes />
+        <stlinkserialNo>45241387</stlinkserialNo>
+        <stlinkfoundProbes>45241387:FFFFFFFF:</stlinkfoundProbes>
         <stlinkResetStyle>0</stlinkResetStyle>
         <stlinkResetStrategy>1</stlinkResetStrategy>
         <CStepIntDis>_ 0</CStepIntDis>
         <LeaveTargetRunning>_ 0</LeaveTargetRunning>
     </StLinkDriver>
     <DebugChecksum>
-        <Checksum>3140590819</Checksum>
+        <Checksum>982965025</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -140,19 +140,31 @@
         <mode>0</mode>
     </DisassembleMode>
     <Breakpoints2>
-        <Bp0>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\system.c}.1077.1" 0 0 1 "" 0 "" 0</Bp0>
-        <Bp1>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.161.5" 0 0 1 "" 0 "" 0</Bp1>
-        <Bp2>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.312.3" 0 0 1 "" 0 "" 0</Bp2>
-        <Bp3>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.317.3" 0 0 1 "" 0 "" 0</Bp3>
-        <Bp4>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.1020.3" 0 0 1 "" 0 "" 0</Bp4>
-        <Bp5>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.298.5" 0 0 1 "" 0 "" 0</Bp5>
-        <Bp6>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\system.c}.1342.7" 0 0 1 "" 0 "" 0</Bp6>
-        <Bp7>_ 1 "STD_LOG2" "{$PROJ_DIR$\..\Src\system.c}.1141.3" "" 1 "" 0 0 0</Bp7>
-        <Bp8>_ 1 "STD_LOG2" "{$PROJ_DIR$\..\Src\system.c}.1141.3" "" 1 "" 0 0 0</Bp8>
-        <Bp9>_ 0 "EMUL_DATA" "StateTable_SCC[SCC_STATE_BATT_CHG]" 0 0 0 0 4294967295</Bp9>
-        <Bp10>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.402.11" 0 0 1 "" 0 "" 0</Bp10>
-        <Bp11>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\Src\system.c}.803.5" 0 0 1 "" 0 "" 0</Bp11>
-        <Count>12</Count>
+        <Bp0>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\system.c}.1134.2" 0 0 1 "" 0 "" 0</Bp0>
+        <Bp1>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.166.5" 0 0 1 "" 0 "" 0</Bp1>
+        <Bp2>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.330.3" 0 0 1 "" 0 "" 0</Bp2>
+        <Bp3>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.331.3" 0 0 1 "" 0 "" 0</Bp3>
+        <Bp4>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.316.5" 0 0 1 "" 0 "" 0</Bp4>
+        <Bp5>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\system.c}.1393.5" 0 0 1 "" 0 "" 0</Bp5>
+        <Bp6>_ 0 "EMUL_DATA" "StateTable_SCC[SCC_STATE_BATT_CHG]" 0 0 0 0 4294967295</Bp6>
+        <Bp7>_ 0 "STD_LOG2" "{$PROJ_DIR$\..\Src\stm32f3xx_it.c}.143.11" "" 1 "" 0 0 0</Bp7>
+        <Bp8>_ 0 "STD_LOG2" "{$PROJ_DIR$\..\Src\main.c}.50.1" "" 1 "" 0 0 0</Bp8>
+        <Bp9>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.756.7" 0 0 1 "" 0 "" 0</Bp9>
+        <Bp10>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.719.9" 0 0 1 "" 0 "" 0</Bp10>
+        <Bp11>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\dc_dc_ld.c}.54.5" 0 0 1 "" 0 "" 0</Bp11>
+        <Bp12>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\dc_dc_ld.c}.71.3" 0 0 1 "" 0 "" 0</Bp12>
+        <Bp13>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\system.c}.1399.7" 0 0 1 "" 0 "" 0</Bp13>
+        <Bp14>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.965.3" 0 0 1 "" 0 "" 0</Bp14>
+        <Bp15>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.959.8" 0 0 1 "" 0 "" 0</Bp15>
+        <Bp16>_ 1 "STD_LOG2" "{$PROJ_DIR$\..\Src\main.c}.56.3" "" 1 "" 0 0 0</Bp16>
+        <Bp17>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.296.9" 0 0 1 "" 0 "" 0</Bp17>
+        <Bp18>_ 0 "STD_LOG2" "{$PROJ_DIR$\..\Src\state.c}.275.9" "" 1 "" 0 0 0</Bp18>
+        <Bp19>_ 1 "STD_LOG2" "{$PROJ_DIR$\..\Src\state.c}.682.7" "" 1 "" 0 0 0</Bp19>
+        <Bp20>_ 1 "STD_LOG2" "{$PROJ_DIR$\..\Src\state.c}.682.7" "" 1 "" 0 0 0</Bp20>
+        <Bp21>_ 1 "STD_LOG2" "{$PROJ_DIR$\..\Src\state.c}.577.12" "" 1 "" 0 0 0</Bp21>
+        <Bp22>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.736.11" 0 0 1 "" 0 "" 0</Bp22>
+        <Bp23>_ 1 "STD_LOG2" "{$PROJ_DIR$\..\Src\state.c}.595.9" "" 1 "" 0 0 0</Bp23>
+        <Count>24</Count>
     </Breakpoints2>
     <Aliases>
         <A0>_ "C:\Projects\Solar Streetlight\solar-street-light\Firmware\LT.LED0038.16_FW\Drivers\CMSIS\Device\ST\STM32F3xx\Source\Templates\system_stm32f3xx.c" ""</A0>
@@ -160,7 +172,9 @@
         <A2>_ "C:\Projects\Solar Streetlight\solar-street-light\Firmware\LT.LED0038.16_FW\Src\main.c" ""</A2>
         <A3>_ "C:\Projects\Solar Streetlight\solar-street-light\Firmware\LT.LED0038.16_FW\Src\mppt.c" "D:\Project\3SL_NODE_ORIGINAL\LT.LED0038.16_FW\Src\mppt.c"</A3>
         <A4>_ "C:\Projects\Solar Streetlight\solar-street-light\Firmware\LT.LED0038.16_FW\Src\stm32f3xx_it.c" ""</A4>
-        <Count>5</Count>
-        <SuppressDialog>0</SuppressDialog>
+        <A5>_ "C:\Users\r1219\Desktop\3SL_Node_Buzzer_PIR_Chinna\3SL_Node_ Edited\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\Src\main.c" ""</A5>
+        <A6>_ "C:\Users\r1219\Desktop\3SL_Node_Buzzer_PIR_Chinna\3SL_Node_ Edited\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\Src\mppt.c" ""</A6>
+        <Count>7</Count>
+        <SuppressDialog>1</SuppressDialog>
     </Aliases>
 </settings>
