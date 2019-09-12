@@ -116,7 +116,6 @@ uint16_t battery_GetVoltage(void)
 void battery_UpdateVoltage(uint32_t* volt,int32_t* tempMcu)
 {  
   BattVoltage = (uint16_t)*volt;
-  
   /* Applying temperature compensation for maximum charging battery voltage
      and maximum float battery voltage
      Compensation of -30mV/degC/12V for battery maximum voltage with reference

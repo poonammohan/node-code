@@ -73,6 +73,10 @@ extern uint16_t UartRxDataLength;
 extern uint32_t LedCurrent;
 extern uint16_t DcDcLdOutVoltage;
 extern uint32_t LedI_Th ;
+extern uint16_t BattMinVoltage;
+extern uint16_t BattMaxVoltage;
+extern uint16_t BattMinDischrgVoltage;
+extern uint8_t PacketRxData[PACKET_LENGTH];
 /* Private function prototypes -----------------------------------------------*/
 /* Different state functions */
 static void state_StartUp_Led(void);
@@ -141,6 +145,10 @@ void state_Off_Led(void)
 //  system_Monitor();
   system_DcDcLdOutDisable();
   system_AcDcLdOutDisable();
+  if(PacketRxData[3]>100 | PacketRxData[3]<=150)
+  {
+    ThreeSL_State.state_LED = LED_STATE_START_UP;
+  }
 }
 
 /**
@@ -162,6 +170,7 @@ void state_StartUp_Led(void)
   else
   {
     system_DcDcLdOutDisable();
+     system_AcDcLdEnable();
     system_AcDcLdOutEnable();
     dc_dc_ld_ResetFlag(DC_DC_LD_MASK_ENABLE);
     ac_dc_ld_SetFlag(AC_DC_LD_MASK_ENABLE);
@@ -267,7 +276,7 @@ void state_On_Led(void)
     }
   }
   
-  system_CalcBattDischgCurrent();
+
   if(dc_dc_ld_GetFlag(DC_DC_LD_MASK_ENABLE))
   {
     if(dc_dc_Led_count == 1)
@@ -276,6 +285,7 @@ void state_On_Led(void)
         conn_SetPacketData(ON_OFF_INDEX,50);
         dc_dc_Led_count++;
     }
+      system_CalcBattDischgCurrent();
   }
   /* While LED is on, check for battery voltage (compensated with cable drop) */
   if ((battery_GetVoltage() + (((system_CalcBattDischgCurrent())*
@@ -291,12 +301,19 @@ void state_On_Led(void)
       {
         battery_SetFlag(BATTERY_MASK_DSCHRG);
         system_DcDcLdOutDisable();
-        system_AcDcLdOutEnable();   
+         system_AcDcLdEnable();
+        system_AcDcLdOutEnable();         
         battery_ResetFlag(BATTERY_MASK_OK);
         dc_dc_ld_ResetFlag(DC_DC_LD_MASK_ENABLE);
         ac_dc_ld_SetFlag(AC_DC_LD_MASK_ENABLE);
         led_SetThreshI((uint32_t)(LED_I_MAX));
+         if(conn_GetPacketData(ON_OFF_INDEX) > 100 && conn_GetPacketData(ON_OFF_INDEX)<=150)
+       {
+         conn_SetPacketData(ON_OFF_INDEX,150 | 0x80);
+       }
+         else {
         conn_SetPacketData(ON_OFF_INDEX,100);
+         }
       }
     }
   }
@@ -592,12 +609,17 @@ void state_Conn_On(void)
           //**************** Switching from Battery to AC ************//
        if(conn_GetPacketData(ON_OFF_INDEX) > 100 && conn_GetPacketData(ON_OFF_INDEX)<=150)
        {
-        system_DcDcLdOutDisable();
-        system_AcDcLdOutEnable();//Added By Chinna For Switching Battery to AC
-        ac_dc_ld_SetFlag(AC_DC_LD_MASK_ENABLE);//Added By Chinna For Switching Battery to AC
-        dc_dc_ld_ResetFlag(DC_DC_LD_MASK_ENABLE);//Added By Chinna For Switching Battery to AC
-       State_SubSystem = State_SubSystem | 0x02;//Added By Chinna For Switching Battery to AC
-       State_SubSystem = State_SubSystem & 0xFE;//Added By Chinna For Switching Battery to AC
+        BattMinVoltage = BATTERY_AC_DC_SWITCH_HIGH_CUT_OFF;
+        BattMaxVoltage = BATTERY_AC_DC_SWITCH_LOW_CUT_OFF;
+        BattMinDischrgVoltage = BATTERY_AC_DC_SWITCH_MIN_DISCHRG_VOLT;
+        ThreeSL_State.state_LED = LED_STATE_START_UP;
+        conn_SetPacketData(ON_OFF_INDEX, 150 | 0x80);
+       // system_DcDcLdOutDisable();
+       // system_AcDcLdOutEnable();//Added By Chinna For Switching Battery to AC
+        //ac_dc_ld_SetFlag(AC_DC_LD_MASK_ENABLE);//Added By Chinna For Switching Battery to AC
+        //dc_dc_ld_ResetFlag(DC_DC_LD_MASK_ENABLE);//Added By Chinna For Switching Battery to AC
+       //State_SubSystem = State_SubSystem | 0x02;//Added By Chinna For Switching Battery to AC
+      // State_SubSystem = State_SubSystem & 0xFE;//Added By Chinna For Switching Battery to AC
         
        }
         //**************** Switching from Battery to AC ************//
@@ -606,12 +628,18 @@ void state_Conn_On(void)
           //**************** Switching from Battery to AC ************//
        if(conn_GetPacketData(ON_OFF_INDEX) > 150 && conn_GetPacketData(ON_OFF_INDEX) <=200)
        {
-        system_DcDcLdOutEnable();
-        system_AcDcLdOutDisable();//Added By Chinna For Switching Battery to AC
-        ac_dc_ld_ResetFlag(AC_DC_LD_MASK_ENABLE);//Added By Chinna For Switching Battery to AC
-        dc_dc_ld_SetFlag(DC_DC_LD_MASK_ENABLE);//Added By Chinna For Switching Battery to AC
-       State_SubSystem = State_SubSystem | 0x01;//Added By Chinna For Switching Battery to AC
-       State_SubSystem = State_SubSystem & 0xFE;//Added By Chinna For Switching Battery to AC
+         BattMinVoltage = BATTERY_MINIMUM_VOLTAGE;
+         BattMaxVoltage = BATTERY_MAXIMUM_VOLTAGE;
+         BattMinDischrgVoltage = BATTERY_MIN_DISCHRG_VOLT;
+         ThreeSL_State.state_LED = LED_STATE_START_UP;
+         conn_SetPacketData(ON_OFF_INDEX, 200 | 0x80);
+         HAL_Delay(10000);
+        //system_DcDcLdOutEnable();
+        //system_AcDcLdOutDisable();//Added By Chinna For Switching Battery to AC
+        //ac_dc_ld_ResetFlag(AC_DC_LD_MASK_ENABLE);//Added By Chinna For Switching Battery to AC
+       // dc_dc_ld_SetFlag(DC_DC_LD_MASK_ENABLE);//Added By Chinna For Switching Battery to AC
+       //State_SubSystem = State_SubSystem | 0x01;//Added By Chinna For Switching Battery to AC
+       //State_SubSystem = State_SubSystem & 0xFE;//Added By Chinna For Switching Battery to AC
         
        }
 
@@ -950,16 +978,16 @@ void SM_ThreeSl(void)
      supply voltage */
   if(led_GetFlag(LED_MASK_ENABLE))
   {
-  if (!battery_GetFlag(BATTERY_MASK_OK))  
-  {
-    system_AcDcLdEnable();
-  }
+  //if (!battery_GetFlag(BATTERY_MASK_OK))  
+  //{
+  //  system_AcDcLdEnable();
+  //}
   /* If battery voltage is ok and AC DC output to LED is not enabled, disable
      AC-DC LED driver */
-  else if (!ac_dc_ld_GetFlag(AC_DC_LD_MASK_ENABLE))
-  {
-    system_AcDcLdDisable();
-  }
+  //else if (!ac_dc_ld_GetFlag(AC_DC_LD_MASK_ENABLE))
+ // {
+ //  system_AcDcLdDisable();
+  //}
   }
     
   CurrentState_LED = ThreeSL_State.state_LED;
