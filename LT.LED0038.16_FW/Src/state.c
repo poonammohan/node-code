@@ -145,10 +145,10 @@ void state_Off_Led(void)
 //  system_Monitor();
   system_DcDcLdOutDisable();
   system_AcDcLdOutDisable();
-  if(PacketRxData[3]>100 | PacketRxData[3]<=150)
-  {
-    ThreeSL_State.state_LED = LED_STATE_START_UP;
-  }
+  //if(PacketRxData[3]>100 | PacketRxData[3]<=150)
+ // {
+   // ThreeSL_State.state_LED = LED_STATE_START_UP;
+  //}
 }
 
 /**
@@ -297,7 +297,7 @@ void state_On_Led(void)
     {
       system_SetBattTick_10(false);
       countBattLow++;
-      if (countBattLow == 100)
+      if (countBattLow == 500)
       {
         battery_SetFlag(BATTERY_MASK_DSCHRG);
         system_DcDcLdOutDisable();
@@ -307,6 +307,7 @@ void state_On_Led(void)
         dc_dc_ld_ResetFlag(DC_DC_LD_MASK_ENABLE);
         ac_dc_ld_SetFlag(AC_DC_LD_MASK_ENABLE);
         led_SetThreshI((uint32_t)(LED_I_MAX));
+        
          if(conn_GetPacketData(ON_OFF_INDEX) > 100 && conn_GetPacketData(ON_OFF_INDEX)<=150)
        {
          conn_SetPacketData(ON_OFF_INDEX,150 | 0x80);
@@ -564,9 +565,16 @@ void state_Conn_On(void)
 //#if 1
           if (conn_GetPacketData(ON_OFF_INDEX) > 0x01 && conn_GetPacketData(ON_OFF_INDEX) <= 0x19) //25% bright
           { 
+            if(dc_dc_ld_GetFlag(DC_DC_LD_MASK_ENABLE))
+            {
             led_SetThreshI(DIMM_ONE);
             //led_SetThreshI(85+((LED_I_MAX-85)/4));
               conn_SetPacketData(ON_OFF_INDEX, 25 | 0x80);     //Added By Chinna for User Action
+            }
+              if(ac_dc_ld_GetFlag(AC_DC_LD_MASK_ENABLE))
+              {
+                system_AcDcSetDim(50);
+              }
           }   
           else if (conn_GetPacketData(ON_OFF_INDEX) >= 0x1A && conn_GetPacketData(ON_OFF_INDEX) <= 0x32)//50% bright
           { 
@@ -612,10 +620,14 @@ void state_Conn_On(void)
         BattMinVoltage = BATTERY_AC_DC_SWITCH_HIGH_CUT_OFF;
         BattMaxVoltage = BATTERY_AC_DC_SWITCH_LOW_CUT_OFF;
         BattMinDischrgVoltage = BATTERY_AC_DC_SWITCH_MIN_DISCHRG_VOLT;
-        ThreeSL_State.state_LED = LED_STATE_START_UP;
+        //ThreeSL_State.state_LED = LED_STATE_START_UP;
         conn_SetPacketData(ON_OFF_INDEX, 150 | 0x80);
-       // system_DcDcLdOutDisable();
-       // system_AcDcLdOutEnable();//Added By Chinna For Switching Battery to AC
+        //battery_ResetFlag(BATTERY_MASK_OK);
+       // battery_SetFlag(BATTERY_MASK_DSCHRG);
+       // system_Battery_Disable();
+       // HAL_Delay(500);
+        //system_DcDcLdOutDisable();
+        //system_AcDcLdOutEnable();//Added By Chinna For Switching Battery to AC
         //ac_dc_ld_SetFlag(AC_DC_LD_MASK_ENABLE);//Added By Chinna For Switching Battery to AC
         //dc_dc_ld_ResetFlag(DC_DC_LD_MASK_ENABLE);//Added By Chinna For Switching Battery to AC
        //State_SubSystem = State_SubSystem | 0x02;//Added By Chinna For Switching Battery to AC
@@ -632,7 +644,7 @@ void state_Conn_On(void)
          BattMaxVoltage = BATTERY_MAXIMUM_VOLTAGE;
          BattMinDischrgVoltage = BATTERY_MIN_DISCHRG_VOLT;
          ThreeSL_State.state_LED = LED_STATE_START_UP;
-         conn_SetPacketData(ON_OFF_INDEX, 200 | 0x80);
+         conn_SetPacketData(ON_OFF_INDEX, 0 | 0x80);
          HAL_Delay(10000);
         //system_DcDcLdOutEnable();
         //system_AcDcLdOutDisable();//Added By Chinna For Switching Battery to AC
@@ -660,8 +672,7 @@ void state_Conn_On(void)
        {
          //system_SetServerLightCommand(false);
        HAL_TIM_PWM_Stop(&htm16,TIM_CHANNEL_1);
-       }
-        
+       }        
     }    
     
     /********************* Set board status ****************************/
@@ -818,11 +829,21 @@ void state_Conn_On(void)
       /*********** Sending the LED Current & LED Voltage ***************/
       if (led_GetFlag(LED_MASK_ENABLE))
       {
+        if (panel_GetFlag(PANEL_MASK_OK))
+      {
+        conn_SetPacketData(LED_CURRENT_INDEX,0);
+        conn_SetPacketData(LED_VOLTAGE_INDEX,0);
+      }
         if(dc_dc_ld_GetFlag(DC_DC_LD_MASK_ENABLE)|ac_dc_ld_GetFlag(AC_DC_LD_MASK_ENABLE))
         {
         conn_SetPacketData(LED_CURRENT_INDEX,0.1*LedCurrent);
       conn_SetPacketData(LED_VOLTAGE_INDEX,0.0129*DcDcLdOutVoltage);
         }
+      }
+      else if((panel_GetFlag(PANEL_MASK_OK))&&CurrentState_LED == LED_STATE_OFF)
+      {
+        conn_SetPacketData(LED_CURRENT_INDEX,0);
+        conn_SetPacketData(LED_VOLTAGE_INDEX,0);
       }
       /*********** Added By Chinna ******************/
       
@@ -978,16 +999,16 @@ void SM_ThreeSl(void)
      supply voltage */
   if(led_GetFlag(LED_MASK_ENABLE))
   {
-  //if (!battery_GetFlag(BATTERY_MASK_OK))  
-  //{
-  //  system_AcDcLdEnable();
-  //}
+  if (!battery_GetFlag(BATTERY_MASK_OK))  
+  {
+    system_AcDcLdEnable();
+  }
   /* If battery voltage is ok and AC DC output to LED is not enabled, disable
      AC-DC LED driver */
-  //else if (!ac_dc_ld_GetFlag(AC_DC_LD_MASK_ENABLE))
- // {
- //  system_AcDcLdDisable();
-  //}
+  else if (!ac_dc_ld_GetFlag(AC_DC_LD_MASK_ENABLE))
+  {
+    system_AcDcLdDisable();
+  }
   }
     
   CurrentState_LED = ThreeSL_State.state_LED;

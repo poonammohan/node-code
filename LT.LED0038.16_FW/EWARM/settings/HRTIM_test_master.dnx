@@ -12,7 +12,7 @@
         <ByteLimit>50</ByteLimit>
     </Stack>
     <StLinkDriver>
-        <stlinkserialNo>36130743</stlinkserialNo>
+        <stlinkserialNo>45241387</stlinkserialNo>
         <stlinkfoundProbes />
         <CStepIntDis>_ 0</CStepIntDis>
         <LeaveTargetRunning>_ 0</LeaveTargetRunning>
@@ -20,7 +20,7 @@
         <stlinkResetStrategy>1</stlinkResetStrategy>
     </StLinkDriver>
     <DebugChecksum>
-        <Checksum>3559458057</Checksum>
+        <Checksum>3268590256</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -63,7 +63,7 @@
         <mode>0</mode>
     </Disassemble_mode>
     <array_types>
-        <Fmt0>uint8_t[20]	3	0</Fmt0>
+        <Fmt0>uint8_t[20]	4	0</Fmt0>
     </array_types>
     <watch_formats>
         <Fmt0>{W}42:BattDischgCurrent	3	0</Fmt0>
@@ -121,15 +121,11 @@
         <mode>0</mode>
     </DisassembleMode>
     <Breakpoints2>
-        <Bp0>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.629.8" 0 0 1 "" 0 "" 0</Bp0>
-        <Bp1>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.334.5" 0 0 1 "" 0 "" 0</Bp1>
-        <Bp2>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.333.5" 0 0 1 "" 0 "" 0</Bp2>
-        <Bp3>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.175.5" 0 0 1 "" 0 "" 0</Bp3>
-        <Bp4>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.167.5" 0 0 1 "" 0 "" 0</Bp4>
-        <Bp5>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.304.10" 0 0 1 "" 0 "" 0</Bp5>
-        <Bp6>_ 1 "STD_LOG2" "{$PROJ_DIR$\..\Src\state.c}.629.8" "" 1 "" 0 0 0</Bp6>
-        <Bp7>_ 1 "STD_LOG2" "{$PROJ_DIR$\..\Src\main.c}.58.3" "" 1 "" 0 0 0</Bp7>
-        <Count>8</Count>
+        <Bp0>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.422.13" 0 0 1 "" 0 "" 0</Bp0>
+        <Bp1>_ 0 "STD_LOG2" "{$PROJ_DIR$\..\Src\state.c}.406.5" "" 1 "" 0 0 0</Bp1>
+        <Bp2>_ 1 "STD_LOG2" "{$PROJ_DIR$\..\Src\main.c}.58.3" "" 1 "" 0 0 0</Bp2>
+        <Bp3>_ 1 "STD_LOG2" "{$PROJ_DIR$\..\Src\state.c}.305.9" "" 1 "" 0 0 0</Bp3>
+        <Count>4</Count>
     </Breakpoints2>
     <LogFile>
         <LoggingEnabled>_ 0</LoggingEnabled>

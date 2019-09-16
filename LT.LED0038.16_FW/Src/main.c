@@ -75,11 +75,7 @@ int main(void)
   
   /* Initialize required peripherals */
   system_Init();
-  
   HAL_Delay(1);
-   // BattMaxVoltage = BATTERY_MAXIMUM_VOLTAGE;
-   // BattMinVoltage = BATTERY_MINIMUM_VOLTAGE;
-   // BattMinDischrgVoltage = BATTERY_MIN_DISCHRG_VOLT;
   /* Set status of LED driver, charge controller and connectivity */
   ThreeSL_State.state_LED = LED_STATE_OFF;
   ThreeSL_State.state_SCC = SCC_STATE_START_UP;

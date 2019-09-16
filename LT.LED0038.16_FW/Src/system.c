@@ -307,7 +307,14 @@ void system_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);      
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+      /* HVLED on-off (AC-DC-ON-OFF) pin configuration, PC10 */
+  GPIO_InitStruct.Pin = GPIO_PIN_6;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  HAL_GPIO_WritePin(GPIOC,GPIO_PIN_6,RESET);
 }
 
 
@@ -1026,6 +1033,24 @@ void system_DcDcLdSet(void)
 }
 
 /**
+* @brief This function disable Battery
+*/
+void system_Battery_Disable(void)
+{
+  /* Disable Battery */
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_6, GPIO_PIN_SET);
+}
+/**
+* @brief This function disable Battery
+*/
+void system_Battery_Enable(void)
+{
+  /* Disable Battery */
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_6, GPIO_PIN_RESET);
+}
+
+
+/**
 * @brief This function disable DC DC boost LED driver gate driver
 */
 void system_DcDcLdDisable(void)
@@ -1071,7 +1096,11 @@ void system_DcDcLdOutDisable(void)
   
   /* Disable Output */
   __HAL_TIM_SET_COMPARE(&ThreeSlLedEnTim, THREE_SL_LED_EN_TIM_DC_DC_OUT_CH,
-                        THREE_SL_LED_EN_TIM_OUT_OFF);  
+                        THREE_SL_LED_EN_TIM_OUT_OFF);
+  __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_A, 
+                         HRTIM_COMPAREUNIT_1, 0);
+  __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_B, 
+                         HRTIM_COMPAREUNIT_1, 0);  
 }
 
 /**
