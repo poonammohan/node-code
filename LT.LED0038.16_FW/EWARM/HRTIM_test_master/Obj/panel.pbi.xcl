@@ -1,16 +1,16 @@
-"I:\Desktop Until 4th April 2019\3SL_Node_Buzzer_PIR_Chinna\3SL_Node_ Edited\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\Src\panel.c"
+"I:\60W Node Code Git\3slnode-stmicro\LT.LED0038.16_FW\Src\panel.c"
 -std=c11
 -ferror-limit=0
 -I
-I:\Desktop Until 4th April 2019\3SL_Node_Buzzer_PIR_Chinna\3SL_Node_ Edited\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\EWARM/../Inc
+I:\60W Node Code Git\3slnode-stmicro\LT.LED0038.16_FW\EWARM/../Inc
 -I
-I:\Desktop Until 4th April 2019\3SL_Node_Buzzer_PIR_Chinna\3SL_Node_ Edited\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\EWARM/../Drivers/STM32F3xx_HAL_Driver/Inc
+I:\60W Node Code Git\3slnode-stmicro\LT.LED0038.16_FW\EWARM/../Drivers/STM32F3xx_HAL_Driver/Inc
 -I
-I:\Desktop Until 4th April 2019\3SL_Node_Buzzer_PIR_Chinna\3SL_Node_ Edited\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\EWARM/../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy
+I:\60W Node Code Git\3slnode-stmicro\LT.LED0038.16_FW\EWARM/../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy
 -I
-I:\Desktop Until 4th April 2019\3SL_Node_Buzzer_PIR_Chinna\3SL_Node_ Edited\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\EWARM/../Drivers/CMSIS/Include
+I:\60W Node Code Git\3slnode-stmicro\LT.LED0038.16_FW\EWARM/../Drivers/CMSIS/Include
 -I
-I:\Desktop Until 4th April 2019\3SL_Node_Buzzer_PIR_Chinna\3SL_Node_ Edited\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\EWARM/../Drivers/CMSIS/Device/ST/STM32F3xx/Include
+I:\60W Node Code Git\3slnode-stmicro\LT.LED0038.16_FW\EWARM/../Drivers/CMSIS/Device/ST/STM32F3xx/Include
 -I
 I:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\CMSIS\Include
 -I
@@ -18,15 +18,15 @@ I:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\inc
 -I
 I:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\inc\c
 -I
-I:\Desktop Until 4th April 2019\3SL_Node_Buzzer_PIR_Chinna\3SL_Node_ Edited\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\Inc
+I:\60W Node Code Git\3slnode-stmicro\LT.LED0038.16_FW\Inc
 -I
-I:\Desktop Until 4th April 2019\3SL_Node_Buzzer_PIR_Chinna\3SL_Node_ Edited\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\Drivers\STM32F3xx_HAL_Driver\Inc
+I:\60W Node Code Git\3slnode-stmicro\LT.LED0038.16_FW\Drivers\STM32F3xx_HAL_Driver\Inc
 -I
-I:\Desktop Until 4th April 2019\3SL_Node_Buzzer_PIR_Chinna\3SL_Node_ Edited\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\Drivers\STM32F3xx_HAL_Driver\Inc\Legacy
+I:\60W Node Code Git\3slnode-stmicro\LT.LED0038.16_FW\Drivers\STM32F3xx_HAL_Driver\Inc\Legacy
 -I
-I:\Desktop Until 4th April 2019\3SL_Node_Buzzer_PIR_Chinna\3SL_Node_ Edited\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\Drivers\CMSIS\Include
+I:\60W Node Code Git\3slnode-stmicro\LT.LED0038.16_FW\Drivers\CMSIS\Include
 -I
-I:\Desktop Until 4th April 2019\3SL_Node_Buzzer_PIR_Chinna\3SL_Node_ Edited\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\Drivers\CMSIS\Device\ST\STM32F3xx\Include
+I:\60W Node Code Git\3slnode-stmicro\LT.LED0038.16_FW\Drivers\CMSIS\Device\ST\STM32F3xx\Include
 -I
 I:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\CMSIS\Include
 -D__CHAR_BITS__=8

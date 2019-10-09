@@ -61,7 +61,7 @@
 #define BATTERY_AC_DC_SWITCH_LOW_CUT_OFF        1000   
 #define BATTERY_AC_DC_SWITCH_MIN_DISCHRG_VOLT   2800
 #define BATTERY_FLOAT_CURRENT_TH                200//~ 1A
-#define BATTERY_MAXIMUM_CHARGING_CURRENT        3000//3000//3000//2000//1538//(3000//12 A)----Changed by sunil as 1538-->6.25amp-->75 Ah battery//246i-->ADC value 
+#define BATTERY_MAXIMUM_CHARGING_CURRENT        4096//3000//3000//2000//1538//(3000//12 A)----Changed by sunil as 1538-->6.25amp-->75 Ah battery//246i-->ADC value 
 #define BATTERY_FLOAT_CURRENT_OFFSET            100   
 #define BATTERY_DEEP_DISCHRG_THRESHOLD          1540//8V   
    

@@ -63,7 +63,7 @@ uint8_t ledIntensityDefault=1;//Added By Chinna for setting Initial LED Intensit
 
 BatteryChargingModeTypeDef currentBattState = BATTERY_CHARGING_MODE_OFF;
 uint16_t countBattLow = 0;
-int dc_dc_Led_count = 1;
+
 extern UART_HandleTypeDef Sp1mlUart;
 extern TIM_HandleTypeDef htm16; //Added By Chinna
 extern uint8_t UartRxData[UART_RX_DATABUFF_SIZE];
@@ -246,7 +246,7 @@ void state_On_Led(void)
     }
     else
     {
-      led_SetThreshI(DIMM_FOUR);//DC DC
+      //led_SetThreshI(DIMM_FOUR);//DC DC
       if (ac_dc_ld_GetFlag(AC_DC_LD_MASK_ENABLE))//AC DC
       {
         system_AcDcSetDim(2);//Idle value
@@ -276,17 +276,17 @@ void state_On_Led(void)
     }
   }
   
-
+/*
   if(dc_dc_ld_GetFlag(DC_DC_LD_MASK_ENABLE))
   {
     if(dc_dc_Led_count == 1)
     {
-        led_SetThreshI((uint32_t)(0.5*LED_I_MAX));
-        conn_SetPacketData(ON_OFF_INDEX,50);
+        led_SetThreshI((uint32_t)(0.25*LED_I_MAX));
+        conn_SetPacketData(ON_OFF_INDEX,25);
         dc_dc_Led_count++;
     }
       system_CalcBattDischgCurrent();
-  }
+  } */
   /* While LED is on, check for battery voltage (compensated with cable drop) */
   if ((battery_GetVoltage() + (((system_CalcBattDischgCurrent())*
                                 BATTERY_DISCHRG_VOLT_OFFSET_PA)/10)) < 
@@ -307,7 +307,8 @@ void state_On_Led(void)
         dc_dc_ld_ResetFlag(DC_DC_LD_MASK_ENABLE);
         ac_dc_ld_SetFlag(AC_DC_LD_MASK_ENABLE);
         led_SetThreshI((uint32_t)(LED_I_MAX));
-        
+        State_SubSystem = State_SubSystem | 0x02;
+        State_SubSystem = State_SubSystem & 0xFE;
          if(conn_GetPacketData(ON_OFF_INDEX) > 100 && conn_GetPacketData(ON_OFF_INDEX)<=150)
        {
          conn_SetPacketData(ON_OFF_INDEX,150 | 0x80);
@@ -385,7 +386,7 @@ static void state_StartUp_SCC()
   system_PanelEnable();
 
   /* Check panel status */
-  currentBattState = BATTERY_CHARGING_MODE_FLOAT; 
+  currentBattState = BATTERY_CHARGING_MODE_BULK; 
   mppt_Reinit();
   system_SetSccPwm(0);
     
@@ -409,7 +410,24 @@ static void state_BattChg_SCC()
     {
       system_EnableCharging();
       
-      if (currentBattState == BATTERY_CHARGING_MODE_FLOAT)
+      
+       if(conn_GetPacketData(ON_OFF_INDEX) > 160 && conn_GetPacketData(ON_OFF_INDEX) <=170)
+       {
+                 pwmDuty = mppt_Routine((battery_GetMaxVoltage()),
+                               battery_GetMaxCurrent(),
+                               battery_GetVoltage(),battery_GetChargngCurrent(),//battery_GetChargngCurrent()
+                               system_GetSccPwm());
+                   //currentBattState = BATTERY_CHARGING_MODE_BULK;
+       }
+       else if(conn_GetPacketData(ON_OFF_INDEX) > 170 && conn_GetPacketData(ON_OFF_INDEX) <=180)
+       {
+                  pwmDuty = mppt_Routine(battery_GetFltVoltage(),battery_GetFltCurrent(),
+                               battery_GetVoltage(),battery_GetChargngCurrent(),
+                               system_GetSccPwm());
+                  //currentBattState = BATTERY_CHARGING_MODE_FLOAT;
+         
+       }
+      else if (currentBattState == BATTERY_CHARGING_MODE_FLOAT)
       {
         battery_ResetFlag(BATTERY_MASK_DEEP_DSCHRG);
         battery_ResetFlag(BATTERY_MASK_DSCHRG); 
@@ -615,7 +633,7 @@ void state_Conn_On(void)
  /////////////////////Added by Sunil////////////////////////////////////////////////// 
                   }
           //**************** Switching from Battery to AC ************//
-       if(conn_GetPacketData(ON_OFF_INDEX) > 100 && conn_GetPacketData(ON_OFF_INDEX)<=150)
+       if(conn_GetPacketData(ON_OFF_INDEX) > 100 && conn_GetPacketData(ON_OFF_INDEX)<=110)
        {
         BattMinVoltage = BATTERY_AC_DC_SWITCH_HIGH_CUT_OFF;
         BattMaxVoltage = BATTERY_AC_DC_SWITCH_LOW_CUT_OFF;
@@ -638,7 +656,7 @@ void state_Conn_On(void)
 
        
           //**************** Switching from Battery to AC ************//
-       if(conn_GetPacketData(ON_OFF_INDEX) > 150 && conn_GetPacketData(ON_OFF_INDEX) <=200)
+       if(conn_GetPacketData(ON_OFF_INDEX) > 110 && conn_GetPacketData(ON_OFF_INDEX) <=120)
        {
          BattMinVoltage = BATTERY_MINIMUM_VOLTAGE;
          BattMaxVoltage = BATTERY_MAXIMUM_VOLTAGE;
@@ -661,18 +679,23 @@ void state_Conn_On(void)
       }
       
        //**************** Buzzer Integration with Cloud************//       
-        if(conn_GetPacketData(ON_OFF_INDEX) > 200 && conn_GetPacketData(ON_OFF_INDEX) <=210)        //added By Chinna
+        if(conn_GetPacketData(ON_OFF_INDEX) > 120 && conn_GetPacketData(ON_OFF_INDEX) <=130)        //added By Chinna
        {
          //system_SetServerLightCommand(false);
          HAL_TIM_PWM_Start(&htm16,TIM_CHANNEL_1);
          //HAL_Delay(1000);
          //HAL_TIM_PWM_Stop(&htm16,TIM_CHANNEL_1);
        }
-       else if(conn_GetPacketData(ON_OFF_INDEX) > 210 && conn_GetPacketData(ON_OFF_INDEX) <=250)        //added By Chinna
+       else if(conn_GetPacketData(ON_OFF_INDEX) > 140 && conn_GetPacketData(ON_OFF_INDEX) <=150)        //added By Chinna
        {
          //system_SetServerLightCommand(false);
        HAL_TIM_PWM_Stop(&htm16,TIM_CHANNEL_1);
-       }        
+       }
+        else if(conn_GetPacketData(ON_OFF_INDEX) > 150 && conn_GetPacketData(ON_OFF_INDEX) <=160)        //added By Chinna
+       {
+          
+         ThreeSL_State.state_SCC = SCC_STATE_OFF;
+       }
     }    
     
     /********************* Set board status ****************************/
@@ -854,8 +877,7 @@ void state_Conn_On(void)
         /* -ve current while charging, calculation is based on MCU ADC voltage,
         battery current sense resistor, amplifier gain, ADC resolution.
         Value calculated is 10 times of actual current */
-        conn_SetPacketData(BATTERY_CURRENT_INDEX, (uint8_t)(((battery_GetChargngCurrent())*33*1000)/
-                                       (4096*68*3)) | 0x80);
+        conn_SetPacketData(BATTERY_CURRENT_INDEX, (uint8_t)((((battery_GetChargngCurrent())* 467)/10000) | 0x80));
       }
       else
       {
@@ -881,7 +903,7 @@ void state_Conn_On(void)
       {
         conn_SetPacketData(PANEL_CURRENT_INDEX, (uint8_t)(((battery_GetVoltage()*
                                          battery_GetChargngCurrent())/
-                                        panel_GetVoltage())*0.0424));
+                                        panel_GetVoltage())*0.0475));
         conn_SetPacketData(PANEL_VOLTAGE_INDEX, (uint8_t)(panel_GetVoltage()*0.057));
          //HAL_TIM_PWM_Start(&htm16,TIM_CHANNEL_1);
          //HAL_Delay(20000);
@@ -997,19 +1019,29 @@ void SM_ThreeSl(void)
   
   /* If battery voltage is very low, enable AC-DC LED driver to provide aux
      supply voltage */
+  if(panel_GetFlag(PANEL_MASK_OK))
+  {
+        system_AcDcLdDisable();
+        system_AcDcLdOutDisable();
+  }
+  if(CurrentState_LED == LED_STATE_OFF)
+  {
+      conn_SetPacketData(ON_OFF_INDEX,0);
+  }
+  /*
   if(led_GetFlag(LED_MASK_ENABLE))
   {
   if (!battery_GetFlag(BATTERY_MASK_OK))  
   {
     system_AcDcLdEnable();
   }
-  /* If battery voltage is ok and AC DC output to LED is not enabled, disable
-     AC-DC LED driver */
+  // If battery voltage is ok and AC DC output to LED is not enabled, disable
+     AC-DC LED driver //
   else if (!ac_dc_ld_GetFlag(AC_DC_LD_MASK_ENABLE))
   {
     system_AcDcLdDisable();
   }
-  }
+  }*/
     
   CurrentState_LED = ThreeSL_State.state_LED;
   CurrentState_SCC = ThreeSL_State.state_SCC;

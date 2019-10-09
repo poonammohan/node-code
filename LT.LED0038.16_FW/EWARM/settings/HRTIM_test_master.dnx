@@ -12,7 +12,7 @@
         <ByteLimit>50</ByteLimit>
     </Stack>
     <StLinkDriver>
-        <stlinkserialNo>45241387</stlinkserialNo>
+        <stlinkserialNo>36130743</stlinkserialNo>
         <stlinkfoundProbes />
         <CStepIntDis>_ 0</CStepIntDis>
         <LeaveTargetRunning>_ 0</LeaveTargetRunning>
@@ -20,7 +20,7 @@
         <stlinkResetStrategy>1</stlinkResetStrategy>
     </StLinkDriver>
     <DebugChecksum>
-        <Checksum>3268590256</Checksum>
+        <Checksum>1873061365</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -62,15 +62,14 @@
     <Disassemble_mode>
         <mode>0</mode>
     </Disassemble_mode>
-    <array_types>
-        <Fmt0>uint8_t[20]	4	0</Fmt0>
-    </array_types>
     <watch_formats>
         <Fmt0>{W}42:BattDischgCurrent	3	0</Fmt0>
         <Fmt1>{W}42:TempCal1H	3	0</Fmt1>
         <Fmt2>{W}42:TempCal1L	3	0</Fmt2>
         <Fmt3>{W}42:TempCal2H	3	0</Fmt3>
         <Fmt4>{W}42:TempCal2L	3	0</Fmt4>
+        <Fmt5>{W}42:battery_charging_curret_dup	3	0</Fmt5>
+        <Fmt6>{W}42:conn_SetPacketData	3	0</Fmt6>
     </watch_formats>
     <Trace2>
         <Enabled>0</Enabled>
@@ -121,9 +120,9 @@
         <mode>0</mode>
     </DisassembleMode>
     <Breakpoints2>
-        <Bp0>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.422.13" 0 0 1 "" 0 "" 0</Bp0>
-        <Bp1>_ 0 "STD_LOG2" "{$PROJ_DIR$\..\Src\state.c}.406.5" "" 1 "" 0 0 0</Bp1>
-        <Bp2>_ 1 "STD_LOG2" "{$PROJ_DIR$\..\Src\main.c}.58.3" "" 1 "" 0 0 0</Bp2>
+        <Bp0>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.440.13" 0 0 1 "" 0 "" 0</Bp0>
+        <Bp1>_ 0 "STD_LOG2" "{$PROJ_DIR$\..\Src\state.c}.407.5" "" 1 "" 0 0 0</Bp1>
+        <Bp2>_ 1 "STD_LOG2" "{$PROJ_DIR$\..\Src\main.c}.59.3" "" 1 "" 0 0 0</Bp2>
         <Bp3>_ 1 "STD_LOG2" "{$PROJ_DIR$\..\Src\state.c}.305.9" "" 1 "" 0 0 0</Bp3>
         <Count>4</Count>
     </Breakpoints2>

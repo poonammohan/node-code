@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"I:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "I:\Desktop Until 4th April 2019\3SL_Node_Buzzer_PIR_Chinna\3SL_Node_ Edited\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.general.xcl" --backend -f "I:\Desktop Until 4th April 2019\3SL_Node_Buzzer_PIR_Chinna\3SL_Node_ Edited\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.driver.xcl" 
+"I:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "I:\60W Node Code Git\3slnode-stmicro\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.general.xcl" --backend -f "I:\60W Node Code Git\3slnode-stmicro\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"I:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "I:\Desktop Until 4th April 2019\3SL_Node_Buzzer_PIR_Chinna\3SL_Node_ Edited\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.general.xcl" "--debug_file=%~1" --backend -f "I:\Desktop Until 4th April 2019\3SL_Node_Buzzer_PIR_Chinna\3SL_Node_ Edited\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.driver.xcl" 
+"I:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "I:\60W Node Code Git\3slnode-stmicro\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.general.xcl" "--debug_file=%~1" --backend -f "I:\60W Node Code Git\3slnode-stmicro\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.driver.xcl" 
 
 @echo off 
 :end

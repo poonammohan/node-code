@@ -49,6 +49,7 @@ extern uint16_t BattMaxVoltage;
 extern uint16_t BattMinVoltage;
 extern uint16_t BattMinDischrgVoltage;
 /* Private function prototypes -----------------------------------------------*/
+int dc_dc_Led_count = 1;
 
 int main(void)
 {
@@ -92,7 +93,10 @@ int main(void)
     
   /* Calculate constant multiplier for computing battery current from 
      output LED current */
-  system_CalcBattCurrK();  
+        system_CalcBattCurrK();  
+        led_SetThreshI((uint32_t)(0.4*LED_I_MAX));
+        conn_SetPacketData(ON_OFF_INDEX,25);
+
   /* Infinite loop */
   while (1)
   {
