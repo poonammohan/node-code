@@ -63,7 +63,7 @@ uint8_t ledIntensityDefault=1;//Added By Chinna for setting Initial LED Intensit
 
 BatteryChargingModeTypeDef currentBattState = BATTERY_CHARGING_MODE_OFF;
 uint16_t countBattLow = 0;
-
+uint8_t Led_default=0;
 extern UART_HandleTypeDef Sp1mlUart;
 extern TIM_HandleTypeDef htm16; //Added By Chinna
 extern uint8_t UartRxData[UART_RX_DATABUFF_SIZE];
@@ -77,6 +77,7 @@ extern uint16_t BattMinVoltage;
 extern uint16_t BattMaxVoltage;
 extern uint16_t BattMinDischrgVoltage;
 extern uint8_t PacketRxData[PACKET_LENGTH];
+extern uint32_t Tick_Flag;
 /* Private function prototypes -----------------------------------------------*/
 /* Different state functions */
 static void state_StartUp_Led(void);
@@ -174,6 +175,8 @@ void state_StartUp_Led(void)
     system_AcDcLdOutEnable();
     dc_dc_ld_ResetFlag(DC_DC_LD_MASK_ENABLE);
     ac_dc_ld_SetFlag(AC_DC_LD_MASK_ENABLE);
+    State_SubSystem = State_SubSystem | 0x02;
+    State_SubSystem = State_SubSystem & 0xFE;
   }
   
   LedStateChange = true;
@@ -253,6 +256,12 @@ void state_On_Led(void)
       }
     }  
   }
+          if(Led_default <= 100)
+          {
+            led_SetThreshI((uint32_t)(DIMM_ONE));
+            conn_SetPacketData(ON_OFF_INDEX,25);
+            Led_default++;
+          }
   
   /* Wait for 100 ms before starting switching and current regulation loop */
   if (LedStateChange == true)
@@ -877,7 +886,7 @@ void state_Conn_On(void)
         /* -ve current while charging, calculation is based on MCU ADC voltage,
         battery current sense resistor, amplifier gain, ADC resolution.
         Value calculated is 10 times of actual current */
-        conn_SetPacketData(BATTERY_CURRENT_INDEX, (uint8_t)((((battery_GetChargngCurrent())* 467)/10000) | 0x80));
+        conn_SetPacketData(BATTERY_CURRENT_INDEX, (uint8_t)((((battery_GetChargngCurrent())*467)/10000) | 0x80));
       }
       else
       {
@@ -1021,8 +1030,24 @@ void SM_ThreeSl(void)
      supply voltage */
   if(panel_GetFlag(PANEL_MASK_OK))
   {
-        system_AcDcLdDisable();
-        system_AcDcLdOutDisable();
+        if(ac_dc_ld_GetFlag(AC_DC_LD_MASK_ENABLE))
+        {
+          if(Tick_Flag == 10000000)
+          {
+            system_AcDcLdDisable();
+            system_AcDcLdOutDisable();
+            Tick_Flag = 1;
+          }
+        }
+        if(dc_dc_ld_GetFlag(DC_DC_LD_MASK_ENABLE))
+        {
+          if(Tick_Flag == 10000000)
+          {
+            ThreeSL_State.state_LED = LED_STATE_OFF;
+            ThreeSL_State.state_SCC = SCC_STATE_START_UP;
+            Tick_Flag = 1;
+          }          
+        }
   }
   if(CurrentState_LED == LED_STATE_OFF)
   {

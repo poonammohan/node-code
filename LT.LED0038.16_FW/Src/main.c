@@ -94,8 +94,6 @@ int main(void)
   /* Calculate constant multiplier for computing battery current from 
      output LED current */
         system_CalcBattCurrK();  
-        led_SetThreshI((uint32_t)(0.4*LED_I_MAX));
-        conn_SetPacketData(ON_OFF_INDEX,25);
 
   /* Infinite loop */
   while (1)

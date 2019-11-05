@@ -45,7 +45,7 @@
 //#define LED_I_MAX               85//225   //Minimum threshold current
 //   #define LED_I_MAX               168//225   //50% threshold current
 
-#define LED_I_MAX               200//225   //Maximum threshold current
+#define LED_I_MAX               220//225   //Maximum threshold current
 #define LED_I_OC                400
    
 #define LED_ALL_FLAGS           0xFF

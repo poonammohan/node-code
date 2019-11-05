@@ -107,6 +107,7 @@ bool Flag_AcDcLdEnable = true;
 uint16_t Tick_10 = 1;
 uint32_t Tick_1000s = 1;
 uint32_t Tick_1h = 1;
+uint32_t Tick_Flag = 1;
 bool Batt_Tick_10 = false;
 bool Batt_Tick_1000s = false;
 
@@ -719,11 +720,11 @@ void system_Monitor(void)
     battery_SetFlag(BATTERY_MASK_DEEP_DSCHRG);
   }
   
-  if (panel_GetVoltage() > (panel_GetMinVoltage() - 150))
+  if (panel_GetVoltage() > (panel_GetMinVoltage()))
   {
     panel_SetFlag(PANEL_MASK_OK);
   }
-  else if (panel_GetVoltage() < (panel_GetMinVoltage() - 250))
+  else
   {
     panel_ResetFlag(PANEL_MASK_OK);
   }
@@ -973,8 +974,18 @@ void system_SetSccPwm(uint16_t duty)
   {
     ThreeSlSccTimAcutalDuty = THREESL_SCC_PWM_DUTY_MIN;
   }
-  
+  if(duty == 0)
+  {
+    __HAL_TIM_SET_COMPARE(&ThreeSlSccTim, THREE_SL_SCC_TIM_CHANNEL, 0);
+  }
+  else if(ThreeSlSccTimAcutalDuty >= 40 && ThreeSlSccTimAcutalDuty <= 140)    
+  {
   __HAL_TIM_SET_COMPARE(&ThreeSlSccTim, THREE_SL_SCC_TIM_CHANNEL, ThreeSlSccTimAcutalDuty);
+  }
+ else
+  {
+  __HAL_TIM_SET_COMPARE(&ThreeSlSccTim, THREE_SL_SCC_TIM_CHANNEL,120);
+  }
 }
 
 /**
