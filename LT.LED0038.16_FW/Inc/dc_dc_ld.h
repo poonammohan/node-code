@@ -45,11 +45,13 @@
 #define DC_DC_LD_MASK_ENABLE             0x01
 #define DC_DC_LD_MASK_OVER_VOLTAGE       0x02
 #define DC_DC_LD_MASK_OVER_CURRENT       0x04
+#define DC_DC_LD_MASK_MIN_VOLTAGE        0x08
 
 #define DC_DC_LD_DUTY_MAX                0.70
 #define DC_DC_LD_DUTY_MIN                0.03   
 
 #define DC_DC_LD_OUT_VOLT_MAX            3800//FOr OVP ~ 49V
+#define DC_DC_LD_OUT_VOLT_MIN            1900//24.5V            
 /***************************Added by Sunil*************************************/
 #define DC_DC_LD_OUT_VOLT_30             2327//FOr 30v ~ 30V
 #define DC_DC_LD_OUT_VOLT_25             1940//FOr 25v ~ 25V

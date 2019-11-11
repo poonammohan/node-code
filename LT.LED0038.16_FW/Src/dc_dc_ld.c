@@ -32,6 +32,7 @@
   */
 /* Includes ------------------------------------------------------------------*/
 #include "dc_dc_ld.h"
+#include "state.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -39,6 +40,8 @@
 /* Private variables ---------------------------------------------------------*/
 uint8_t StateFlags_DcDcLd = 0x00;
 uint16_t DcDcLdOutVoltage;
+uint32_t led_Over_Volt_Monitor =0;
+extern ThreeSL_StateTypeDef ThreeSL_State;
 /* Private function prototypes -----------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
 
@@ -48,10 +51,31 @@ uint16_t DcDcLdOutVoltage;
 void dc_dc_ld_UpdateOutVoltage(uint32_t* voltage)
 {
   DcDcLdOutVoltage = (uint16_t)*voltage;
-  
-  if (DcDcLdOutVoltage > DC_DC_LD_OUT_VOLT_MAX)
+  if(led_Over_Volt_Monitor > 10000)
   {
-    dc_dc_ld_SetFlag(DC_DC_LD_MASK_OVER_VOLTAGE);
+  if(ThreeSL_State.state_LED == LED_STATE_ON)
+  {
+    if (DcDcLdOutVoltage > DC_DC_LD_OUT_VOLT_MAX)
+    {
+      dc_dc_ld_SetFlag(DC_DC_LD_MASK_OVER_VOLTAGE);
+    }
+    else
+    {
+      dc_dc_ld_ResetFlag(DC_DC_LD_MASK_OVER_VOLTAGE);
+    }
+    if(DcDcLdOutVoltage < DC_DC_LD_OUT_VOLT_MIN)
+    {
+      dc_dc_ld_SetFlag(DC_DC_LD_MASK_MIN_VOLTAGE);
+    }
+    else
+    {
+      dc_dc_ld_ResetFlag(DC_DC_LD_MASK_MIN_VOLTAGE);
+    }
+  }
+  }
+  if(ThreeSL_State.state_LED == LED_STATE_OFF)
+  {
+    led_Over_Volt_Monitor=0;
   }
 }
 

@@ -57,7 +57,7 @@ WWDG_HandleTypeDef WwdgHandle;
 
 uint16_t ThreeSlSccPwmDuty = THREESL_SCC_PWM_DUTY_MAX;
 uint16_t ThreeSlSccTimAcutalDuty;
-
+uint32_t SCC_CCR_Value =0;
 uint32_t AdcRegV[NO_OF_REG_CHANNELS];
 
 uint8_t* TS_CAL1_H = (uint8_t*)0x1FFFF7B9;
@@ -67,7 +67,8 @@ uint8_t* TS_CAL2_L = (uint8_t*)0x1FFFF7C2;
 uint8_t TempCal1L,TempCal1H,TempCal2L,TempCal2H;
 float TempSlope,TempOffset;
 int32_t Temperature;
-
+int32_t Panel_Charging_Time =1;
+int32_t Panel_Discharging_Time =1;
 
 uint32_t DcDcBoostPeriod;
 int32_t DcDcLdDutyChange = 0;
@@ -100,6 +101,7 @@ uint16_t UartRxDataEndNxtPntr = 0;
 uint16_t UartRxDataLength = 0;
 uint32_t Uart_Wait_Tick = 0;
 uint32_t Uart_ResetCount = 0;
+uint32_t Sytem_Reset_Trigger=0;
 bool ReadDataPkt = false;
 
 bool Flag_AcDcLdEnable = true;
@@ -110,7 +112,8 @@ uint32_t Tick_1h = 1;
 uint32_t Tick_Flag = 1;
 bool Batt_Tick_10 = false;
 bool Batt_Tick_1000s = false;
-
+extern uint32_t Led_default;
+extern uint32_t led_Over_Volt_Monitor;
 /* Private function prototypes -----------------------------------------------*/
 static void system_GPIO_Init(void);
 static void system_ADC1_Init(void);
@@ -722,11 +725,30 @@ void system_Monitor(void)
   
   if (panel_GetVoltage() > (panel_GetMinVoltage()))
   {
-    panel_SetFlag(PANEL_MASK_OK);
+    if(Panel_Charging_Time > 10000)
+    {
+      panel_SetFlag(PANEL_MASK_OK);
+      Panel_Charging_Time = 0;
+      Panel_Discharging_Time = 0;
+    }
+    else{
+      Panel_Discharging_Time = 0;
+    }
   }
   else
   {
-    panel_ResetFlag(PANEL_MASK_OK);
+    if(Panel_Discharging_Time > 900000)
+    {
+      panel_ResetFlag(PANEL_MASK_OK);
+      Panel_Discharging_Time = 0;
+      Panel_Charging_Time = 0;
+    }
+    else
+    {
+      Panel_Charging_Time = 0;
+      system_SetSccPwm(0);
+      system_DisableCharging();
+    }
   }
 }
 
@@ -986,6 +1008,7 @@ void system_SetSccPwm(uint16_t duty)
   {
   __HAL_TIM_SET_COMPARE(&ThreeSlSccTim, THREE_SL_SCC_TIM_CHANNEL,120);
   }
+  SCC_CCR_Value = __HAL_TIM_GET_COMPARE(&ThreeSlSccTim,THREE_SL_SCC_TIM_CHANNEL);
 }
 
 /**
@@ -1529,6 +1552,12 @@ void HAL_SYSTICK_Callback(void)
   }
   
   Uart_Wait_Tick++;
+  Panel_Charging_Time++;
+  Panel_Discharging_Time++;
+  Tick_Flag++;
+  Led_default++;
+  led_Over_Volt_Monitor ++;
+  Sytem_Reset_Trigger++;
 }
 /**
   * @}

@@ -12,7 +12,7 @@
         <ByteLimit>50</ByteLimit>
     </Stack>
     <StLinkDriver>
-        <stlinkserialNo>45241387</stlinkserialNo>
+        <stlinkserialNo>36130743</stlinkserialNo>
         <stlinkfoundProbes />
         <CStepIntDis>_ 0</CStepIntDis>
         <LeaveTargetRunning>_ 0</LeaveTargetRunning>
@@ -20,7 +20,7 @@
         <stlinkResetStrategy>1</stlinkResetStrategy>
     </StLinkDriver>
     <DebugChecksum>
-        <Checksum>4088479852</Checksum>
+        <Checksum>4101230335</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -64,13 +64,14 @@
     </Disassemble_mode>
     <watch_formats>
         <Fmt0>{W}42:BattDischgCurrent	3	0</Fmt0>
-        <Fmt1>{W}42:StateFlags_Panel	1	0</Fmt1>
-        <Fmt2>{W}42:TempCal1H	3	0</Fmt2>
-        <Fmt3>{W}42:TempCal1L	3	0</Fmt3>
-        <Fmt4>{W}42:TempCal2H	3	0</Fmt4>
-        <Fmt5>{W}42:TempCal2L	3	0</Fmt5>
-        <Fmt6>{W}42:battery_charging_curret_dup	3	0</Fmt6>
-        <Fmt7>{W}42:conn_SetPacketData	3	0</Fmt7>
+        <Fmt1>{W}42:StateFlags_DcDcLd	1	0</Fmt1>
+        <Fmt2>{W}42:StateFlags_Panel	1	0</Fmt2>
+        <Fmt3>{W}42:TempCal1H	3	0</Fmt3>
+        <Fmt4>{W}42:TempCal1L	3	0</Fmt4>
+        <Fmt5>{W}42:TempCal2H	3	0</Fmt5>
+        <Fmt6>{W}42:TempCal2L	3	0</Fmt6>
+        <Fmt7>{W}42:battery_charging_curret_dup	3	0</Fmt7>
+        <Fmt8>{W}42:conn_SetPacketData	3	0</Fmt8>
     </watch_formats>
     <Trace2>
         <Enabled>0</Enabled>
@@ -121,10 +122,13 @@
         <mode>0</mode>
     </DisassembleMode>
     <Breakpoints2>
-        <Bp0>_ 0 "STD_LOG2" "{$PROJ_DIR$\..\Src\state.c}.418.5" "" 1 "" 0 0 0</Bp0>
-        <Bp1>_ 1 "STD_LOG2" "{$PROJ_DIR$\..\Src\main.c}.59.3" "" 1 "" 0 0 0</Bp1>
-        <Bp2>_ 1 "STD_LOG2" "{$PROJ_DIR$\..\Src\state.c}.314.9" "" 1 "" 0 0 0</Bp2>
-        <Count>3</Count>
+        <Bp0>_ 0 "STD_LOG2" "{$PROJ_DIR$\..\Src\state.c}.462.32" "" 1 "" 0 0 0</Bp0>
+        <Bp1>_ 0 "STD_LOG2" "{$PROJ_DIR$\..\Src\main.c}.59.3" "" 1 "" 0 0 0</Bp1>
+        <Bp2>_ 0 "STD_LOG2" "{$PROJ_DIR$\..\Src\state.c}.335.9" "" 1 "" 0 0 0</Bp2>
+        <Bp3>_ 0 "STD_LOG2" "{$PROJ_DIR$\..\Src\system.c}.730.7" "" 1 "" 0 0 0</Bp3>
+        <Bp4>_ 0 "STD_LOG2" "{$PROJ_DIR$\..\Src\system.c}.748.7" "" 1 "" 0 0 0</Bp4>
+        <Bp5>_ 0 "STD_LOG2" "{$PROJ_DIR$\..\Src\state.c}.1091.1" "" 1 "" 0 0 0</Bp5>
+        <Count>6</Count>
     </Breakpoints2>
     <LogFile>
         <LoggingEnabled>_ 0</LoggingEnabled>
