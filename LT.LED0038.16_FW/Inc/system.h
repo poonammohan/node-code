@@ -43,7 +43,7 @@
 #include "stm32f3xx_hal.h"
 #include "common.h"
    
-#define DC_DC_BOOST_PEIROD                      16000   
+#define DC_DC_BOOST_PEIROD                     16000   
 #define NO_OF_INJ_SAMPLES                       4
 #define NO_OF_REG_SAMPLES                       4
 #define NO_OF_REG_CHANNELS                      6   

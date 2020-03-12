@@ -544,7 +544,7 @@ void system_TIM2_Init(void)
   ThreeSlSccTim.Instance = THREE_SL_SCC_TIM;
   ThreeSlSccTim.Init.Prescaler = 0;
   ThreeSlSccTim.Init.CounterMode = TIM_COUNTERMODE_UP;
-  ThreeSlSccTim.Init.Period = THREESL_SCC_PWM_DUTY_MAX;
+  ThreeSlSccTim.Init.Period = 600;//THREESL_SCC_PWM_DUTY_MAX;
   ThreeSlSccTim.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   HAL_TIM_PWM_Init(&ThreeSlSccTim);
 
@@ -1000,14 +1000,14 @@ void system_SetSccPwm(uint16_t duty)
   {
     __HAL_TIM_SET_COMPARE(&ThreeSlSccTim, THREE_SL_SCC_TIM_CHANNEL, 0);
   }
-  else if(ThreeSlSccTimAcutalDuty >= 40 && ThreeSlSccTimAcutalDuty <= 140)    
-  {
-  __HAL_TIM_SET_COMPARE(&ThreeSlSccTim, THREE_SL_SCC_TIM_CHANNEL, ThreeSlSccTimAcutalDuty);
-  }
- else
-  {
-  __HAL_TIM_SET_COMPARE(&ThreeSlSccTim, THREE_SL_SCC_TIM_CHANNEL,120);
-  }
+ // else if(ThreeSlSccTimAcutalDuty >= 40 && ThreeSlSccTimAcutalDuty <= 140)    
+  //{
+  __HAL_TIM_SET_COMPARE(&ThreeSlSccTim, THREE_SL_SCC_TIM_CHANNEL, 100);
+  //}
+ //else
+ // {
+ // __HAL_TIM_SET_COMPARE(&ThreeSlSccTim, THREE_SL_SCC_TIM_CHANNEL,600);
+  //}
   SCC_CCR_Value = __HAL_TIM_GET_COMPARE(&ThreeSlSccTim,THREE_SL_SCC_TIM_CHANNEL);
 }
 

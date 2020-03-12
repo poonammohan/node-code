@@ -1,92 +1,56 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.20.1.14183/W32 for ARM                11/Nov/2019  17:30:24
-# Copyright 2007-2017 IAR Systems AB.
+# IAR ELF Linker V8.40.1.212/W32 for ARM                  11/Mar/2020  14:48:46
+# Copyright 2007-2019 IAR Systems AB.
 #
-#    Output file  =  
-#        I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Exe\HRTIM_test_master.out
-#    Map file     =  
-#        I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\List\HRTIM_test_master.map
-#    Command line =  
-#        -f C:\Users\r1219\AppData\Local\Temp\EW106F.tmp ("I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\ac_dc_ld.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\battery.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\buzzer.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\connectivity.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\dc_dc_ld.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\led.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\main.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\mppt.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\panel.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\startup_stm32f334x8.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\state.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_adc.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_adc_ex.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_cortex.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_dma.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_flash.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_flash_ex.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_gpio.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_hrtim.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_msp.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_pwr.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_pwr_ex.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_rcc.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_rcc_ex.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_rtc.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_rtc_ex.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_tim.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_tim_ex.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_uart.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_uart_ex.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_wwdg.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_it.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\system.o"
-#        "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\system_stm32f3xx.o"
-#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o "I:\60W
-#        Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Exe\HRTIM_test_master.out"
-#        --map "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\List\HRTIM_test_master.map"
-#        --config "I:\60W Node SCC
-#        Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM/stm32f334x8_flash.icf"
+#    Output file  =
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Exe\HRTIM_test_master.out
+#    Map file     =
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\List\HRTIM_test_master.map
+#    Command line =
+#        -f C:\Users\chinn\AppData\Local\Temp\EWBF26.tmp
+#        (E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\ac_dc_ld.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\battery.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\buzzer.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\connectivity.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\dc_dc_ld.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\led.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\main.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\mppt.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\panel.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\startup_stm32f334x8.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\state.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_adc.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_adc_ex.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_cortex.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_dma.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_flash.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_flash_ex.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_gpio.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_hrtim.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_msp.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_pwr.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_pwr_ex.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_rcc.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_rcc_ex.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_rtc.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_rtc_ex.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_tim.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_tim_ex.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_uart.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_uart_ex.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_wwdg.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_it.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\system.o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\system_stm32f3xx.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull
+#        --no_out_extension -o
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Exe\HRTIM_test_master.out
+#        --map
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\List\HRTIM_test_master.map
+#        --config
+#        E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM/stm32f334x8_flash.icf
 #        --semihosting --entry __iar_program_start --vfe --text_out locale)
 #
 ###############################################################################
@@ -114,181 +78,189 @@ application.
 *** PLACEMENT SUMMARY
 ***
 
-"A0":  place at 0x08000000 { ro section .intvec };
-"P1":  place in [from 0x08000000 to 0x0800ffff] { ro };
+"A0":  place at address 0x800'0000 { ro section .intvec };
+"P1":  place in [from 0x800'0000 to 0x800'ffff] { ro };
 define block CSTACK with size = 512, alignment = 8 { };
 define block HEAP with size = 1K, alignment = 8 { };
-"P2":  place in [from 0x20000000 to 0x20002fff] {
+"P2":  place in [from 0x2000'0000 to 0x2000'2fff] {
           rw, block CSTACK, block HEAP };
 initialize by copy { rw };
 
-  Section            Kind        Address    Size  Object
-  -------            ----        -------    ----  ------
-"A0":                                      0x188
-  .intvec            ro code  0x08000000   0x188  startup_stm32f334x8.o [1]
-                            - 0x08000188   0x188
+  Section            Kind         Address    Size  Object
+  -------            ----         -------    ----  ------
+"A0":                                       0x188
+  .intvec            ro code   0x800'0000   0x188  startup_stm32f334x8.o [1]
+                             - 0x800'0188   0x188
 
-"P1":                                     0x5e31
-  .text              ro code  0x08000188  0x1024  stm32f3xx_hal_adc_ex.o [1]
-  .text              ro code  0x080011ac   0x398  stm32f3xx_hal_msp.o [1]
-  .text              ro code  0x08001544   0x204  stm32f3xx_hal_dma.o [1]
-  .text              ro code  0x08001748     0xc  stm32f3xx_hal.o [1]
-  .text              ro code  0x08001754     0x2  stm32f3xx_hal_adc.o [1]
-  .text              ro code  0x08001756     0x2  stm32f3xx_hal_adc.o [1]
-  .text              ro code  0x08001758     0x2  stm32f3xx_hal_adc.o [1]
-  .text              ro code  0x0800175c    0xf4  stm32f3xx_hal_cortex.o [1]
-  .text              ro code  0x08001850   0x2d4  stm32f3xx_hal_gpio.o [1]
-  .text              ro code  0x08001b24   0xff4  system.o [1]
-  .text              ro code  0x08002b18    0x86  stm32f3xx_it.o [1]
-  .text              ro code  0x08002ba0   0x658  stm32f3xx_hal_rcc.o [1]
-  .text              ro code  0x080031f8   0x134  stm32f3xx_hal_rcc_ex.o [1]
-  .text              ro code  0x0800332c   0x564  stm32f3xx_hal_tim.o [1]
-  .text              ro code  0x08003890   0x278  stm32f3xx_hal_tim_ex.o [1]
-  .text              ro code  0x08003b08    0x96  stm32f3xx_hal_wwdg.o [1]
-  .text              ro code  0x08003ba0    0x1c  stm32f3xx_hal.o [1]
-  .text              ro code  0x08003bbc   0x724  stm32f3xx_hal_hrtim.o [1]
-  .text              ro code  0x080042e0   0x38c  stm32f3xx_hal_uart.o [1]
-  .text              ro code  0x0800466c    0xec  battery.o [1]
-  .text              ro code  0x08004758    0x54  panel.o [1]
-  .text              ro code  0x080047ac    0x8c  dc_dc_ld.o [1]
-  .text              ro code  0x08004838    0x1a  U32ToDbl.o [4]
-  .text              ro code  0x08004854   0x1a2  DblMul.o [4]
-  .text              ro code  0x080049f8    0x3a  DblToS32.o [4]
-  .text              ro code  0x08004a34   0x314  connectivity.o [1]
-  .text              ro code  0x08004d48    0x3c  led.o [1]
-  .text              ro code  0x08004d84    0x10  stm32f3xx_hal.o [1]
-  .text              ro code  0x08004d94    0x28  stm32f3xx_hal.o [1]
-  .text              ro code  0x08004dbc     0x2  stm32f3xx_hal_uart.o [1]
-  .text              ro code  0x08004dc0    0x22  S32ToDbl.o [4]
-  .text              ro code  0x08004de4   0x178  DblAdd.o [4]
-  .text              ro code  0x08004f5c    0xd2  DblSub.o [4]
-  .text              ro code  0x08005030   0xa58  state.o [1]
-  .text              ro code  0x08005a88    0x2c  ac_dc_ld.o [1]
-  .text              ro code  0x08005ab4   0x12c  mppt.o [1]
-  .text              ro code  0x08005be0    0x70  system_stm32f3xx.o [1]
-  .text              ro code  0x08005c50    0x58  main.o [1]
-  .text              ro code  0x08005ca8    0x28  stm32f3xx_hal.o [1]
-  .text              ro code  0x08005cd0    0x40  zero_init3.o [5]
-  .text              ro code  0x08005d10    0x38  packbits_init_single.o [5]
-  .text              ro code  0x08005d48    0x28  data_init.o [5]
-  .text              ro code  0x08005d70    0x22  fpinit_M.o [4]
-  .iar.init_table    const    0x08005d94    0x20  - Linker created -
-  .text              ro code  0x08005db4    0x1e  cmain.o [5]
-  .text              ro code  0x08005dd2     0x4  low_level_init.o [3]
-  .text              ro code  0x08005dd6     0x4  exit.o [3]
-  .text              ro code  0x08005ddc     0xa  cexit.o [5]
-  .text              ro code  0x08005de8    0x14  exit.o [6]
-  .text              ro code  0x08005dfc    0x10  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e0c     0xc  cstartup_M.o [5]
-  .text              ro code  0x08005e18     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e1c     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e20     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e24     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e28     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e2c     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e30     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e34     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e38     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e3c     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e40     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e44     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e48     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e4c     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e50     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e54     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e58     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e5c     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e60     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e64     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e68     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e6c     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e70     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e74     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e78     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e7c     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e80     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e84     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e88     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e8c     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e90     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e94     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e98     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005e9c     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005ea0     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005ea4     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005ea8     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005eac     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005eb0     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005eb4     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005eb8     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005ebc     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005ec0     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005ec4     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005ec8     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005ecc     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005ed0     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005ed4     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005ed8     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005edc     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005ee0     0x4  startup_stm32f334x8.o [1]
-  .text              ro code  0x08005ee4     0x4  startup_stm32f334x8.o [1]
-  .rodata            const    0x08005ee8     0x0  zero_init3.o [5]
-  .rodata            const    0x08005ee8     0x0  packbits_init_single.o [5]
-  Initializer bytes  const    0x08005ee8    0xd1  <for P2-1>
-                            - 0x08005fb9  0x5e31
+"P1":                                      0x5de5
+  .text              ro code   0x800'0188  0x1008  stm32f3xx_hal_adc_ex.o [1]
+  .text              ro code   0x800'1190   0x398  stm32f3xx_hal_msp.o [1]
+  .text              ro code   0x800'1528   0x214  stm32f3xx_hal_dma.o [1]
+  .text              ro code   0x800'173c     0xc  stm32f3xx_hal.o [1]
+  .text              ro code   0x800'1748     0x2  stm32f3xx_hal_adc.o [1]
+  .text              ro code   0x800'174a     0x2  stm32f3xx_hal_adc.o [1]
+  .text              ro code   0x800'174c     0x2  stm32f3xx_hal_adc.o [1]
+  .text              ro code   0x800'174e    0x3a  zero_init3.o [4]
+  .text              ro code   0x800'1788    0xf8  stm32f3xx_hal_cortex.o [1]
+  .text              ro code   0x800'1880   0x2d4  stm32f3xx_hal_gpio.o [1]
+  .text              ro code   0x800'1b54   0xfa4  system.o [1]
+  .text              ro code   0x800'2af8    0x86  stm32f3xx_it.o [1]
+  .text              ro code   0x800'2b80   0x610  stm32f3xx_hal_rcc.o [1]
+  .text              ro code   0x800'3190   0x130  stm32f3xx_hal_rcc_ex.o [1]
+  .text              ro code   0x800'32c0   0x73a  stm32f3xx_hal_hrtim.o [1]
+  .text              ro code   0x800'39fc   0x54c  stm32f3xx_hal_tim.o [1]
+  .text              ro code   0x800'3f48   0x278  stm32f3xx_hal_tim_ex.o [1]
+  .text              ro code   0x800'41c0    0x9a  stm32f3xx_hal_wwdg.o [1]
+  .text              ro code   0x800'425c    0x1c  stm32f3xx_hal.o [1]
+  .text              ro code   0x800'4278   0x384  stm32f3xx_hal_uart.o [1]
+  .text              ro code   0x800'45fc    0xec  battery.o [1]
+  .text              ro code   0x800'46e8    0x54  panel.o [1]
+  .text              ro code   0x800'473c    0x70  dc_dc_ld.o [1]
+  .text              ro code   0x800'47ac    0x1a  U32ToDbl.o [3]
+  .text              ro code   0x800'47c8   0x1a2  DblMul.o [3]
+  .text              ro code   0x800'496c    0x3a  DblToS32.o [3]
+  .text              ro code   0x800'49a8   0x320  connectivity.o [1]
+  .text              ro code   0x800'4cc8    0x3c  led.o [1]
+  .text              ro code   0x800'4d04    0x10  stm32f3xx_hal.o [1]
+  .text              ro code   0x800'4d14    0x28  stm32f3xx_hal.o [1]
+  .text              ro code   0x800'4d3c     0x2  stm32f3xx_hal_uart.o [1]
+  .text              ro code   0x800'4d40    0x22  S32ToDbl.o [3]
+  .text              ro code   0x800'4d64   0x17a  DblAdd.o [3]
+  .text              ro code   0x800'4ee0    0xd2  DblSub.o [3]
+  .text              ro code   0x800'4fb4   0xad0  state.o [1]
+  .text              ro code   0x800'5a84    0x2c  ac_dc_ld.o [1]
+  .text              ro code   0x800'5ab0   0x128  mppt.o [1]
+  .text              ro code   0x800'5bd8    0x6c  system_stm32f3xx.o [1]
+  .text              ro code   0x800'5c44    0x58  main.o [1]
+  .text              ro code   0x800'5c9c    0x28  stm32f3xx_hal.o [1]
+  .text              ro code   0x800'5cc4    0x38  packbits_init_single.o [4]
+  .text              ro code   0x800'5cfc    0x28  data_init.o [4]
+  .text              ro code   0x800'5d24    0x22  fpinit_M.o [3]
+  .iar.init_table    const     0x800'5d48    0x20  - Linker created -
+  .text              ro code   0x800'5d68    0x1e  cmain.o [4]
+  .text              ro code   0x800'5d86     0x4  low_level_init.o [2]
+  .text              ro code   0x800'5d8a     0x4  exit.o [2]
+  .text              ro code   0x800'5d90     0xa  cexit.o [4]
+  .text              ro code   0x800'5d9c    0x14  exit.o [5]
+  .text              ro code   0x800'5db0    0x10  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5dc0     0xc  cstartup_M.o [4]
+  .text              ro code   0x800'5dcc     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5dd0     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5dd4     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5dd8     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5ddc     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5de0     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5de4     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5de8     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5dec     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5df0     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5df4     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5df8     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5dfc     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e00     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e04     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e08     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e0c     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e10     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e14     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e18     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e1c     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e20     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e24     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e28     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e2c     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e30     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e34     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e38     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e3c     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e40     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e44     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e48     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e4c     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e50     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e54     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e58     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e5c     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e60     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e64     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e68     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e6c     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e70     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e74     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e78     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e7c     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e80     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e84     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e88     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e8c     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e90     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e94     0x4  startup_stm32f334x8.o [1]
+  .text              ro code   0x800'5e98     0x4  startup_stm32f334x8.o [1]
+  .rodata            const     0x800'5e9c     0x0  zero_init3.o [4]
+  .rodata            const     0x800'5e9c     0x0  packbits_init_single.o [4]
+  Initializer bytes  const     0x800'5e9c    0xd1  <for P2-1>
+                             - 0x800'5f6d  0x5de5
 
-"P2", part 1 of 3:                         0xc28
-  P2-1                        0x20000000   0xc28  <Init block>
-    .data            inited   0x20000000     0x4  led.o [1]
-    .data            inited   0x20000004   0x7e0  mppt.o [1]
-    .data            inited   0x200007e4    0x68  state.o [1]
-    .data            inited   0x2000084c   0x3c0  system.o [1]
-    .data            inited   0x20000c0c     0x4  system_stm32f3xx.o [1]
-    .data            inited   0x20000c10     0x2  battery.o [1]
-    .data            inited   0x20000c12     0x2  battery.o [1]
-    .data            inited   0x20000c14     0xa  battery.o [1]
-    .data            inited   0x20000c1e     0x2  battery.o [1]
-    .data            inited   0x20000c20     0x2  battery.o [1]
-    .data            inited   0x20000c22     0x2  panel.o [1]
-    .data            inited   0x20000c24     0x2  panel.o [1]
-    .data            inited   0x20000c26     0x1  battery.o [1]
-    .data            inited   0x20000c27     0x1  panel.o [1]
-                            - 0x20000c28   0xc28
+"P2", part 1 of 3:                          0xc24
+  P2-1                        0x2000'0000   0xc24  <Init block>
+    .data            inited   0x2000'0000     0x4  led.o [1]
+    .data            inited   0x2000'0004   0x7e0  mppt.o [1]
+    .data            inited   0x2000'07e4    0x64  state.o [1]
+    .data            inited   0x2000'0848   0x3c0  system.o [1]
+    .data            inited   0x2000'0c08     0x4  system_stm32f3xx.o [1]
+    .data            inited   0x2000'0c0c     0x2  battery.o [1]
+    .data            inited   0x2000'0c0e     0x2  battery.o [1]
+    .data            inited   0x2000'0c10     0xa  battery.o [1]
+    .data            inited   0x2000'0c1a     0x2  battery.o [1]
+    .data            inited   0x2000'0c1c     0x2  battery.o [1]
+    .data            inited   0x2000'0c1e     0x2  panel.o [1]
+    .data            inited   0x2000'0c20     0x2  panel.o [1]
+    .data            inited   0x2000'0c22     0x1  battery.o [1]
+    .data            inited   0x2000'0c23     0x1  panel.o [1]
+                            - 0x2000'0c24   0xc24
 
-"P2", part 2 of 3:                         0x8b0
-  .bss               zero     0x20000c28   0x80c  connectivity.o [1]
-  .bss               zero     0x20001434    0x90  system.o [1]
-  .bss               zero     0x200014c4     0x8  dc_dc_ld.o [1]
-  .bss               zero     0x200014cc     0x4  stm32f3xx_hal.o [1]
-  .bss               zero     0x200014d0     0x2  battery.o [1]
-  .bss               zero     0x200014d2     0x2  panel.o [1]
-  .bss               zero     0x200014d4     0x1  ac_dc_ld.o [1]
-  .bss               zero     0x200014d5     0x1  led.o [1]
-  .bss               zero     0x200014d6     0x1  system.o [1]
-  .bss               zero     0x200014d7     0x1  system.o [1]
-                            - 0x200014d8   0x8b0
+"P2", part 2 of 3:                          0x8b0
+  .bss               zero     0x2000'0c24   0x80c  connectivity.o [1]
+  .bss               zero     0x2000'1430    0x90  system.o [1]
+  .bss               zero     0x2000'14c0     0x8  dc_dc_ld.o [1]
+  .bss               zero     0x2000'14c8     0x4  stm32f3xx_hal.o [1]
+  .bss               zero     0x2000'14cc     0x2  battery.o [1]
+  .bss               zero     0x2000'14ce     0x2  panel.o [1]
+  .bss               zero     0x2000'14d0     0x1  ac_dc_ld.o [1]
+  .bss               zero     0x2000'14d1     0x1  led.o [1]
+  .bss               zero     0x2000'14d2     0x1  system.o [1]
+  .bss               zero     0x2000'14d3     0x1  system.o [1]
+                            - 0x2000'14d4   0x8b0
 
-"P2", part 3 of 3:                         0x200
-  CSTACK                      0x200014d8   0x200  <Block>
-    CSTACK           uninit   0x200014d8   0x200  <Block tail>
-                            - 0x200016d8   0x200
+"P2", part 3 of 3:                          0x200
+  CSTACK                      0x2000'14d8   0x200  <Block>
+    CSTACK           uninit   0x2000'14d8   0x200  <Block tail>
+                            - 0x2000'16d8   0x200
+
+Unused ranges:
+
+         From           To    Size
+         ----           --    ----
+   0x800'5f6d   0x800'ffff  0xa093
+  0x2000'14d4  0x2000'14d7     0x4
+  0x2000'16d8  0x2000'2fff  0x1928
 
 
 *******************************************************************************
 *** INIT TABLE
 ***
 
-          Address     Size
-          -------     ----
+          Address      Size
+          -------      ----
 Zero (__iar_zero_init3)
     1 destination range, total size 0x8b0:
-          0x20000c28  0x8b0
+          0x2000'0c24  0x8b0
 
 Copy/packbits (__iar_packbits_init_single3)
     1 source range, total size 0xd1 (6% of destination):
-          0x08005ee8   0xd1
-    1 destination range, total size 0xc28:
-          0x20000000  0xc28
+           0x800'5e9c   0xd1
+    1 destination range, total size 0xc24:
+          0x2000'0000  0xc24
 
 
 
@@ -298,49 +270,49 @@ Copy/packbits (__iar_packbits_init_single3)
 
     Module                  ro code  ro data  rw data
     ------                  -------  -------  -------
-I:\60W Node SCC Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj: [1]
-    ac_dc_ld.o                   44                 1
-    battery.o                   236        1       21
-    connectivity.o              788             2 060
-    dc_dc_ld.o                  140                 8
-    led.o                        60                 5
-    main.o                       88
-    mppt.o                      300      135    2 016
-    panel.o                      84        1        7
-    startup_stm32f334x8.o       616
-    state.o                   2 648        7      104
-    stm32f3xx_hal.o             136                 4
-    stm32f3xx_hal_adc.o           6
-    stm32f3xx_hal_adc_ex.o    4 132
-    stm32f3xx_hal_cortex.o      244
-    stm32f3xx_hal_dma.o         516
-    stm32f3xx_hal_gpio.o        724
-    stm32f3xx_hal_hrtim.o     1 828
-    stm32f3xx_hal_msp.o         920
-    stm32f3xx_hal_rcc.o       1 624
-    stm32f3xx_hal_rcc_ex.o      308
-    stm32f3xx_hal_tim.o       1 380
-    stm32f3xx_hal_tim_ex.o      632
-    stm32f3xx_hal_uart.o        910
-    stm32f3xx_hal_wwdg.o        150
-    stm32f3xx_it.o              134
-    system.o                  4 084       65    1 106
-    system_stm32f3xx.o          112                 4
-    -------------------------------------------------
-    Total:                   22 844      209    5 336
-
-command line: [2]
+command line/config:
     -------------------------------------------------
     Total:
 
-dl7M_tlf.a: [3]
+E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj: [1]
+    ac_dc_ld.o                   44                 1
+    battery.o                   236        1       21
+    connectivity.o              800             2'060
+    dc_dc_ld.o                  112                 8
+    led.o                        60                 5
+    main.o                       88
+    mppt.o                      296      135    2'016
+    panel.o                      84                 7
+    startup_stm32f334x8.o       616
+    state.o                   2'768        7      100
+    stm32f3xx_hal.o             136                 4
+    stm32f3xx_hal_adc.o           6
+    stm32f3xx_hal_adc_ex.o    4'104
+    stm32f3xx_hal_cortex.o      248
+    stm32f3xx_hal_dma.o         532
+    stm32f3xx_hal_gpio.o        724
+    stm32f3xx_hal_hrtim.o     1'850
+    stm32f3xx_hal_msp.o         920
+    stm32f3xx_hal_rcc.o       1'552
+    stm32f3xx_hal_rcc_ex.o      304
+    stm32f3xx_hal_tim.o       1'356
+    stm32f3xx_hal_tim_ex.o      632
+    stm32f3xx_hal_uart.o        902
+    stm32f3xx_hal_wwdg.o        154
+    stm32f3xx_it.o              134
+    system.o                  4'004       65    1'106
+    system_stm32f3xx.o          108                 4
+    -------------------------------------------------
+    Total:                   22'770      208    5'332
+
+dl7M_tlf.a: [2]
     exit.o                        4
     low_level_init.o              4
     -------------------------------------------------
     Total:                        8
 
-m7M_tls.a: [4]
-    DblAdd.o                    376
+m7M_tls.a: [3]
+    DblAdd.o                    378
     DblMul.o                    418
     DblSub.o                    210
     DblToS32.o                   58
@@ -348,489 +320,478 @@ m7M_tls.a: [4]
     U32ToDbl.o                   26
     fpinit_M.o                   34
     -------------------------------------------------
-    Total:                    1 156
+    Total:                    1'158
 
-rt7M_tl.a: [5]
+rt7M_tl.a: [4]
     cexit.o                      10
     cmain.o                      30
     cstartup_M.o                 12
     data_init.o                  40
     packbits_init_single.o       56
-    zero_init3.o                 64
+    zero_init3.o                 58
     -------------------------------------------------
-    Total:                      212
+    Total:                      206
 
-shb_l.a: [6]
+shb_l.a: [5]
     exit.o                       20
     -------------------------------------------------
     Total:                       20
 
-    Gaps                         22        2
-    Linker created                        32      512
+    Gaps                         24        2
+    Linker created                        33      512
 -----------------------------------------------------
-    Grand Total:             24 262      243    5 848
+    Grand Total:             24'186      243    5'844
 
 
 *******************************************************************************
 *** ENTRY LIST
 ***
 
-Entry                      Address   Size  Type      Object
------                      -------   ----  ----      ------
-.iar.init_table$$Base   0x08005d94          --   Gb  - Linker created -
-.iar.init_table$$Limit  0x08005db4          --   Gb  - Linker created -
-?main                   0x08005db5         Code  Gb  cmain.o [5]
-ADC1_2_IRQHandler       0x08002b2d   0x1a  Code  Gb  stm32f3xx_it.o [1]
-ADC_ConversionStop      0x080010e7   0xb0  Code  Lc  stm32f3xx_hal_adc_ex.o [1]
-ADC_DMAConvCplt         0x08000fc7   0x44  Code  Lc  stm32f3xx_hal_adc_ex.o [1]
-ADC_DMAError            0x08001011   0x16  Code  Lc  stm32f3xx_hal_adc_ex.o [1]
-ADC_DMAHalfConvCplt     0x0800100b    0x6  Code  Lc  stm32f3xx_hal_adc_ex.o [1]
-ADC_Disable             0x08001083   0x64  Code  Lc  stm32f3xx_hal_adc_ex.o [1]
-ADC_Enable              0x08001027   0x5c  Code  Lc  stm32f3xx_hal_adc_ex.o [1]
-AcDcCcrPeriod           0x20000b9c    0x4  Data  Gb  system.o [1]
-AdcRegV                 0x2000094c   0x18  Data  Gb  system.o [1]
-BattChargingCurrent     0x200014d0    0x2  Data  Gb  battery.o [1]
-BattCurrK               0x20000bc4    0x4  Data  Gb  system.o [1]
-BattDischgCurrent       0x20000b58    0x1  Data  Gb  system.o [1]
-BattFltCurrent          0x20000c1e    0x2  Data  Gb  battery.o [1]
-BattFltVoltage          0x20000c14    0x2  Data  Gb  battery.o [1]
-BattFltVoltage_TC       0x20000c16    0x2  Data  Gb  battery.o [1]
-BattMaxChargingCurrent  0x20000c20    0x2  Data  Gb  battery.o [1]
-BattMaxVoltage          0x20000c18    0x2  Data  Gb  battery.o [1]
-BattMaxVoltage_TC       0x20000c1a    0x2  Data  Gb  battery.o [1]
-BattMinDischrgVoltage   0x20000c12    0x2  Data  Gb  battery.o [1]
-BattMinVoltage          0x20000c10    0x2  Data  Gb  battery.o [1]
-BattVoltage             0x20000c1c    0x2  Data  Gb  battery.o [1]
-Batt_Tick_10            0x20000b5a    0x1  Data  Gb  system.o [1]
-Batt_Tick_1000s         0x20000b5b    0x1  Data  Gb  system.o [1]
-CSTACK$$Base            0x200014d8          --   Gb  - Linker created -
-CSTACK$$Limit           0x200016d8          --   Gb  - Linker created -
-CurrentState_Conn       0x200007ea    0x1  Data  Gb  state.o [1]
-CurrentState_LED        0x200007e8    0x1  Data  Gb  state.o [1]
-CurrentState_SCC        0x200007e9    0x1  Data  Gb  state.o [1]
-DIMM_FOUR               0x20000840    0x4  Data  Gb  state.o [1]
-DIMM_ONE                0x20000834    0x4  Data  Gb  state.o [1]
-DIMM_THREE              0x2000083c    0x4  Data  Gb  state.o [1]
-DIMM_TWO                0x20000838    0x4  Data  Gb  state.o [1]
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base    0x800'5d48          --   Gb  - Linker created -
+.iar.init_table$$Limit   0x800'5d68          --   Gb  - Linker created -
+?main                    0x800'5d69         Code  Gb  cmain.o [4]
+ADC1_2_IRQHandler        0x800'2b0d   0x1a  Code  Gb  stm32f3xx_it.o [1]
+ADC_ConversionStop       0x800'10cb   0xb0  Code  Lc  stm32f3xx_hal_adc_ex.o [1]
+ADC_DMAConvCplt          0x800'0fab   0x44  Code  Lc  stm32f3xx_hal_adc_ex.o [1]
+ADC_DMAError             0x800'0ff5   0x16  Code  Lc  stm32f3xx_hal_adc_ex.o [1]
+ADC_DMAHalfConvCplt      0x800'0fef    0x6  Code  Lc  stm32f3xx_hal_adc_ex.o [1]
+ADC_Disable              0x800'1067   0x64  Code  Lc  stm32f3xx_hal_adc_ex.o [1]
+ADC_Enable               0x800'100b   0x5c  Code  Lc  stm32f3xx_hal_adc_ex.o [1]
+AcDcCcrPeriod           0x2000'0b98    0x4  Data  Gb  system.o [1]
+AdcRegV                 0x2000'0948   0x18  Data  Gb  system.o [1]
+BattChargingCurrent     0x2000'14cc    0x2  Data  Gb  battery.o [1]
+BattCurrK               0x2000'0bc0    0x4  Data  Gb  system.o [1]
+BattDischgCurrent       0x2000'0b54    0x1  Data  Gb  system.o [1]
+BattFltCurrent          0x2000'0c1a    0x2  Data  Gb  battery.o [1]
+BattFltVoltage          0x2000'0c10    0x2  Data  Gb  battery.o [1]
+BattFltVoltage_TC       0x2000'0c12    0x2  Data  Gb  battery.o [1]
+BattMaxChargingCurrent  0x2000'0c1c    0x2  Data  Gb  battery.o [1]
+BattMaxVoltage          0x2000'0c14    0x2  Data  Gb  battery.o [1]
+BattMaxVoltage_TC       0x2000'0c16    0x2  Data  Gb  battery.o [1]
+BattMinDischrgVoltage   0x2000'0c0e    0x2  Data  Gb  battery.o [1]
+BattMinVoltage          0x2000'0c0c    0x2  Data  Gb  battery.o [1]
+BattVoltage             0x2000'0c18    0x2  Data  Gb  battery.o [1]
+Batt_Tick_10            0x2000'0b56    0x1  Data  Gb  system.o [1]
+Batt_Tick_1000s         0x2000'0b57    0x1  Data  Gb  system.o [1]
+CSTACK$$Base            0x2000'14d8          --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'16d8          --   Gb  - Linker created -
+CurrentState_Conn       0x2000'07ea    0x1  Data  Gb  state.o [1]
+CurrentState_LED        0x2000'07e8    0x1  Data  Gb  state.o [1]
+CurrentState_SCC        0x2000'07e9    0x1  Data  Gb  state.o [1]
+DIMM_FOUR               0x2000'0840    0x4  Data  Gb  state.o [1]
+DIMM_ONE                0x2000'0834    0x4  Data  Gb  state.o [1]
+DIMM_THREE              0x2000'083c    0x4  Data  Gb  state.o [1]
+DIMM_TWO                0x2000'0838    0x4  Data  Gb  state.o [1]
 DMA1_Channel1_IRQHandler
-                        0x08002b2b    0x2  Code  Gb  stm32f3xx_it.o [1]
-DcDcBoostPeriod         0x20000b88    0x4  Data  Gb  system.o [1]
-DcDcLdDutyChange        0x20000b8c    0x4  Data  Gb  system.o [1]
-DcDcLdDutyPeriod        0x20000b90    0x4  Data  Gb  system.o [1]
-DcDcLdMaxDutyPeriod     0x20000b94    0x4  Data  Gb  system.o [1]
-DcDcLdMinDutyPeriod     0x20000b98    0x4  Data  Gb  system.o [1]
-DcDcLdOutVoltage        0x200014c6    0x2  Data  Gb  dc_dc_ld.o [1]
-EXTI15_10_IRQHandler    0x08002b89    0x8  Code  Gb  stm32f3xx_it.o [1]
-Flag_ReadPacketData     0x2000141c    0x1  Data  Gb  connectivity.o [1]
-Flag_SendPacketData     0x2000141d    0x1  Data  Gb  connectivity.o [1]
+                         0x800'2b0b    0x2  Code  Gb  stm32f3xx_it.o [1]
+DcDcBoostPeriod         0x2000'0b84    0x4  Data  Gb  system.o [1]
+DcDcLdDutyChange        0x2000'0b88    0x4  Data  Gb  system.o [1]
+DcDcLdDutyPeriod        0x2000'0b8c    0x4  Data  Gb  system.o [1]
+DcDcLdMaxDutyPeriod     0x2000'0b90    0x4  Data  Gb  system.o [1]
+DcDcLdMinDutyPeriod     0x2000'0b94    0x4  Data  Gb  system.o [1]
+DcDcLdOutVoltage        0x2000'14c2    0x2  Data  Gb  dc_dc_ld.o [1]
+EXTI15_10_IRQHandler     0x800'2b69    0x8  Code  Gb  stm32f3xx_it.o [1]
+Flag_ReadPacketData     0x2000'1418    0x1  Data  Gb  connectivity.o [1]
+Flag_SendPacketData     0x2000'1419    0x1  Data  Gb  connectivity.o [1]
 HAL_ADCEx_Calibration_Start
-                        0x0800072d   0x98  Code  Gb  stm32f3xx_hal_adc_ex.o [1]
+                         0x800'0725   0x98  Code  Gb  stm32f3xx_hal_adc_ex.o [1]
 HAL_ADCEx_InjectedConfigChannel
-                        0x08000c19  0x3ae  Code  Gb  stm32f3xx_hal_adc_ex.o [1]
+                         0x800'0c0d  0x39e  Code  Gb  stm32f3xx_hal_adc_ex.o [1]
 HAL_ADCEx_InjectedConvCpltCallback
-                        0x080028d5   0x9e  Code  Gb  system.o [1]
+                         0x800'28bd   0x9e  Code  Gb  system.o [1]
 HAL_ADCEx_InjectedConvCpltCallback::countLedI
-                        0x20000c08    0x4  Data  Lc  system.o [1]
+                        0x2000'0c04    0x4  Data  Lc  system.o [1]
 HAL_ADCEx_InjectedStart_IT
-                        0x080007e5   0xe2  Code  Gb  stm32f3xx_hal_adc_ex.o [1]
-HAL_ADC_ConfigChannel   0x080008e5  0x32c  Code  Gb  stm32f3xx_hal_adc_ex.o [1]
+                         0x800'07d9   0xe2  Code  Gb  stm32f3xx_hal_adc_ex.o [1]
+HAL_ADC_ConfigChannel    0x800'08dd  0x328  Code  Gb  stm32f3xx_hal_adc_ex.o [1]
 HAL_ADC_ConvCpltCallback
-                        0x08001755    0x2  Code  Wk  stm32f3xx_hal_adc.o [1]
+                         0x800'1749    0x2  Code  Wk  stm32f3xx_hal_adc.o [1]
 HAL_ADC_ConvHalfCpltCallback
-                        0x08001757    0x2  Code  Wk  stm32f3xx_hal_adc.o [1]
-HAL_ADC_DeInit          0x08000379  0x186  Code  Gb  stm32f3xx_hal_adc_ex.o [1]
-HAL_ADC_ErrorCallback   0x08001759    0x2  Code  Wk  stm32f3xx_hal_adc.o [1]
-HAL_ADC_Init            0x08000189  0x1f0  Code  Gb  stm32f3xx_hal_adc_ex.o [1]
-HAL_ADC_MspDeInit       0x08001271   0x3a  Code  Gb  stm32f3xx_hal_msp.o [1]
-HAL_ADC_MspInit         0x080011df   0x92  Code  Gb  stm32f3xx_hal_msp.o [1]
-HAL_ADC_Start           0x080004ff   0xe0  Code  Gb  stm32f3xx_hal_adc_ex.o [1]
-HAL_ADC_Start_DMA       0x0800061f  0x104  Code  Gb  stm32f3xx_hal_adc_ex.o [1]
-HAL_ADC_Stop            0x080005df   0x40  Code  Gb  stm32f3xx_hal_adc_ex.o [1]
-HAL_DMA_DeInit          0x08001591  0x13e  Code  Gb  stm32f3xx_hal_dma.o [1]
-HAL_DMA_Init            0x08001545   0x4c  Code  Gb  stm32f3xx_hal_dma.o [1]
-HAL_DMA_Start_IT        0x080016cf   0x5e  Code  Gb  stm32f3xx_hal_dma.o [1]
-HAL_Delay               0x08003ba1   0x1c  Code  Wk  stm32f3xx_hal.o [1]
-HAL_GPIO_DeInit         0x080019fd   0xec  Code  Gb  stm32f3xx_hal_gpio.o [1]
-HAL_GPIO_EXTI_Callback  0x08002b91    0xe  Code  Gb  stm32f3xx_it.o [1]
+                         0x800'174b    0x2  Code  Wk  stm32f3xx_hal_adc.o [1]
+HAL_ADC_DeInit           0x800'0379  0x186  Code  Gb  stm32f3xx_hal_adc_ex.o [1]
+HAL_ADC_ErrorCallback    0x800'174d    0x2  Code  Wk  stm32f3xx_hal_adc.o [1]
+HAL_ADC_Init             0x800'0189  0x1f0  Code  Gb  stm32f3xx_hal_adc_ex.o [1]
+HAL_ADC_MspDeInit        0x800'1255   0x3a  Code  Gb  stm32f3xx_hal_msp.o [1]
+HAL_ADC_MspInit          0x800'11c3   0x92  Code  Gb  stm32f3xx_hal_msp.o [1]
+HAL_ADC_Start            0x800'04ff   0xdc  Code  Gb  stm32f3xx_hal_adc_ex.o [1]
+HAL_ADC_Start_DMA        0x800'061b  0x100  Code  Gb  stm32f3xx_hal_adc_ex.o [1]
+HAL_ADC_Stop             0x800'05db   0x40  Code  Gb  stm32f3xx_hal_adc_ex.o [1]
+HAL_DMA_DeInit           0x800'1587  0x140  Code  Gb  stm32f3xx_hal_dma.o [1]
+HAL_DMA_Init             0x800'1529   0x5e  Code  Gb  stm32f3xx_hal_dma.o [1]
+HAL_DMA_Start_IT         0x800'16c7   0x5a  Code  Gb  stm32f3xx_hal_dma.o [1]
+HAL_Delay                0x800'425d   0x1c  Code  Wk  stm32f3xx_hal.o [1]
+HAL_GPIO_DeInit          0x800'1a2d   0xf2  Code  Gb  stm32f3xx_hal_gpio.o [1]
+HAL_GPIO_EXTI_Callback   0x800'2b71    0xe  Code  Gb  stm32f3xx_it.o [1]
 HAL_GPIO_EXTI_IRQHandler
-                        0x08001af7   0x10  Code  Gb  stm32f3xx_hal_gpio.o [1]
-HAL_GPIO_Init           0x08001851  0x1aa  Code  Gb  stm32f3xx_hal_gpio.o [1]
-HAL_GPIO_WritePin       0x08001ae9    0xe  Code  Gb  stm32f3xx_hal_gpio.o [1]
-HAL_GetTick             0x08001749    0xc  Code  Wk  stm32f3xx_hal.o [1]
+                         0x800'1b29   0x10  Code  Gb  stm32f3xx_hal_gpio.o [1]
+HAL_GPIO_Init            0x800'1881  0x1aa  Code  Gb  stm32f3xx_hal_gpio.o [1]
+HAL_GPIO_WritePin        0x800'1b1f    0xa  Code  Gb  stm32f3xx_hal_gpio.o [1]
+HAL_GetTick              0x800'173d    0xc  Code  Wk  stm32f3xx_hal.o [1]
 HAL_HRTIM_ADCTriggerConfig
-                        0x08003dc1   0x8e  Code  Gb  stm32f3xx_hal_hrtim.o [1]
+                         0x800'34c9   0x8e  Code  Gb  stm32f3xx_hal_hrtim.o [1]
 HAL_HRTIM_DLLCalibrationStart
-                        0x08003cb9   0x46  Code  Gb  stm32f3xx_hal_hrtim.o [1]
-HAL_HRTIM_Init          0x08003bbd   0xfc  Code  Gb  stm32f3xx_hal_hrtim.o [1]
-HAL_HRTIM_MspInit       0x080012ab   0x22  Code  Gb  stm32f3xx_hal_msp.o [1]
-HAL_HRTIM_MspPostInit   0x080012cd   0x32  Code  Gb  stm32f3xx_hal_msp.o [1]
+                         0x800'33bf   0x46  Code  Gb  stm32f3xx_hal_hrtim.o [1]
+HAL_HRTIM_Init           0x800'32c1   0xfe  Code  Gb  stm32f3xx_hal_hrtim.o [1]
+HAL_HRTIM_MspInit        0x800'128f   0x22  Code  Gb  stm32f3xx_hal_msp.o [1]
+HAL_HRTIM_MspPostInit    0x800'12b1   0x32  Code  Gb  stm32f3xx_hal_msp.o [1]
 HAL_HRTIM_PollForDLLCalibration
-                        0x08003cff   0x40  Code  Gb  stm32f3xx_hal_hrtim.o [1]
+                         0x800'3405   0x42  Code  Gb  stm32f3xx_hal_hrtim.o [1]
 HAL_HRTIM_TimeBaseConfig
-                        0x08003d3f   0x78  Code  Gb  stm32f3xx_hal_hrtim.o [1]
+                         0x800'3447   0x78  Code  Gb  stm32f3xx_hal_hrtim.o [1]
 HAL_HRTIM_WaveformCompareConfig
-                        0x08003f5d  0x128  Code  Gb  stm32f3xx_hal_hrtim.o [1]
+                         0x800'3799  0x122  Code  Gb  stm32f3xx_hal_hrtim.o [1]
 HAL_HRTIM_WaveformCounterStart
-                        0x080040f3   0x30  Code  Gb  stm32f3xx_hal_hrtim.o [1]
+                         0x800'392d   0x34  Code  Gb  stm32f3xx_hal_hrtim.o [1]
 HAL_HRTIM_WaveformOutputConfig
-                        0x08004085   0x3a  Code  Gb  stm32f3xx_hal_hrtim.o [1]
+                         0x800'38bb   0x3e  Code  Gb  stm32f3xx_hal_hrtim.o [1]
 HAL_HRTIM_WaveformOutputStart
-                        0x080040bf   0x34  Code  Gb  stm32f3xx_hal_hrtim.o [1]
+                         0x800'38f9   0x34  Code  Gb  stm32f3xx_hal_hrtim.o [1]
 HAL_HRTIM_WaveformTimerConfig
-                        0x08003e51  0x10c  Code  Gb  stm32f3xx_hal_hrtim.o [1]
-HAL_IncTick             0x08004d85   0x10  Code  Wk  stm32f3xx_hal.o [1]
-HAL_Init                0x08005ca9   0x24  Code  Gb  stm32f3xx_hal.o [1]
-HAL_InitTick            0x08004d95   0x28  Code  Wk  stm32f3xx_hal.o [1]
-HAL_MspInit             0x080011ad   0x32  Code  Gb  stm32f3xx_hal_msp.o [1]
-HAL_NVIC_DisableIRQ     0x080017e1   0x12  Code  Gb  stm32f3xx_hal_cortex.o [1]
-HAL_NVIC_EnableIRQ      0x080017cf   0x12  Code  Gb  stm32f3xx_hal_cortex.o [1]
-HAL_NVIC_SetPriority    0x08001777   0x58  Code  Gb  stm32f3xx_hal_cortex.o [1]
+                         0x800'3559  0x240  Code  Gb  stm32f3xx_hal_hrtim.o [1]
+HAL_IncTick              0x800'4d05   0x10  Code  Wk  stm32f3xx_hal.o [1]
+HAL_Init                 0x800'5c9d   0x24  Code  Gb  stm32f3xx_hal.o [1]
+HAL_InitTick             0x800'4d15   0x28  Code  Wk  stm32f3xx_hal.o [1]
+HAL_MspInit              0x800'1191   0x32  Code  Gb  stm32f3xx_hal_msp.o [1]
+HAL_NVIC_DisableIRQ      0x800'180f   0x12  Code  Gb  stm32f3xx_hal_cortex.o [1]
+HAL_NVIC_EnableIRQ       0x800'17fd   0x12  Code  Gb  stm32f3xx_hal_cortex.o [1]
+HAL_NVIC_SetPriority     0x800'17a3   0x5a  Code  Gb  stm32f3xx_hal_cortex.o [1]
 HAL_NVIC_SetPriorityGrouping
-                        0x0800175d   0x1a  Code  Gb  stm32f3xx_hal_cortex.o [1]
+                         0x800'1789   0x1a  Code  Gb  stm32f3xx_hal_cortex.o [1]
 HAL_RCCEx_PeriphCLKConfig
-                        0x080031f9  0x126  Code  Gb  stm32f3xx_hal_rcc_ex.o [1]
-HAL_RCC_ClockConfig     0x08002f47  0x1ea  Code  Gb  stm32f3xx_hal_rcc.o [1]
-HAL_RCC_GetHCLKFreq     0x0800316b   0x22  Code  Gb  stm32f3xx_hal_rcc.o [1]
-HAL_RCC_GetPCLK1Freq    0x0800318d   0x1c  Code  Gb  stm32f3xx_hal_rcc.o [1]
+                         0x800'3191  0x122  Code  Gb  stm32f3xx_hal_rcc_ex.o [1]
+HAL_RCC_ClockConfig      0x800'2ed7  0x1ee  Code  Gb  stm32f3xx_hal_rcc.o [1]
+HAL_RCC_GetHCLKFreq      0x800'3101   0x22  Code  Gb  stm32f3xx_hal_rcc.o [1]
+HAL_RCC_GetPCLK1Freq     0x800'3125   0x1c  Code  Gb  stm32f3xx_hal_rcc.o [1]
 HAL_RCC_GetSysClockFreq
-                        0x08003131   0x3a  Code  Gb  stm32f3xx_hal_rcc.o [1]
-HAL_RCC_OscConfig       0x08002ba1  0x3a6  Code  Gb  stm32f3xx_hal_rcc.o [1]
+                         0x800'30c5   0x3a  Code  Gb  stm32f3xx_hal_rcc.o [1]
+HAL_RCC_OscConfig        0x800'2b81  0x356  Code  Gb  stm32f3xx_hal_rcc.o [1]
 HAL_SYSTICK_CLKSourceConfig
-                        0x08001815   0x1a  Code  Gb  stm32f3xx_hal_cortex.o [1]
-HAL_SYSTICK_Callback    0x08002a2f   0x80  Code  Gb  system.o [1]
-HAL_SYSTICK_Config      0x080017f3   0x22  Code  Gb  stm32f3xx_hal_cortex.o [1]
-HAL_SYSTICK_IRQHandler  0x0800184d    0x4  Code  Gb  stm32f3xx_hal_cortex.o [1]
+                         0x800'1843   0x1a  Code  Gb  stm32f3xx_hal_cortex.o [1]
+HAL_SYSTICK_Callback     0x800'2a17   0x80  Code  Gb  system.o [1]
+HAL_SYSTICK_Config       0x800'1821   0x22  Code  Gb  stm32f3xx_hal_cortex.o [1]
+HAL_SYSTICK_IRQHandler   0x800'187d    0x4  Code  Gb  stm32f3xx_hal_cortex.o [1]
 HAL_TIMEx_MasterConfigSynchronization
-                        0x08003a01   0x48  Code  Gb  stm32f3xx_hal_tim_ex.o [1]
-HAL_TIMEx_PWMN_Start    0x08003891   0x28  Code  Gb  stm32f3xx_hal_tim_ex.o [1]
-HAL_TIM_Base_Init       0x0800332d   0x34  Code  Gb  stm32f3xx_hal_tim.o [1]
-HAL_TIM_Base_MspInit    0x08001321   0xb2  Code  Gb  stm32f3xx_hal_msp.o [1]
-HAL_TIM_Base_Start_IT   0x08003361   0x16  Code  Gb  stm32f3xx_hal_tim.o [1]
-HAL_TIM_Base_Stop_IT    0x08003377   0x2e  Code  Gb  stm32f3xx_hal_tim.o [1]
+                         0x800'40b9   0x48  Code  Gb  stm32f3xx_hal_tim_ex.o [1]
+HAL_TIMEx_PWMN_Start     0x800'3f49   0x28  Code  Gb  stm32f3xx_hal_tim_ex.o [1]
+HAL_TIM_Base_Init        0x800'39fd   0x34  Code  Gb  stm32f3xx_hal_tim.o [1]
+HAL_TIM_Base_MspInit     0x800'1305   0xb2  Code  Gb  stm32f3xx_hal_msp.o [1]
+HAL_TIM_Base_Start_IT    0x800'3a31   0x16  Code  Gb  stm32f3xx_hal_tim.o [1]
+HAL_TIM_Base_Stop_IT     0x800'3a47   0x2a  Code  Gb  stm32f3xx_hal_tim.o [1]
 HAL_TIM_ConfigClockSource
-                        0x080034c1  0x1a0  Code  Gb  stm32f3xx_hal_tim.o [1]
-HAL_TIM_MspPostInit     0x080013d3   0xb6  Code  Gb  stm32f3xx_hal_msp.o [1]
+                         0x800'3b79  0x1a0  Code  Gb  stm32f3xx_hal_tim.o [1]
+HAL_TIM_MspPostInit      0x800'13b7   0xb6  Code  Gb  stm32f3xx_hal_msp.o [1]
 HAL_TIM_PWM_ConfigChannel
-                        0x080038b9  0x146  Code  Gb  stm32f3xx_hal_tim_ex.o [1]
-HAL_TIM_PWM_Init        0x080033a5   0x34  Code  Gb  stm32f3xx_hal_tim.o [1]
-HAL_TIM_PWM_MspInit     0x080012ff   0x22  Code  Gb  stm32f3xx_hal_msp.o [1]
-HAL_TIM_PWM_Start       0x080033d9   0x4c  Code  Gb  stm32f3xx_hal_tim.o [1]
-HAL_TIM_PWM_Stop        0x08003425   0x88  Code  Gb  stm32f3xx_hal_tim.o [1]
+                         0x800'3f71  0x148  Code  Gb  stm32f3xx_hal_tim_ex.o [1]
+HAL_TIM_PWM_Init         0x800'3a71   0x34  Code  Gb  stm32f3xx_hal_tim.o [1]
+HAL_TIM_PWM_MspInit      0x800'12e3   0x22  Code  Gb  stm32f3xx_hal_msp.o [1]
+HAL_TIM_PWM_Start        0x800'3aa5   0x48  Code  Gb  stm32f3xx_hal_tim.o [1]
+HAL_TIM_PWM_Stop         0x800'3aed   0x7a  Code  Gb  stm32f3xx_hal_tim.o [1]
 HAL_TIM_PeriodElapsedCallback
-                        0x08002973   0xac  Code  Gb  system.o [1]
-HAL_UART_DeInit         0x08004349   0x3c  Code  Gb  stm32f3xx_hal_uart.o [1]
-HAL_UART_Init           0x080042e1   0x68  Code  Gb  stm32f3xx_hal_uart.o [1]
-HAL_UART_MspInit        0x08001489   0x54  Code  Gb  stm32f3xx_hal_msp.o [1]
+                         0x800'295b   0xa8  Code  Gb  system.o [1]
+HAL_UART_DeInit          0x800'42e1   0x3c  Code  Gb  stm32f3xx_hal_uart.o [1]
+HAL_UART_Init            0x800'4279   0x68  Code  Gb  stm32f3xx_hal_uart.o [1]
+HAL_UART_MspInit         0x800'146d   0x54  Code  Gb  stm32f3xx_hal_msp.o [1]
 HAL_UART_RxCpltCallback
-                        0x08002a25    0xa  Code  Gb  system.o [1]
-HAL_WWDG_Init           0x08003b09   0x44  Code  Gb  stm32f3xx_hal_wwdg.o [1]
-HAL_WWDG_MspInit        0x080014dd   0x2e  Code  Gb  stm32f3xx_hal_msp.o [1]
-HAL_WWDG_Refresh        0x08003b75   0x2a  Code  Gb  stm32f3xx_hal_wwdg.o [1]
-HAL_WWDG_Start          0x08003b4d   0x28  Code  Gb  stm32f3xx_hal_wwdg.o [1]
-HRTIM_OutputConfig      0x08004241   0x9a  Code  Lc  stm32f3xx_hal_hrtim.o [1]
-HRTIM_TimingUnitWaveform_Config
-                        0x08004125  0x11a  Code  Lc  stm32f3xx_hal_hrtim.o [1]
-IgnoreLedCurrent        0x20000b59    0x1  Data  Gb  system.o [1]
-Ki                      0x20000bb4    0x4  Data  Gb  system.o [1]
-Kp                      0x20000bb0    0x4  Data  Gb  system.o [1]
-LedCurrent              0x20000bc0    0x4  Data  Gb  system.o [1]
-LedCurrentErrorI        0x20000ba4    0x4  Data  Gb  system.o [1]
-LedCurrentErrorP        0x20000ba0    0x4  Data  Gb  system.o [1]
-LedCurrentGain          0x20000bb8    0x4  Data  Gb  system.o [1]
-LedCurrentGainI         0x20000bac    0x4  Data  Gb  system.o [1]
-LedCurrentGainP         0x20000ba8    0x4  Data  Gb  system.o [1]
-LedI                    0x20000b44   0x10  Data  Gb  system.o [1]
-LedI_CurrTh             0x20000bbc    0x4  Data  Gb  system.o [1]
-LedI_Th                 0x20000000    0x4  Data  Gb  led.o [1]
-LedStateChange          0x200007eb    0x1  Data  Gb  state.o [1]
-LedStateChangeTick      0x200007fc    0x4  Data  Gb  state.o [1]
-Led_default             0x20000800    0x4  Data  Gb  state.o [1]
-LightDim                0x200014d7    0x1  Data  Gb  system.o [1]
-LightOn                 0x200014d6    0x1  Data  Gb  system.o [1]
-MpptBattCurrArray       0x20000014  0x7d0  Data  Gb  mppt.o [1]
-MpptBattMaxCurr         0x20000006    0x2  Data  Gb  mppt.o [1]
-MpptBattMaxVolt         0x20000008    0x2  Data  Gb  mppt.o [1]
-MpptPwmDutyCurr         0x2000000c    0x2  Data  Gb  mppt.o [1]
-MpptPwmDutyMax          0x2000000a    0x2  Data  Gb  mppt.o [1]
-MpptPwmDutyRef          0x2000000e    0x2  Data  Gb  mppt.o [1]
-MpptSign                0x20000005    0x1  Data  Gb  mppt.o [1]
-MpptStage               0x20000004    0x1  Data  Gb  mppt.o [1]
-PacketRxData            0x20001420   0x14  Data  Gb  connectivity.o [1]
-PacketTxData            0x20001408   0x14  Data  Gb  connectivity.o [1]
-PanelMinVoltage         0x20000c22    0x2  Data  Gb  panel.o [1]
-PanelMpptVoltage        0x20000c24    0x2  Data  Gb  panel.o [1]
-PanelVoltage            0x200014d2    0x2  Data  Gb  panel.o [1]
-Panel_Charging_Time     0x20000b80    0x4  Data  Gb  system.o [1]
-Panel_Discharging_Time  0x20000b84    0x4  Data  Gb  system.o [1]
-Region$$Table$$Base     0x08005d94          --   Gb  - Linker created -
-Region$$Table$$Limit    0x08005db4          --   Gb  - Linker created -
-RxQ                     0x20000c28  0x3f0  Data  Gb  connectivity.o [1]
-SCC_CCR_Value           0x20000b60    0x4  Data  Gb  system.o [1]
-SM_ThreeSl              0x08005925   0xfa  Code  Gb  state.o [1]
-SM_ThreeSl::changeState
-                        0x200007f5    0x1  Data  Lc  state.o [1]
-SM_ThreeSl::changeStateTick
-                        0x20000848    0x4  Data  Lc  state.o [1]
+                         0x800'2a0d    0xa  Code  Gb  system.o [1]
+HAL_WWDG_Init            0x800'41c1   0x44  Code  Gb  stm32f3xx_hal_wwdg.o [1]
+HAL_WWDG_MspInit         0x800'14c1   0x2e  Code  Gb  stm32f3xx_hal_msp.o [1]
+HAL_WWDG_Refresh         0x800'422d   0x2e  Code  Gb  stm32f3xx_hal_wwdg.o [1]
+HAL_WWDG_Start           0x800'4205   0x28  Code  Gb  stm32f3xx_hal_wwdg.o [1]
+HRTIM_OutputConfig       0x800'3965   0x96  Code  Lc  stm32f3xx_hal_hrtim.o [1]
+IgnoreLedCurrent        0x2000'0b55    0x1  Data  Gb  system.o [1]
+Ki                      0x2000'0bb0    0x4  Data  Gb  system.o [1]
+Kp                      0x2000'0bac    0x4  Data  Gb  system.o [1]
+LedCurrent              0x2000'0bbc    0x4  Data  Gb  system.o [1]
+LedCurrentErrorI        0x2000'0ba0    0x4  Data  Gb  system.o [1]
+LedCurrentErrorP        0x2000'0b9c    0x4  Data  Gb  system.o [1]
+LedCurrentGain          0x2000'0bb4    0x4  Data  Gb  system.o [1]
+LedCurrentGainI         0x2000'0ba8    0x4  Data  Gb  system.o [1]
+LedCurrentGainP         0x2000'0ba4    0x4  Data  Gb  system.o [1]
+LedI                    0x2000'0b40   0x10  Data  Gb  system.o [1]
+LedI_CurrTh             0x2000'0bb8    0x4  Data  Gb  system.o [1]
+LedI_Th                 0x2000'0000    0x4  Data  Gb  led.o [1]
+LedStateChange          0x2000'07eb    0x1  Data  Gb  state.o [1]
+LedStateChangeTick      0x2000'07fc    0x4  Data  Gb  state.o [1]
+Led_default             0x2000'0800    0x4  Data  Gb  state.o [1]
+LightDim                0x2000'14d3    0x1  Data  Gb  system.o [1]
+LightOn                 0x2000'14d2    0x1  Data  Gb  system.o [1]
+MpptBattCurrArray       0x2000'0014  0x7d0  Data  Gb  mppt.o [1]
+MpptBattMaxCurr         0x2000'0006    0x2  Data  Gb  mppt.o [1]
+MpptBattMaxVolt         0x2000'0008    0x2  Data  Gb  mppt.o [1]
+MpptPwmDutyCurr         0x2000'000c    0x2  Data  Gb  mppt.o [1]
+MpptPwmDutyMax          0x2000'000a    0x2  Data  Gb  mppt.o [1]
+MpptPwmDutyRef          0x2000'000e    0x2  Data  Gb  mppt.o [1]
+MpptSign                0x2000'0005    0x1  Data  Gb  mppt.o [1]
+MpptStage               0x2000'0004    0x1  Data  Gb  mppt.o [1]
+PacketRxData            0x2000'141c   0x14  Data  Gb  connectivity.o [1]
+PacketTxData            0x2000'1404   0x14  Data  Gb  connectivity.o [1]
+PanelMinVoltage         0x2000'0c1e    0x2  Data  Gb  panel.o [1]
+PanelMpptVoltage        0x2000'0c20    0x2  Data  Gb  panel.o [1]
+PanelVoltage            0x2000'14ce    0x2  Data  Gb  panel.o [1]
+Panel_Charging_Time     0x2000'0b7c    0x4  Data  Gb  system.o [1]
+Panel_Discharging_Time  0x2000'0b80    0x4  Data  Gb  system.o [1]
+Region$$Table$$Base      0x800'5d48          --   Gb  - Linker created -
+Region$$Table$$Limit     0x800'5d68          --   Gb  - Linker created -
+RxQ                     0x2000'0c24  0x3f0  Data  Gb  connectivity.o [1]
+SCC_CCR_Value           0x2000'0b5c    0x4  Data  Gb  system.o [1]
+SM_ThreeSl               0x800'5931   0xea  Code  Gb  state.o [1]
 SM_ThreeSl::currLedOnFlag
-                        0x200007f4    0x1  Data  Lc  state.o [1]
+                        0x2000'07f5    0x1  Data  Lc  state.o [1]
 SM_ThreeSl::prevLedOnFlag
-                        0x200007f3    0x1  Data  Lc  state.o [1]
-Sp1mlUart               0x200008a0   0x70  Data  Gb  system.o [1]
-StateFlags_AcDcLd       0x200014d4    0x1  Data  Gb  ac_dc_ld.o [1]
-StateFlags_Battery      0x20000c26    0x1  Data  Gb  battery.o [1]
-StateFlags_DcDcLd       0x200014c4    0x1  Data  Gb  dc_dc_ld.o [1]
-StateFlags_Led          0x200014d5    0x1  Data  Gb  led.o [1]
-StateFlags_Panel        0x20000c27    0x1  Data  Gb  panel.o [1]
-StateTable_Conn         0x2000082c    0x8  Data  Lc  state.o [1]
-StateTable_LED          0x20000804   0x14  Data  Lc  state.o [1]
-StateTable_SCC          0x20000818   0x14  Data  Lc  state.o [1]
-State_BatteryStatus     0x200007ee    0x1  Data  Gb  state.o [1]
-State_SensorStatus      0x200007ed    0x1  Data  Gb  state.o [1]
-State_SubSystem         0x200007ec    0x1  Data  Gb  state.o [1]
-SysTick_Handler         0x08002b19   0x12  Code  Gb  stm32f3xx_it.o [1]
-SystemClock_Config      0x08001b25   0x7a  Code  Gb  system.o [1]
-SystemCoreClock         0x20000c0c    0x4  Data  Gb  system_stm32f3xx.o [1]
-SystemInit              0x08005be1   0x5a  Code  Gb  system_stm32f3xx.o [1]
-Sytem_Reset_Trigger     0x20000bd0    0x4  Data  Gb  system.o [1]
+                        0x2000'07f4    0x1  Data  Lc  state.o [1]
+Sp1mlUart               0x2000'089c   0x70  Data  Gb  system.o [1]
+StateFlags_AcDcLd       0x2000'14d0    0x1  Data  Gb  ac_dc_ld.o [1]
+StateFlags_Battery      0x2000'0c22    0x1  Data  Gb  battery.o [1]
+StateFlags_DcDcLd       0x2000'14c0    0x1  Data  Gb  dc_dc_ld.o [1]
+StateFlags_Led          0x2000'14d1    0x1  Data  Gb  led.o [1]
+StateFlags_Panel        0x2000'0c23    0x1  Data  Gb  panel.o [1]
+StateTable_Conn         0x2000'082c    0x8  Data  Lc  state.o [1]
+StateTable_LED          0x2000'0804   0x14  Data  Lc  state.o [1]
+StateTable_SCC          0x2000'0818   0x14  Data  Lc  state.o [1]
+State_BatteryStatus     0x2000'07ee    0x1  Data  Gb  state.o [1]
+State_SensorStatus      0x2000'07ed    0x1  Data  Gb  state.o [1]
+State_SubSystem         0x2000'07ec    0x1  Data  Gb  state.o [1]
+SysTick_Handler          0x800'2af9   0x12  Code  Gb  stm32f3xx_it.o [1]
+SystemClock_Config       0x800'1b55   0x7a  Code  Gb  system.o [1]
+SystemCoreClock         0x2000'0c08    0x4  Data  Gb  system_stm32f3xx.o [1]
+SystemInit               0x800'5bd9   0x58  Code  Gb  system_stm32f3xx.o [1]
+Sytem_Reset_Trigger     0x2000'0bcc    0x4  Data  Gb  system.o [1]
 TIM1_TRG_COM_TIM17_IRQHandler
-                        0x08002b47   0x16  Code  Gb  stm32f3xx_it.o [1]
-TIM_Base_SetConfig      0x08003665   0x74  Code  Gb  stm32f3xx_hal_tim.o [1]
-TIM_OC1_SetConfig       0x080036d9   0x76  Code  Gb  stm32f3xx_hal_tim.o [1]
-TIM_OC2_SetConfig       0x0800374f   0x66  Code  Gb  stm32f3xx_hal_tim.o [1]
-TIM_OC3_SetConfig       0x080037b5   0x64  Code  Gb  stm32f3xx_hal_tim.o [1]
-TIM_OC4_SetConfig       0x08003819   0x54  Code  Gb  stm32f3xx_hal_tim.o [1]
-TIM_OC5_SetConfig       0x08003a49   0x52  Code  Lc  stm32f3xx_hal_tim_ex.o [1]
-TIM_OC6_SetConfig       0x08003a9b   0x54  Code  Lc  stm32f3xx_hal_tim_ex.o [1]
-TS_CAL1_H               0x20000b64    0x4  Data  Gb  system.o [1]
-TS_CAL1_L               0x20000b68    0x4  Data  Gb  system.o [1]
-TS_CAL2_H               0x20000b6c    0x4  Data  Gb  system.o [1]
-TS_CAL2_L               0x20000b70    0x4  Data  Gb  system.o [1]
-TempCal1H               0x20000b55    0x1  Data  Gb  system.o [1]
-TempCal1L               0x20000b54    0x1  Data  Gb  system.o [1]
-TempCal2H               0x20000b57    0x1  Data  Gb  system.o [1]
-TempCal2L               0x20000b56    0x1  Data  Gb  system.o [1]
-TempOffset              0x20000b78    0x4  Data  Gb  system.o [1]
-TempSlope               0x20000b74    0x4  Data  Gb  system.o [1]
-Temperature             0x20000b7c    0x4  Data  Gb  system.o [1]
-ThreeSL_State           0x200007e4    0x4  Data  Gb  state.o [1]
-ThreeSlDcDcLdLoopTim    0x20000910   0x3c  Data  Gb  system.o [1]
-ThreeSlLedAnaDimTim     0x20000a18   0x3c  Data  Gb  system.o [1]
-ThreeSlLedEnTim         0x200009dc   0x3c  Data  Gb  system.o [1]
-ThreeSlSccTim           0x20000964   0x3c  Data  Lc  system.o [1]
+                         0x800'2b27   0x16  Code  Gb  stm32f3xx_it.o [1]
+TIM_Base_SetConfig       0x800'3d21   0x72  Code  Gb  stm32f3xx_hal_tim.o [1]
+TIM_OC1_SetConfig        0x800'3d93   0x72  Code  Gb  stm32f3xx_hal_tim.o [1]
+TIM_OC2_SetConfig        0x800'3e05   0x66  Code  Gb  stm32f3xx_hal_tim.o [1]
+TIM_OC3_SetConfig        0x800'3e6b   0x64  Code  Gb  stm32f3xx_hal_tim.o [1]
+TIM_OC4_SetConfig        0x800'3ecf   0x54  Code  Gb  stm32f3xx_hal_tim.o [1]
+TIM_OC5_SetConfig        0x800'4101   0x52  Code  Lc  stm32f3xx_hal_tim_ex.o [1]
+TIM_OC6_SetConfig        0x800'4155   0x54  Code  Lc  stm32f3xx_hal_tim_ex.o [1]
+TS_CAL1_H               0x2000'0b60    0x4  Data  Gb  system.o [1]
+TS_CAL1_L               0x2000'0b64    0x4  Data  Gb  system.o [1]
+TS_CAL2_H               0x2000'0b68    0x4  Data  Gb  system.o [1]
+TS_CAL2_L               0x2000'0b6c    0x4  Data  Gb  system.o [1]
+TempCal1H               0x2000'0b51    0x1  Data  Gb  system.o [1]
+TempCal1L               0x2000'0b50    0x1  Data  Gb  system.o [1]
+TempCal2H               0x2000'0b53    0x1  Data  Gb  system.o [1]
+TempCal2L               0x2000'0b52    0x1  Data  Gb  system.o [1]
+TempOffset              0x2000'0b74    0x4  Data  Gb  system.o [1]
+TempSlope               0x2000'0b70    0x4  Data  Gb  system.o [1]
+Temperature             0x2000'0b78    0x4  Data  Gb  system.o [1]
+ThreeSL_State           0x2000'07e4    0x4  Data  Gb  state.o [1]
+ThreeSlDcDcLdLoopTim    0x2000'090c   0x3c  Data  Gb  system.o [1]
+ThreeSlLedAnaDimTim     0x2000'0a14   0x3c  Data  Gb  system.o [1]
+ThreeSlLedEnTim         0x2000'09d8   0x3c  Data  Gb  system.o [1]
+ThreeSlSccTim           0x2000'0960   0x3c  Data  Lc  system.o [1]
 ThreeSlSccTimAcutalDuty
-                        0x20000b5c    0x2  Data  Gb  system.o [1]
-Tick_10                 0x20000b5e    0x2  Data  Gb  system.o [1]
-Tick_1000s              0x20000bd4    0x4  Data  Gb  system.o [1]
-Tick_1h                 0x20000bd8    0x4  Data  Gb  system.o [1]
-Tick_Flag               0x20000bdc    0x4  Data  Gb  system.o [1]
-TxQ                     0x20001018  0x3f0  Data  Gb  connectivity.o [1]
-UART_AdvFeatureConfig   0x08004509   0xc6  Code  Gb  stm32f3xx_hal_uart.o [1]
-UART_CheckIdleState     0x080045d1   0x9a  Code  Gb  stm32f3xx_hal_uart.o [1]
-UART_SetConfig          0x08004389  0x162  Code  Gb  stm32f3xx_hal_uart.o [1]
-USART3_IRQHandler       0x08002b5d   0x10  Code  Gb  stm32f3xx_it.o [1]
-Uart_ResetCount         0x20000bcc    0x4  Data  Gb  system.o [1]
-Uart_Wait_Tick          0x20000bc8    0x4  Data  Gb  system.o [1]
-VoltageRef              0x20000010    0x2  Data  Gb  mppt.o [1]
-WWDG_IRQHandler         0x08002b6d    0xc  Code  Gb  stm32f3xx_it.o [1]
-WwdgHandle              0x20000a54   0x14  Data  Gb  system.o [1]
-__aeabi_d2iz            0x080049f9         Code  Gb  DblToS32.o [4]
-__aeabi_dadd            0x08004de5         Code  Gb  DblAdd.o [4]
-__aeabi_dmul            0x08004855         Code  Gb  DblMul.o [4]
-__aeabi_i2d             0x08004dc1         Code  Gb  S32ToDbl.o [4]
-__aeabi_ui2d            0x08004839         Code  Gb  U32ToDbl.o [4]
-__cmain                 0x08005db5         Code  Gb  cmain.o [5]
-__exit                  0x08005de9   0x14  Code  Gb  exit.o [6]
-__iar_dadd              0x08004f5d         Code  Gb  DblSub.o [4]
-__iar_data_init3        0x08005d49   0x28  Code  Gb  data_init.o [5]
-__iar_dsub              0x08004df5         Code  Gb  DblAdd.o [4]
-__iar_dsubStart         0x08004e07         Code  Gb  DblAdd.o [4]
-__iar_init_vfp          0x08005d71         Code  Gb  fpinit_M.o [4]
+                        0x2000'0b58    0x2  Data  Gb  system.o [1]
+Tick_10                 0x2000'0b5a    0x2  Data  Gb  system.o [1]
+Tick_1000s              0x2000'0bd0    0x4  Data  Gb  system.o [1]
+Tick_1h                 0x2000'0bd4    0x4  Data  Gb  system.o [1]
+Tick_Flag               0x2000'0bd8    0x4  Data  Gb  system.o [1]
+TxQ                     0x2000'1014  0x3f0  Data  Gb  connectivity.o [1]
+UART_AdvFeatureConfig    0x800'449d   0xc6  Code  Gb  stm32f3xx_hal_uart.o [1]
+UART_CheckIdleState      0x800'4563   0x9a  Code  Gb  stm32f3xx_hal_uart.o [1]
+UART_SetConfig           0x800'431d  0x162  Code  Gb  stm32f3xx_hal_uart.o [1]
+USART3_IRQHandler        0x800'2b3d   0x10  Code  Gb  stm32f3xx_it.o [1]
+Uart_ResetCount         0x2000'0bc8    0x4  Data  Gb  system.o [1]
+Uart_Wait_Tick          0x2000'0bc4    0x4  Data  Gb  system.o [1]
+VoltageRef              0x2000'0010    0x2  Data  Gb  mppt.o [1]
+WWDG_IRQHandler          0x800'2b4d    0xc  Code  Gb  stm32f3xx_it.o [1]
+WwdgHandle              0x2000'0a50   0x14  Data  Gb  system.o [1]
+__aeabi_d2iz             0x800'496d         Code  Gb  DblToS32.o [3]
+__aeabi_dadd             0x800'4d65         Code  Gb  DblAdd.o [3]
+__aeabi_dmul             0x800'47c9         Code  Gb  DblMul.o [3]
+__aeabi_i2d              0x800'4d41         Code  Gb  S32ToDbl.o [3]
+__aeabi_ui2d             0x800'47ad         Code  Gb  U32ToDbl.o [3]
+__cmain                  0x800'5d69         Code  Gb  cmain.o [4]
+__exit                   0x800'5d9d   0x14  Code  Gb  exit.o [5]
+__iar_dadd               0x800'4ee1         Code  Gb  DblSub.o [3]
+__iar_data_init3         0x800'5cfd   0x28  Code  Gb  data_init.o [4]
+__iar_dsub               0x800'4d75         Code  Gb  DblAdd.o [3]
+__iar_dsubStart          0x800'4d87         Code  Gb  DblAdd.o [3]
+__iar_init_vfp           0x800'5d25         Code  Gb  fpinit_M.o [3]
 __iar_packbits_init_single3
-                        0x08005d11   0x38  Code  Gb  packbits_init_single.o [5]
-__iar_program_start     0x08005e0d         Code  Gb  cstartup_M.o [5]
-__iar_systems$$module {Abs}
-                        0x00000001         Data  Gb  command line/config [2]
-__iar_zero_init3        0x08005cd1   0x40  Code  Gb  zero_init3.o [5]
-__low_level_init        0x08005dd3    0x4  Code  Gb  low_level_init.o [3]
-__vector_table          0x08000000         Data  Gb  startup_stm32f334x8.o [1]
-_call_main              0x08005dc1         Code  Gb  cmain.o [5]
-_exit                   0x08005ddd         Code  Gb  cexit.o [5]
-_main                   0x08005dcf         Code  Gb  cmain.o [5]
-aAPBAHBPrescTable       0x080031c8   0x10  Data  Gb  stm32f3xx_hal_rcc.o [1]
-aPLLMULFactorTable      0x080031d8   0x10  Data  Gb  stm32f3xx_hal_rcc.o [1]
-aPredivFactorTable      0x080031e8   0x10  Data  Gb  stm32f3xx_hal_rcc.o [1]
-ac_dc_ld_GetFlag        0x08005a9f   0x12  Code  Gb  ac_dc_ld.o [1]
-ac_dc_ld_ResetFlag      0x08005a93    0xc  Code  Gb  ac_dc_ld.o [1]
-ac_dc_ld_SetFlag        0x08005a89    0xa  Code  Gb  ac_dc_ld.o [1]
+                         0x800'5cc5   0x38  Code  Gb  packbits_init_single.o [4]
+__iar_program_start      0x800'5dc1         Code  Gb  cstartup_M.o [4]
+__iar_zero_init3         0x800'174f   0x3a  Code  Gb  zero_init3.o [4]
+__low_level_init         0x800'5d87    0x4  Code  Gb  low_level_init.o [2]
+__vector_table           0x800'0000         Data  Gb  startup_stm32f334x8.o [1]
+_call_main               0x800'5d75         Code  Gb  cmain.o [4]
+_exit                    0x800'5d91         Code  Gb  cexit.o [4]
+_main                    0x800'5d83         Code  Gb  cmain.o [4]
+aAPBAHBPrescTable        0x800'3160   0x10  Data  Gb  stm32f3xx_hal_rcc.o [1]
+aPLLMULFactorTable       0x800'3170   0x10  Data  Gb  stm32f3xx_hal_rcc.o [1]
+aPredivFactorTable       0x800'3180   0x10  Data  Gb  stm32f3xx_hal_rcc.o [1]
+ac_dc_ld_GetFlag         0x800'5a9b   0x12  Code  Gb  ac_dc_ld.o [1]
+ac_dc_ld_ResetFlag       0x800'5a8f    0xc  Code  Gb  ac_dc_ld.o [1]
+ac_dc_ld_SetFlag         0x800'5a85    0xa  Code  Gb  ac_dc_ld.o [1]
 battery_GetChargngCurrent
-                        0x080046ef    0x6  Code  Gb  battery.o [1]
-battery_GetFlag         0x08004719   0x12  Code  Gb  battery.o [1]
-battery_GetFltCurrent   0x080046fd    0x6  Code  Gb  battery.o [1]
-battery_GetFltVoltage   0x080046e3    0x6  Code  Gb  battery.o [1]
-battery_GetMaxCurrent   0x080046e9    0x6  Code  Gb  battery.o [1]
-battery_GetMaxVoltage   0x080046d7    0x6  Code  Gb  battery.o [1]
+                         0x800'467f    0x6  Code  Gb  battery.o [1]
+battery_GetFlag          0x800'46a9   0x12  Code  Gb  battery.o [1]
+battery_GetFltCurrent    0x800'468d    0x6  Code  Gb  battery.o [1]
+battery_GetFltVoltage    0x800'4673    0x6  Code  Gb  battery.o [1]
+battery_GetMaxCurrent    0x800'4679    0x6  Code  Gb  battery.o [1]
+battery_GetMaxVoltage    0x800'4667    0x6  Code  Gb  battery.o [1]
 battery_GetMinDischrgVoltage
-                        0x080046dd    0x6  Code  Gb  battery.o [1]
-battery_GetMinVoltage   0x080046d1    0x6  Code  Gb  battery.o [1]
-battery_GetVoltage      0x0800466d    0x6  Code  Gb  battery.o [1]
-battery_ResetFlag       0x0800470d    0xc  Code  Gb  battery.o [1]
-battery_SetFlag         0x08004703    0xa  Code  Gb  battery.o [1]
+                         0x800'466d    0x6  Code  Gb  battery.o [1]
+battery_GetMinVoltage    0x800'4661    0x6  Code  Gb  battery.o [1]
+battery_GetVoltage       0x800'45fd    0x6  Code  Gb  battery.o [1]
+battery_ResetFlag        0x800'469d    0xc  Code  Gb  battery.o [1]
+battery_SetFlag          0x800'4693    0xa  Code  Gb  battery.o [1]
 battery_UpdateChgCurrent
-                        0x080046f5    0x8  Code  Gb  battery.o [1]
-battery_UpdateVoltage   0x08004673   0x5e  Code  Gb  battery.o [1]
-conn_ExtractPacket      0x08004ab5  0x14e  Code  Gb  connectivity.o [1]
-conn_GetPacketData      0x08004c13    0xa  Code  Gb  connectivity.o [1]
+                         0x800'4685    0x8  Code  Gb  battery.o [1]
+battery_UpdateVoltage    0x800'4603   0x5e  Code  Gb  battery.o [1]
+changeState             0x2000'07f0    0x1  Data  Lc  state.o [1]
+conn_ExtractPacket       0x800'4a29  0x15c  Code  Gb  connectivity.o [1]
+conn_GetPacketData       0x800'4b95    0xa  Code  Gb  connectivity.o [1]
 conn_GetReadPacketDataStatus
-                        0x08004c0b    0x8  Code  Gb  connectivity.o [1]
-conn_PacketHandler      0x08004a6d   0x48  Code  Gb  connectivity.o [1]
-conn_ReadData           0x08004a35   0x38  Code  Gb  connectivity.o [1]
-conn_ResetConn          0x08004d1b   0x26  Code  Gb  connectivity.o [1]
-conn_SetPacketData      0x08004c1d    0xa  Code  Gb  connectivity.o [1]
+                         0x800'4b8d    0x8  Code  Gb  connectivity.o [1]
+conn_PacketHandler       0x800'49e1   0x48  Code  Gb  connectivity.o [1]
+conn_ReadData            0x800'49a9   0x38  Code  Gb  connectivity.o [1]
+conn_ResetConn           0x800'4c99   0x26  Code  Gb  connectivity.o [1]
+conn_SetPacketData       0x800'4b9f    0xa  Code  Gb  connectivity.o [1]
 conn_SetReadPacketDataStatus
-                        0x08004c03    0x8  Code  Gb  connectivity.o [1]
+                         0x800'4b85    0x8  Code  Gb  connectivity.o [1]
 conn_SetSendPacketStatus
-                        0x08004c29   0xf2  Code  Gb  connectivity.o [1]
-countBattLow            0x200007f6    0x2  Data  Gb  state.o [1]
-currentBattState        0x200007ef    0x1  Data  Gb  state.o [1]
-dc_dc_ld_GetFlag        0x0800481f   0x12  Code  Gb  dc_dc_ld.o [1]
-dc_dc_ld_GetOutVoltage  0x08004803    0x6  Code  Gb  dc_dc_ld.o [1]
-dc_dc_ld_ResetFlag      0x08004813    0xc  Code  Gb  dc_dc_ld.o [1]
-dc_dc_ld_SetFlag        0x08004809    0xa  Code  Gb  dc_dc_ld.o [1]
+                         0x800'4ba9   0xf0  Code  Gb  connectivity.o [1]
+countBattLow            0x2000'07f6    0x2  Data  Gb  state.o [1]
+currentBattState        0x2000'07ef    0x1  Data  Gb  state.o [1]
+dc_dc_ld_GetFlag         0x800'4793   0x12  Code  Gb  dc_dc_ld.o [1]
+dc_dc_ld_GetOutVoltage   0x800'4777    0x6  Code  Gb  dc_dc_ld.o [1]
+dc_dc_ld_ResetFlag       0x800'4787    0xc  Code  Gb  dc_dc_ld.o [1]
+dc_dc_ld_SetFlag         0x800'477d    0xa  Code  Gb  dc_dc_ld.o [1]
 dc_dc_ld_UpdateOutVoltage
-                        0x080047ad   0x56  Code  Gb  dc_dc_ld.o [1]
-exit                    0x08005dd7    0x4  Code  Gb  exit.o [3]
-hadc1                   0x2000084c   0x54  Data  Gb  system.o [1]
-hadc1Pr                 0x20001434   0x54  Data  Gb  system.o [1]
-hdma_adc1               0x2000148c   0x38  Data  Gb  system.o [1]
-hhrtim1                 0x20000a68   0xdc  Data  Gb  system.o [1]
-htm16                   0x200009a0   0x3c  Data  Gb  system.o [1]
-led_GetFlag             0x08004d6b   0x12  Code  Gb  led.o [1]
-led_GetThreshI          0x08004d49    0x6  Code  Gb  led.o [1]
-led_Over_Volt_Monitor   0x200014c8    0x4  Data  Gb  dc_dc_ld.o [1]
-led_ResetFlag           0x08004d5f    0xc  Code  Gb  led.o [1]
-led_SetFlag             0x08004d55    0xa  Code  Gb  led.o [1]
-led_SetThreshI          0x08004d4f    0x6  Code  Gb  led.o [1]
-main                    0x08005c51   0x4a  Code  Gb  main.o [1]
-mppt_Reinit             0x08005bd5    0x8  Code  Gb  mppt.o [1]
-mppt_Routine            0x08005ab5  0x120  Code  Gb  mppt.o [1]
-panel_GetFlag           0x08004789   0x12  Code  Gb  panel.o [1]
-panel_GetMinVoltage     0x08004761    0x6  Code  Gb  panel.o [1]
-panel_GetMpptVoltage    0x0800476d    0x6  Code  Gb  panel.o [1]
-panel_GetVoltage        0x08004767    0x6  Code  Gb  panel.o [1]
-panel_ResetFlag         0x0800477d    0xc  Code  Gb  panel.o [1]
-panel_SetFlag           0x08004773    0xa  Code  Gb  panel.o [1]
-panel_UpdateVoltage     0x08004759    0x8  Code  Gb  panel.o [1]
-state_BattChg_SCC       0x080052ed  0x15a  Code  Lc  state.o [1]
+                         0x800'473d   0x3a  Code  Gb  dc_dc_ld.o [1]
+exit                     0x800'5d8b    0x4  Code  Gb  exit.o [2]
+hadc1                   0x2000'0848   0x54  Data  Gb  system.o [1]
+hadc1Pr                 0x2000'1430   0x54  Data  Gb  system.o [1]
+hdma_adc1               0x2000'1488   0x38  Data  Gb  system.o [1]
+hhrtim1                 0x2000'0a64   0xdc  Data  Gb  system.o [1]
+htm16                   0x2000'099c   0x3c  Data  Gb  system.o [1]
+led_GetFlag              0x800'4ceb   0x12  Code  Gb  led.o [1]
+led_GetThreshI           0x800'4cc9    0x6  Code  Gb  led.o [1]
+led_Over_Volt_Monitor   0x2000'14c4    0x4  Data  Gb  dc_dc_ld.o [1]
+led_ResetFlag            0x800'4cdf    0xc  Code  Gb  led.o [1]
+led_SetFlag              0x800'4cd5    0xa  Code  Gb  led.o [1]
+led_SetThreshI           0x800'4ccf    0x6  Code  Gb  led.o [1]
+main                     0x800'5c45   0x4a  Code  Gb  main.o [1]
+mppt_Reinit              0x800'5bcd    0x8  Code  Gb  mppt.o [1]
+mppt_Routine             0x800'5ab1  0x11c  Code  Gb  mppt.o [1]
+panel_GetFlag            0x800'4719   0x12  Code  Gb  panel.o [1]
+panel_GetMinVoltage      0x800'46f1    0x6  Code  Gb  panel.o [1]
+panel_GetMpptVoltage     0x800'46fd    0x6  Code  Gb  panel.o [1]
+panel_GetVoltage         0x800'46f7    0x6  Code  Gb  panel.o [1]
+panel_ResetFlag          0x800'470d    0xc  Code  Gb  panel.o [1]
+panel_SetFlag            0x800'4703    0xa  Code  Gb  panel.o [1]
+panel_UpdateVoltage      0x800'46e9    0x8  Code  Gb  panel.o [1]
+state_BattChg_SCC        0x800'525f  0x15a  Code  Lc  state.o [1]
 state_BattChg_SCC::pwmDuty
-                        0x200007f8    0x2  Data  Lc  state.o [1]
-state_Conn_On           0x08005473  0x4b2  Code  Lc  state.o [1]
-state_Critical_Led      0x0800527b   0x36  Code  Lc  state.o [1]
-state_Critical_SCC      0x08005447   0x18  Code  Lc  state.o [1]
-state_FacSetting_Led    0x08005031    0x2  Code  Lc  state.o [1]
-state_FacSetting_SCC    0x080052b1    0xa  Code  Lc  state.o [1]
-state_Off_Led           0x08005033   0x2a  Code  Lc  state.o [1]
-state_Off_SCC           0x080052bb   0x14  Code  Lc  state.o [1]
-state_On_Led            0x080050fd  0x17e  Code  Lc  state.o [1]
+                        0x2000'07f8    0x2  Data  Lc  state.o [1]
+state_Conn_On            0x800'53e5  0x54c  Code  Lc  state.o [1]
+state_Critical_Led       0x800'51ed   0x36  Code  Lc  state.o [1]
+state_Critical_SCC       0x800'53b9   0x18  Code  Lc  state.o [1]
+state_FacSetting_Led     0x800'4fb5    0x2  Code  Lc  state.o [1]
+state_FacSetting_SCC     0x800'5223    0xa  Code  Lc  state.o [1]
+state_Off_Led            0x800'4fb7   0x2a  Code  Lc  state.o [1]
+state_Off_SCC            0x800'522d   0x14  Code  Lc  state.o [1]
+state_On_Led             0x800'5089  0x164  Code  Lc  state.o [1]
 state_On_Led::changeDim
-                        0x200007f2    0x1  Data  Lc  state.o [1]
+                        0x2000'07f3    0x1  Data  Lc  state.o [1]
 state_On_Led::changeDimTick
-                        0x20000844    0x4  Data  Lc  state.o [1]
+                        0x2000'0844    0x4  Data  Lc  state.o [1]
 state_On_Led::currLedDimFlag
-                        0x200007f1    0x1  Data  Lc  state.o [1]
+                        0x2000'07f2    0x1  Data  Lc  state.o [1]
 state_On_Led::prevLedDimFlag
-                        0x200007f0    0x1  Data  Lc  state.o [1]
-state_StartUp_Conn      0x0800545f   0x14  Code  Lc  state.o [1]
-state_StartUp_Led       0x0800505d   0xa0  Code  Lc  state.o [1]
-state_StartUp_SCC       0x080052cf   0x1e  Code  Lc  state.o [1]
-system_ADC1_Init        0x08001fbd   0xf4  Code  Lc  system.o [1]
-system_AcDcLdDisable    0x0800279f    0xc  Code  Gb  system.o [1]
-system_AcDcLdEnable     0x080027ab    0xc  Code  Gb  system.o [1]
+                        0x2000'07f1    0x1  Data  Lc  state.o [1]
+state_StartUp_Conn       0x800'53d1   0x14  Code  Lc  state.o [1]
+state_StartUp_Led        0x800'4fe1   0xa8  Code  Lc  state.o [1]
+state_StartUp_SCC        0x800'5241   0x1e  Code  Lc  state.o [1]
+system_AcDcLdDisable     0x800'2787    0xc  Code  Gb  system.o [1]
+system_AcDcLdEnable      0x800'2793    0xc  Code  Gb  system.o [1]
 system_AcDcLdOutDisable
-                        0x080027b7    0xe  Code  Gb  system.o [1]
-system_AcDcLdOutEnable  0x080027c5   0x1c  Code  Gb  system.o [1]
-system_AcDcSetDim       0x080027e1   0x16  Code  Gb  system.o [1]
-system_CalcBattCurrK    0x08002559    0xe  Code  Gb  system.o [1]
+                         0x800'279f    0xe  Code  Gb  system.o [1]
+system_AcDcLdOutEnable   0x800'27ad   0x1c  Code  Gb  system.o [1]
+system_AcDcSetDim        0x800'27c9   0x16  Code  Gb  system.o [1]
+system_CalcBattCurrK     0x800'2547    0xe  Code  Gb  system.o [1]
 system_CalcBattDischgCurrent
-                        0x08002567   0x56  Code  Gb  system.o [1]
+                         0x800'2555   0x56  Code  Gb  system.o [1]
 system_CheckPanelReverse
-                        0x08002459  0x100  Code  Gb  system.o [1]
+                         0x800'244d   0xfa  Code  Gb  system.o [1]
 system_CheckPanelReverse::reversePanelChVal
-                        0x20001488    0x4  Data  Lc  system.o [1]
-system_DcDcLdEnable     0x080026cb   0x52  Code  Gb  system.o [1]
+                        0x2000'1484    0x4  Data  Lc  system.o [1]
+system_DcDcLdEnable      0x800'26b5   0x52  Code  Gb  system.o [1]
 system_DcDcLdOutDisable
-                        0x0800271d   0x38  Code  Gb  system.o [1]
-system_DcDcLdOutEnable  0x08002755   0x22  Code  Gb  system.o [1]
-system_DcDcLdSet        0x08002663   0x68  Code  Gb  system.o [1]
+                         0x800'2707   0x38  Code  Gb  system.o [1]
+system_DcDcLdOutEnable   0x800'273f   0x22  Code  Gb  system.o [1]
+system_DcDcLdSet         0x800'264b   0x6a  Code  Gb  system.o [1]
 system_DcDcStartRegulate
-                        0x08002777   0x28  Code  Gb  system.o [1]
-system_DisableCharging  0x080025eb    0xa  Code  Gb  system.o [1]
-system_EnableCharging   0x080025f5    0xa  Code  Gb  system.o [1]
-system_GPIO_Init        0x08001e9d  0x120  Code  Lc  system.o [1]
-system_GetBattTick_10   0x080028b1    0x8  Code  Gb  system.o [1]
+                         0x800'2761   0x26  Code  Gb  system.o [1]
+system_DisableCharging   0x800'25d9    0xa  Code  Gb  system.o [1]
+system_EnableCharging    0x800'25e3    0xa  Code  Gb  system.o [1]
+system_GetBattTick_10    0x800'2891    0x8  Code  Gb  system.o [1]
 system_GetBattTick_1000s
-                        0x080028c1    0x8  Code  Gb  system.o [1]
-system_GetSccPwm        0x080025ff   0x10  Code  Gb  system.o [1]
+                         0x800'28a1    0x8  Code  Gb  system.o [1]
+system_GetSccPwm         0x800'25ed   0x12  Code  Gb  system.o [1]
 system_GetServerLightCommand
-                        0x080027f7    0x6  Code  Gb  system.o [1]
+                         0x800'27df    0x6  Code  Gb  system.o [1]
 system_GetServerLightDimCommand
-                        0x08002803    0x6  Code  Gb  system.o [1]
-system_GetTemperature   0x08002651    0xa  Code  Gb  system.o [1]
-system_GetUartWaitTick  0x0800280f    0x8  Code  Gb  system.o [1]
-system_HRTIM1_Init      0x080020b5  0x180  Code  Lc  system.o [1]
-system_Init             0x08001ba1  0x2fc  Code  Gb  system.o [1]
-system_Monitor          0x08002271   0xba  Code  Gb  system.o [1]
-system_PanelDisable     0x080025bd    0xc  Code  Gb  system.o [1]
-system_PanelEnable      0x080025c9   0x22  Code  Gb  system.o [1]
-system_ResetConn        0x08002841   0x6a  Code  Gb  system.o [1]
-system_ResetUartTick    0x08002817    0xa  Code  Gb  system.o [1]
-system_SetBattTick_10   0x080028b9    0x8  Code  Gb  system.o [1]
+                         0x800'27eb    0x6  Code  Gb  system.o [1]
+system_GetTemperature    0x800'2635    0xc  Code  Gb  system.o [1]
+system_GetUartWaitTick   0x800'27f7    0x8  Code  Gb  system.o [1]
+system_Init              0x800'1bd1  0x650  Code  Gb  system.o [1]
+system_Monitor           0x800'225b   0xbe  Code  Gb  system.o [1]
+system_PanelDisable      0x800'25ab    0xc  Code  Gb  system.o [1]
+system_PanelEnable       0x800'25b7   0x22  Code  Gb  system.o [1]
+system_ResetConn         0x800'281d   0x6a  Code  Gb  system.o [1]
+system_ResetUartTick     0x800'27ff    0xa  Code  Gb  system.o [1]
+system_SetBattTick_10    0x800'2899    0x8  Code  Gb  system.o [1]
 system_SetBattTick_1000s
-                        0x080028c9    0x8  Code  Gb  system.o [1]
+                         0x800'28ad    0x8  Code  Gb  system.o [1]
 system_SetIgnoreLedCurrent
-                        0x0800265b    0x8  Code  Gb  system.o [1]
-system_SetSccPwm        0x0800260f   0x42  Code  Gb  system.o [1]
+                         0x800'2641    0xa  Code  Gb  system.o [1]
+system_SetSccPwm         0x800'25ff   0x36  Code  Gb  system.o [1]
 system_SetServerLightCommand
-                        0x080027fd    0x6  Code  Gb  system.o [1]
+                         0x800'27e5    0x6  Code  Gb  system.o [1]
 system_SetServerLightDimCommand
-                        0x08002809    0x6  Code  Gb  system.o [1]
+                         0x800'27f1    0x6  Code  Gb  system.o [1]
 system_TransmitUartData
-                        0x08002821   0x16  Code  Gb  system.o [1]
+                         0x800'2809   0x14  Code  Gb  system.o [1]
 system_USART3_UART_Init
-                        0x08002235   0x3c  Code  Lc  system.o [1]
-system_UpdateSysParams  0x0800232b  0x12e  Code  Gb  system.o [1]
+                         0x800'2221   0x3a  Code  Lc  system.o [1]
+system_UpdateSysParams   0x800'2319  0x12e  Code  Gb  system.o [1]
 system_UpdateSysParams::battChgCurr
-                        0x20000be8    0x4  Data  Lc  system.o [1]
+                        0x2000'0be4    0x4  Data  Lc  system.o [1]
 system_UpdateSysParams::battVolt
-                        0x20000be0    0x4  Data  Lc  system.o [1]
+                        0x2000'0bdc    0x4  Data  Lc  system.o [1]
 system_UpdateSysParams::countBattChgCurr
-                        0x20000bec    0x4  Data  Lc  system.o [1]
+                        0x2000'0be8    0x4  Data  Lc  system.o [1]
 system_UpdateSysParams::countBattVolt
-                        0x20000be4    0x4  Data  Lc  system.o [1]
+                        0x2000'0be0    0x4  Data  Lc  system.o [1]
 system_UpdateSysParams::countLdOutVolt
-                        0x20000bfc    0x4  Data  Lc  system.o [1]
+                        0x2000'0bf8    0x4  Data  Lc  system.o [1]
 system_UpdateSysParams::countPanelVolt
-                        0x20000bf4    0x4  Data  Lc  system.o [1]
+                        0x2000'0bf0    0x4  Data  Lc  system.o [1]
 system_UpdateSysParams::countTempSensor
-                        0x20000c04    0x4  Data  Lc  system.o [1]
+                        0x2000'0c00    0x4  Data  Lc  system.o [1]
 system_UpdateSysParams::ldOutVolt
-                        0x20000bf8    0x4  Data  Lc  system.o [1]
+                        0x2000'0bf4    0x4  Data  Lc  system.o [1]
 system_UpdateSysParams::panelVolt
-                        0x20000bf0    0x4  Data  Lc  system.o [1]
+                        0x2000'0bec    0x4  Data  Lc  system.o [1]
 system_UpdateSysParams::tempSensor
-                        0x20000c00    0x4  Data  Lc  system.o [1]
-uwTick                  0x200014cc    0x4  Data  Lc  stm32f3xx_hal.o [1]
+                        0x2000'0bfc    0x4  Data  Lc  system.o [1]
+uwTick                  0x2000'14c8    0x4  Data  Lc  stm32f3xx_hal.o [1]
 
 
-[1] = I:\60W Node SCC Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj
-[2] = command line
-[3] = dl7M_tlf.a
-[4] = m7M_tls.a
-[5] = rt7M_tl.a
-[6] = shb_l.a
+[1] = E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj
+[2] = dl7M_tlf.a
+[3] = m7M_tls.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
 
-  24 262 bytes of readonly  code memory
+  24'186 bytes of readonly  code memory
      243 bytes of readonly  data memory
-   5 848 bytes of readwrite data memory
+   5'844 bytes of readwrite data memory
 
 Errors: none
 Warnings: none

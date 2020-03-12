@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"I:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "I:\60W Node SCC Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.general.xcl" --backend -f "I:\60W Node SCC Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.general.xcl" --backend -f "E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"I:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "I:\60W Node SCC Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.general.xcl" "--debug_file=%~1" --backend -f "I:\60W Node SCC Modified\3slnode-stmicro\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.general.xcl" "--debug_file=%~1" --backend -f "E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.driver.xcl" 
 
 @echo off 
 :end

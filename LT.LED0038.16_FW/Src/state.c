@@ -82,6 +82,7 @@ extern uint16_t BattMaxVoltage;
 extern uint16_t BattMinDischrgVoltage;
 extern uint8_t PacketRxData[PACKET_LENGTH];
 extern uint32_t Tick_Flag;
+static bool changeState = false;
 /* Private function prototypes -----------------------------------------------*/
 /* Different state functions */
 static void state_StartUp_Led(void);
@@ -181,6 +182,8 @@ void state_StartUp_Led(void)
       (!(battery_GetFlag(BATTERY_MASK_DSCHRG))))
   {                                                     
     system_DcDcLdOutEnable();                           /* Preference is to DC-DC over AC-DC */
+    system_AcDcLdOutDisable();
+    system_AcDcLdDisable();
     dc_dc_ld_SetFlag(DC_DC_LD_MASK_ENABLE);
     ac_dc_ld_ResetFlag(AC_DC_LD_MASK_ENABLE);
     battery_ResetFlag(BATTERY_MASK_CHRGD);
@@ -188,7 +191,7 @@ void state_StartUp_Led(void)
     State_SubSystem = State_SubSystem | 0x01;
     
   }
-  else
+ /* else
   {
     system_DcDcLdOutDisable();
      system_AcDcLdEnable();
@@ -198,7 +201,7 @@ void state_StartUp_Led(void)
     State_SubSystem = State_SubSystem | 0x02;
     State_SubSystem = State_SubSystem & 0xFE;
     conn_SetPacketData(ON_OFF_INDEX,100);
-  }
+  }*/
   
   LedStateChange = true;
   /* LEDs state has been changed and current tick is saved */
@@ -279,8 +282,8 @@ void state_On_Led(void)
   }
           if(Led_default <= 10000)
           {
-            led_SetThreshI((uint32_t)(DIMM_ONE));
-            conn_SetPacketData(ON_OFF_INDEX,25);
+            led_SetThreshI((uint32_t)(DIMM_TWO));
+            conn_SetPacketData(ON_OFF_INDEX,50);
             
           }
   
@@ -331,15 +334,15 @@ void state_On_Led(void)
       {
         battery_SetFlag(BATTERY_MASK_DSCHRG);
         system_DcDcLdOutDisable();
-         system_AcDcLdEnable();
-        system_AcDcLdOutEnable();         
+         /*system_AcDcLdEnable();
+        system_AcDcLdOutEnable();*/         
         battery_ResetFlag(BATTERY_MASK_OK);
         dc_dc_ld_ResetFlag(DC_DC_LD_MASK_ENABLE);
-        ac_dc_ld_SetFlag(AC_DC_LD_MASK_ENABLE);
-        led_SetThreshI((uint32_t)(LED_I_MAX));
+        //ac_dc_ld_SetFlag(AC_DC_LD_MASK_ENABLE);
+        //led_SetThreshI((uint32_t)(LED_I_MAX));
         State_SubSystem = State_SubSystem | 0x02;
         State_SubSystem = State_SubSystem & 0xFE;
-        conn_SetPacketData(ON_OFF_INDEX,100);
+        //conn_SetPacketData(ON_OFF_INDEX,100);
       }
     }
   }
@@ -618,7 +621,8 @@ void state_Conn_On(void)
  //////////////Added by Sunil to check brightness////////////////////
 //#if 1
           if (conn_GetPacketData(ON_OFF_INDEX) > 0x01 && conn_GetPacketData(ON_OFF_INDEX) <= 0x19) //25% bright
-          { 
+          {
+            changeState = true;
             if(dc_dc_ld_GetFlag(DC_DC_LD_MASK_ENABLE))
             {
             led_SetThreshI(DIMM_ONE);
@@ -631,7 +635,8 @@ void state_Conn_On(void)
               }
           }   
           else if (conn_GetPacketData(ON_OFF_INDEX) >= 0x1A && conn_GetPacketData(ON_OFF_INDEX) <= 0x32)//50% bright
-          { 
+          {
+            changeState = true;
             led_SetThreshI(DIMM_TWO);
             system_AcDcSetDim(20);
             //led_SetThreshI(85+((LED_I_MAX-85)/2));
@@ -639,6 +644,7 @@ void state_Conn_On(void)
           }
           else if (conn_GetPacketData(ON_OFF_INDEX) >= 0x33 && conn_GetPacketData(ON_OFF_INDEX) <= 0x4B)                                    //75% bright
           { 
+            changeState = true;
             led_SetThreshI(DIMM_THREE);
             //led_SetThreshI(85+(((LED_I_MAX-85)*3)/4));
               conn_SetPacketData(ON_OFF_INDEX, 75 | 0x80);     //Added By Chinna for User Action
@@ -958,7 +964,7 @@ void SM_ThreeSl(void)
 { 
   static bool prevLedOnFlag = false;
   static bool currLedOnFlag = false;
-  static bool changeState = false;
+  //static bool changeState = false;
   static uint32_t changeStateTick;
   
   StateTable_LED[CurrentState_LED]();
@@ -993,7 +999,7 @@ void SM_ThreeSl(void)
   prevLedOnFlag = currLedOnFlag;
   
   /* Change state when change state is true and time is away by 100ms */
-  if ((changeState == true) && (HAL_GetTick() == (changeStateTick + 100)))
+  if ((changeState == true))// && (HAL_GetTick() == (changeStateTick + 100)))
   {
     changeState = false;
     
