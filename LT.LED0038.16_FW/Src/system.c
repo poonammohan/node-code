@@ -105,7 +105,7 @@ uint32_t Sytem_Reset_Trigger=0;
 bool ReadDataPkt = false;
 
 bool Flag_AcDcLdEnable = true;
-
+uint32_t sample_duty=0;
 uint16_t Tick_10 = 1;
 uint32_t Tick_1000s = 1;
 uint32_t Tick_1h = 1;
@@ -725,19 +725,19 @@ void system_Monitor(void)
   
   if (panel_GetVoltage() > (panel_GetMinVoltage()))
   {
-    if(Panel_Charging_Time > 10000)
-    {
+   // if(Panel_Charging_Time > 10000)
+   // {
       panel_SetFlag(PANEL_MASK_OK);
       Panel_Charging_Time = 0;
       Panel_Discharging_Time = 0;
-    }
-    else{
+   // }
+    //else{
       Panel_Discharging_Time = 0;
-    }
+    //}
   }
   else
   {
-    if(Panel_Discharging_Time > 900000)
+    if(Panel_Discharging_Time > 120000)
     {
       panel_ResetFlag(PANEL_MASK_OK);
       Panel_Discharging_Time = 0;
@@ -1000,15 +1000,15 @@ void system_SetSccPwm(uint16_t duty)
   {
     __HAL_TIM_SET_COMPARE(&ThreeSlSccTim, THREE_SL_SCC_TIM_CHANNEL, 0);
   }
- // else if(ThreeSlSccTimAcutalDuty >= 40 && ThreeSlSccTimAcutalDuty <= 140)    
-  //{
-  __HAL_TIM_SET_COMPARE(&ThreeSlSccTim, THREE_SL_SCC_TIM_CHANNEL, 100);
-  //}
- //else
- // {
- // __HAL_TIM_SET_COMPARE(&ThreeSlSccTim, THREE_SL_SCC_TIM_CHANNEL,600);
-  //}
-  SCC_CCR_Value = __HAL_TIM_GET_COMPARE(&ThreeSlSccTim,THREE_SL_SCC_TIM_CHANNEL);
+  else if(ThreeSlSccTimAcutalDuty >= 50 && ThreeSlSccTimAcutalDuty <= 200)    
+  {
+  __HAL_TIM_SET_COMPARE(&ThreeSlSccTim, THREE_SL_SCC_TIM_CHANNEL, ThreeSlSccTimAcutalDuty);
+  }
+ else
+  {
+  __HAL_TIM_SET_COMPARE(&ThreeSlSccTim, THREE_SL_SCC_TIM_CHANNEL,ThreeSlSccTimAcutalDuty);
+  }
+  SCC_CCR_Value = __HAL_TIM_GET_COMPARE(&ThreeSlSccTim,120);
 }
 
 /**
@@ -1141,10 +1141,10 @@ void system_DcDcLdOutDisable(void)
 * @brief This function enables output of DC DC boost LED driver
 */
 void system_DcDcLdOutEnable(void)
-{  
+{
   /* Enable Output */
   __HAL_TIM_SET_COMPARE(&ThreeSlLedEnTim, THREE_SL_LED_EN_TIM_DC_DC_OUT_CH,
-                        THREE_SL_LED_EN_TIM_OUT_ON);
+                        THREE_SL_LED_EN_TIM_OUT_ON );
   
   __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_A, 
                          HRTIM_COMPAREUNIT_1, DcDcLdMinDutyPeriod);
@@ -1186,7 +1186,14 @@ void system_DcDcLdSetDuty(uint32_t duty)
   __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_B, HRTIM_COMPAREUNIT_1
                          , duty);   
 }
-
+void system_DcDcLdDim(uint8_t Duty)
+{  
+  /* Enable Output */
+  __HAL_TIM_SET_COMPARE(&ThreeSlLedEnTim, THREE_SL_LED_EN_TIM_DC_DC_OUT_CH,
+                        Duty);
+  sample_duty = __HAL_TIM_GET_COMPARE(&ThreeSlLedEnTim, THREE_SL_LED_EN_TIM_DC_DC_OUT_CH);
+  
+}
 
 /**
 * @brief This function disable AC DC LED driver

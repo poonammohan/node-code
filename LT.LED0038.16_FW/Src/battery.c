@@ -128,6 +128,7 @@ void battery_UpdateVoltage(uint32_t* volt,int32_t* tempMcu)
   BattFltVoltage_TC = (uint16_t)((int32_t)BattFltVoltage + 
                                  ((-3.461)*(*tempMcu - 25)));
   
+  
 }
 
 /**

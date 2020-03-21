@@ -247,6 +247,7 @@ void HAL_RCC_DeInit(void)
   /* Reset CFGR3 register */
   CLEAR_REG(RCC->CFGR3);
   
+  
   /* Disable all interrupts */
   CLEAR_REG(RCC->CIR);
 }

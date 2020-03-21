@@ -75,9 +75,9 @@ int main(void)
   system_CheckPanelReverse();
   
   /* Initialize required peripherals */
-  system_Init();
-  HAL_Delay(1);
-  /* Set status of LED driver, charge controller and connectivity */
+  system_Init();        // All MCC peripherals initialized in system.c
+  HAL_Delay(1);         // Delay of 1 ms just it mak sure the intializsations
+  /* Set status of LED driver, charge controller and connectivity */    // Initialize the default states for LED, Solar Charge Controller, Connection
   ThreeSL_State.state_LED = LED_STATE_OFF;
   ThreeSL_State.state_SCC = SCC_STATE_START_UP;
   ThreeSL_State.state_Conn = Conn_STATE_ON;
@@ -100,8 +100,7 @@ int main(void)
   {
 
     system_UpdateSysParams();
-    //system_Monitor(); //Added By Chinna
-    SM_ThreeSl();    
+    SM_ThreeSl();    /* Runs the main State Machine */
   }
 }
 

@@ -48,6 +48,7 @@ bool Flag_SendPacketData = false;
 /* Private function prototypes -----------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
 
+/* This function will read the data from Spirit module through UART and store in the RxQ buffer */
 void conn_ReadData(uint8_t data)
 {
   RxQ.buff[RxQ.endNxtPntr] = data;
@@ -67,6 +68,7 @@ void conn_ReadData(uint8_t data)
   }   
 }
 
+/* This function checks the packet and it will send to Spirit Module */
 void conn_PacketHandler(void)
 {
   conn_ExtractPacket();
@@ -81,7 +83,7 @@ void conn_PacketHandler(void)
   }
 }
 
-
+/* This function validates the packet */
 void conn_ExtractPacket(void)
 {
   if (RxQ.length >= PACKET_LENGTH)
@@ -128,27 +130,28 @@ void conn_ExtractPacket(void)
   }
 }
 
-
+/* This function will set the status for read */
 void conn_SetReadPacketDataStatus(bool status)
 {
   Flag_ReadPacketData = status;
 }
-
+/* This function gives the present status of read packet */
 bool conn_GetReadPacketDataStatus(void)
 {
   return Flag_ReadPacketData;
 }
 
+/* This function gets the packet data at partcular index */
 uint8_t conn_GetPacketData(uint16_t index)
 {
   return PacketRxData[index];
 }
-
+/* This function set the data at particular index */
 void conn_SetPacketData(uint16_t index, uint8_t data)
 {
   PacketTxData[index] = data;
 }
-
+/* This function validates the packet and stores*/
 void conn_SetSendPacketStatus(bool status)
 {
   if (status == true)

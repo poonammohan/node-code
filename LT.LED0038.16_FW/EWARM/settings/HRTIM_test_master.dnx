@@ -20,7 +20,7 @@
         <LeaveTargetRunning>_ 0</LeaveTargetRunning>
     </StLinkDriver>
     <DebugChecksum>
-        <Checksum>1246623217</Checksum>
+        <Checksum>860150217</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -77,6 +77,7 @@
         <Fmt6>{W}42:TempCal2L	3	0</Fmt6>
         <Fmt7>{W}42:battery_charging_curret_dup	3	0</Fmt7>
         <Fmt8>{W}42:conn_SetPacketData	3	0</Fmt8>
+        <Fmt9>{W}42:sample_duty_led	4	0</Fmt9>
     </watch_formats>
     <Trace2>
         <Enabled>0</Enabled>
@@ -150,9 +151,9 @@
     </DisassembleMode>
     <Breakpoints2>
         <Bp0>_ 0 "STD_LOG2" "{$PROJ_DIR$\..\Src\system.c}.748.7" "" 1 "" 0 0 0</Bp0>
-        <Bp1>_ 0 "STD_LOG2" "{$PROJ_DIR$\..\Src\state.c}.1097.1" "" 1 "" 0 0 0</Bp1>
-        <Bp2>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.388.3" 0 0 1 "" 0 "" 0</Bp2>
-        <Bp3>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.339.9" 0 0 1 "" 0 "" 0</Bp3>
+        <Bp1>_ 0 "STD_LOG2" "{$PROJ_DIR$\..\Src\state.c}.1085.1" "" 1 "" 0 0 0</Bp1>
+        <Bp2>_ 1 "STD_LOG2" "{$PROJ_DIR$\..\Src\main.c}.59.3" "" 1 "" 0 0 0</Bp2>
+        <Bp3>_ 1 "STD_LOG2" "{$PROJ_DIR$\..\Src\system.c}.1349.3" "" 1 "" 0 0 0</Bp3>
         <Count>4</Count>
     </Breakpoints2>
     <Aliases>

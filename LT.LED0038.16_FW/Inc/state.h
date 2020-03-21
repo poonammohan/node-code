@@ -77,6 +77,10 @@ typedef struct
 } ThreeSL_StateTypeDef;
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
+#define STATE_PIRENABLE      0
+#define STATE_ACSUPPLY_ENABLE   0
+#define STATE_TICK_CHARGEMODE   300000  /*300000 milli seconds - 5 mins*/
+#define STATE_UARTWAITTICK      300000
 /* Exported functions ------------------------------------------------------- */
 
 

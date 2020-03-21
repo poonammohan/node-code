@@ -1,24 +1,24 @@
-"E:\3slnode-stmicro\LT.LED0038.16_FW\Src\stm32f3xx_hal_msp.c"
+"E:\3slnode-stmicro - Copy\LT.LED0038.16_FW\Src\stm32f3xx_hal_msp.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -MD
 -MF
-E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_msp.pbi.dep
+E:\3slnode-stmicro - Copy\LT.LED0038.16_FW\EWARM\HRTIM_test_master\Obj\stm32f3xx_hal_msp.pbi.dep
 -o
 stm32f3xx_hal_msp.pbi
 -I
-E:\3slnode-stmicro\LT.LED0038.16_FW\Src
+E:\3slnode-stmicro - Copy\LT.LED0038.16_FW\Src
 -I
-E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM/../Inc
+E:\3slnode-stmicro - Copy\LT.LED0038.16_FW\EWARM/../Inc
 -I
-E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM/../Drivers/STM32F3xx_HAL_Driver/Inc
+E:\3slnode-stmicro - Copy\LT.LED0038.16_FW\EWARM/../Drivers/STM32F3xx_HAL_Driver/Inc
 -I
-E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM/../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy
+E:\3slnode-stmicro - Copy\LT.LED0038.16_FW\EWARM/../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy
 -I
-E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM/../Drivers/CMSIS/Include
+E:\3slnode-stmicro - Copy\LT.LED0038.16_FW\EWARM/../Drivers/CMSIS/Include
 -I
-E:\3slnode-stmicro\LT.LED0038.16_FW\EWARM/../Drivers/CMSIS/Device/ST/STM32F3xx/Include
+E:\3slnode-stmicro - Copy\LT.LED0038.16_FW\EWARM/../Drivers/CMSIS/Device/ST/STM32F3xx/Include
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\CMSIS\Core\Include
 -I
@@ -28,15 +28,15 @@ C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\inc
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\inc\c
 -I
-E:\3slnode-stmicro\LT.LED0038.16_FW\Inc
+E:\3slnode-stmicro - Copy\LT.LED0038.16_FW\Inc
 -I
-E:\3slnode-stmicro\LT.LED0038.16_FW\Drivers\STM32F3xx_HAL_Driver\Inc
+E:\3slnode-stmicro - Copy\LT.LED0038.16_FW\Drivers\STM32F3xx_HAL_Driver\Inc
 -I
-E:\3slnode-stmicro\LT.LED0038.16_FW\Drivers\STM32F3xx_HAL_Driver\Inc\Legacy
+E:\3slnode-stmicro - Copy\LT.LED0038.16_FW\Drivers\STM32F3xx_HAL_Driver\Inc\Legacy
 -I
-E:\3slnode-stmicro\LT.LED0038.16_FW\Drivers\CMSIS\Include
+E:\3slnode-stmicro - Copy\LT.LED0038.16_FW\Drivers\CMSIS\Include
 -I
-E:\3slnode-stmicro\LT.LED0038.16_FW\Drivers\CMSIS\Device\ST\STM32F3xx\Include
+E:\3slnode-stmicro - Copy\LT.LED0038.16_FW\Drivers\CMSIS\Device\ST\STM32F3xx\Include
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\CMSIS\Core\Include
 -I

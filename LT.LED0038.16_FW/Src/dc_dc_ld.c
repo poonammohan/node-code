@@ -63,14 +63,6 @@ void dc_dc_ld_UpdateOutVoltage(uint32_t* voltage)
     {
       dc_dc_ld_ResetFlag(DC_DC_LD_MASK_OVER_VOLTAGE);
     }
-   /* if(DcDcLdOutVoltage < DC_DC_LD_OUT_VOLT_MIN)
-    {
-      dc_dc_ld_SetFlag(DC_DC_LD_MASK_MIN_VOLTAGE);
-    }
-    else
-    {
-      dc_dc_ld_ResetFlag(DC_DC_LD_MASK_MIN_VOLTAGE);
-    }*/
   }
   }
   if(ThreeSL_State.state_LED == LED_STATE_OFF)

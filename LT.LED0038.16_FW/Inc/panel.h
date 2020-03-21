@@ -50,12 +50,13 @@
 #define PANEL_MASK_OVER_V       0x10 
 #define PANEL_MASK_REVERSE      0x20
 
-#define PANEL_MINIMUM_VOLTAGE   2300//12.82 V
+#define PANEL_MINIMUM_VOLTAGE   2450//13.9 V
 #define PANEL_MAXIMUM_VOLTAGE   4096
 #define PANEL_MPPT_VOLTAGE      3075//17.5 V
 #define PANEL_MIN_VOLTAGE       2550//14.5 V   
 #define PANEL_MAX_VOLTAGE       4096   
-   
+#define PANEL_CURRENT_CONSTANT  0.0475
+#define PANEL_VOLTAGE_CONSTANT  0.057
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
