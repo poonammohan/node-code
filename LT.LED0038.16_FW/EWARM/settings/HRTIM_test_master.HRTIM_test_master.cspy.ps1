@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "E:\3slnode-stmicro - Copy\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.general.xcl" --backend -f "E:\3slnode-stmicro - Copy\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\Users\Venky Rapaka\Pictures\3slnode-stmicro\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.general.xcl" --backend -f "C:\Users\Venky Rapaka\Pictures\3slnode-stmicro\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.driver.xcl" 
 }
 else
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "E:\3slnode-stmicro - Copy\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.general.xcl" --debug_file=$debugfile --backend -f "E:\3slnode-stmicro - Copy\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\Users\Venky Rapaka\Pictures\3slnode-stmicro\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.general.xcl" --debug_file=$debugfile --backend -f "C:\Users\Venky Rapaka\Pictures\3slnode-stmicro\LT.LED0038.16_FW\EWARM\settings\HRTIM_test_master.HRTIM_test_master.driver.xcl" 
 }

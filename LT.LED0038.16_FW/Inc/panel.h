@@ -32,8 +32,8 @@
   */
   
   /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __PANEL_H
-#define __PANEL_H
+#ifndef PANEL_H
+#define PANEL_H
 
 #ifdef __cplusplus
  extern "C" {

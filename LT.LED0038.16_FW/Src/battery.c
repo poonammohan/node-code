@@ -71,25 +71,25 @@ typedef enum
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-uint8_t StateFlags_Battery = 0x01;
+static uint8_t StateFlags_Battery = 0x01;
 
-uint16_t BattMinVoltage = BATTERY_MINIMUM_VOLTAGE;
-uint16_t BattMinDischrgVoltage = BATTERY_MIN_DISCHRG_VOLT;
-uint16_t BattFltVoltage = BATTERY_FLOAT_VOLTAGE;
+static uint16_t BattMinVoltage = BATTERY_MINIMUM_VOLTAGE;
+static uint16_t BattMinDischrgVoltage = BATTERY_MIN_DISCHRG_VOLT;
+static uint16_t BattFltVoltage = BATTERY_FLOAT_VOLTAGE;
 uint16_t BattFltVoltage_TC;//Temperature compensated float voltage
-uint16_t BattMaxVoltage = BATTERY_MAXIMUM_VOLTAGE;
+static uint16_t BattMaxVoltage = BATTERY_MAXIMUM_VOLTAGE;
 uint16_t BattMaxVoltage_TC;//Temperature compensated maximum voltage
-uint16_t BattFltCurrent = BATTERY_FLOAT_CURRENT_TH;
-uint16_t BattMaxChargingCurrent = BATTERY_MAXIMUM_CHARGING_CURRENT;
-uint16_t BattDeepDischrgTh = BATTERY_DEEP_DISCHRG_THRESHOLD;
+static uint16_t BattFltCurrent = BATTERY_FLOAT_CURRENT_TH;
+static uint16_t BattMaxChargingCurrent = BATTERY_MAXIMUM_CHARGING_CURRENT;
+//static uint16_t BattDeepDischrgTh = BATTERY_DEEP_DISCHRG_THRESHOLD;
 
-uint16_t BattChargingCurrent = 0;
-uint16_t BattDischargingCurrent = 0;
+static uint16_t BattChargingCurrent = 0;
+static uint16_t BattDischargingCurrent = 0;
 uint16_t BattVoltage = 0;
 
 
 /* Private function prototypes -----------------------------------------------*/
-void battery_Control(BatteryEnabeTypeDef);
+//static void battery_Control(BatteryEnabeTypeDef);
 BatteryPresentTypeDef battery_Is_Present(void);
 BatteryStatusTypeDef battery_Is_Ok(void);
 BatteryChargedTypeDef battery_Is_Charged(void);
@@ -114,21 +114,21 @@ uint16_t battery_GetVoltage(void)
          Input parameters are battery voltage and ambient temperature
 */
 void battery_UpdateVoltage(uint32_t* volt,int32_t* tempMcu)
-{  
+{
   BattVoltage = (uint16_t)*volt;
   /* Applying temperature compensation for maximum charging battery voltage
      and maximum float battery voltage
      Compensation of -30mV/degC/12V for battery maximum voltage with reference
      to 25 degC. It implies -5.769/degC for battery maximum voltage
-     Compensation of -18mV/degC/12V for battery float voltage with reference 
+     Compensation of -18mV/degC/12V for battery float voltage with reference
      to 25 degC. It implies -3.461/degC for battery float votlage */
-  BattMaxVoltage_TC = (uint16_t)((int32_t)BattMaxVoltage + 
+  BattMaxVoltage_TC = (uint16_t)((int32_t)BattMaxVoltage +
                                  ((-5.769)*(*tempMcu - 25)));
-    
-  BattFltVoltage_TC = (uint16_t)((int32_t)BattFltVoltage + 
+
+  BattFltVoltage_TC = (uint16_t)((int32_t)BattFltVoltage +
                                  ((-3.461)*(*tempMcu - 25)));
-  
-  
+
+
 }
 
 /**
@@ -224,10 +224,12 @@ void battery_ResetFlag(uint16_t flag)
 */
 bool battery_GetFlag(uint16_t flag)
 {
-  if (StateFlags_Battery & flag)
+  if (StateFlags_Battery & flag){
     return true;
-  else
+  }
+  else{
     return false;
+  }
 }
 
 /**

@@ -32,8 +32,8 @@
   */
   
   /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __COMMON_H
-#define __COMMON_H
+#ifndef COMMON_H
+#define COMMON_H
 
 #ifdef __cplusplus
  extern "C" {

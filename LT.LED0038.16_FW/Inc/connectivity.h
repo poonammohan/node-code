@@ -32,8 +32,8 @@
   */
   
   /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __CONNECTIVITY_H
-#define __CONNECTIVITY_H
+#ifndef CONNECTIVITY_H
+#define CONNECTIVITY_H
 
 #ifdef __cplusplus
  extern "C" {

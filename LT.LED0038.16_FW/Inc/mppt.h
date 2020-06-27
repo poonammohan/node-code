@@ -32,8 +32,8 @@
   */
   
   /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __MPPT_H
-#define __MPPT_H
+#ifndef MPPT_H
+#define MPPT_H
 
 #ifdef __cplusplus
  extern "C" {

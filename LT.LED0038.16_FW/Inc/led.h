@@ -30,14 +30,14 @@
   *
   ******************************************************************************
   */
-  
+
   /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __LED_H
 #define __LED_H
 
 #ifdef __cplusplus
  extern "C" {
-#endif 
+#endif
 
 /* Includes ------------------------------------------------------------------*/
 #include "common.h"
@@ -45,20 +45,21 @@
 //#define LED_I_MAX               85//225   //Minimum threshold current
 //   #define LED_I_MAX               168//225   //50% threshold current
 
-#define LED_I_MAX               130//225   //Maximum threshold current
+#define LED_I_MAX               110//225   //Maximum threshold current
 #define LED_I_OC                400
-   
+
 #define LED_ALL_FLAGS           0xFF
 
-#define LED_MASK_ENABLE         0x01    
+#define LED_MASK_ENABLE         0x01
 #define LED_MASK_DIM_ENABLE     0x02
-#define LED_DEFAULT             0x03    
+#define LED_DEFAULT             0x03
 #define LED_VOLTAGE_CONSTANT    0.0129
 #define LED_CURRENT_CONSTANT    0.1
 
-   
+
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
+
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 uint32_t led_GetThreshI(void);

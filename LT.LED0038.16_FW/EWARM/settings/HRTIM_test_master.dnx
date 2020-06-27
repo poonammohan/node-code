@@ -12,7 +12,7 @@
         <ByteLimit>50</ByteLimit>
     </Stack>
     <StLinkDriver>
-        <stlinkserialNo>45241387</stlinkserialNo>
+        <stlinkserialNo>36130743</stlinkserialNo>
         <stlinkfoundProbes />
         <stlinkResetStyle>0</stlinkResetStyle>
         <stlinkResetStrategy>0</stlinkResetStrategy>
@@ -20,12 +20,16 @@
         <LeaveTargetRunning>_ 0</LeaveTargetRunning>
     </StLinkDriver>
     <DebugChecksum>
-        <Checksum>860150217</Checksum>
+        <Checksum>1790211744</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
         <StopOnThrow>_ 0</StopOnThrow>
     </Exceptions>
+    <Disassembly>
+        <MixedMode>1</MixedMode>
+        <InstrCount>0</InstrCount>
+    </Disassembly>
     <CodeCoverage>
         <Enabled>0</Enabled>
         <ShowSource>0</ShowSource>
@@ -52,32 +56,8 @@
         <ITMportsLogFile>0</ITMportsLogFile>
         <ITMlogFile>$PROJ_DIR$\ITM.log</ITMlogFile>
     </SWOTraceHWSettings>
-    <Disassembly>
-        <MixedMode>1</MixedMode>
-        <InstrCount>0</InstrCount>
-    </Disassembly>
-    <Log_file>
-        <LoggingEnabled>_ 0</LoggingEnabled>
-        <LogFile>_ ""</LogFile>
-        <Category>_ 0</Category>
-    </Log_file>
-    <Disassemble_mode>
-        <mode>0</mode>
-    </Disassemble_mode>
-    <array_types>
-        <Fmt0>uint8_t[20]	3	0</Fmt0>
-    </array_types>
     <watch_formats>
-        <Fmt0>{W}42:BattDischgCurrent	3	0</Fmt0>
-        <Fmt1>{W}42:StateFlags_DcDcLd	1	0</Fmt1>
-        <Fmt2>{W}42:StateFlags_Panel	1	0</Fmt2>
-        <Fmt3>{W}42:TempCal1H	3	0</Fmt3>
-        <Fmt4>{W}42:TempCal1L	3	0</Fmt4>
-        <Fmt5>{W}42:TempCal2H	3	0</Fmt5>
-        <Fmt6>{W}42:TempCal2L	3	0</Fmt6>
-        <Fmt7>{W}42:battery_charging_curret_dup	3	0</Fmt7>
-        <Fmt8>{W}42:conn_SetPacketData	3	0</Fmt8>
-        <Fmt9>{W}42:sample_duty_led	4	0</Fmt9>
+        <Fmt0>{W}42:PacketTxData	0	8</Fmt0>
     </watch_formats>
     <Trace2>
         <Enabled>0</Enabled>
@@ -110,13 +90,13 @@
     </InterruptLog>
     <EventLog>
         <Title_0>Ch3</Title_0>
-        <Symbol_0>0 4 1</Symbol_0>
+        <Symbol_0>0 0 1</Symbol_0>
         <Title_1>Ch2</Title_1>
-        <Symbol_1>0 4 1</Symbol_1>
+        <Symbol_1>0 0 1</Symbol_1>
         <Title_2>Ch1</Title_2>
-        <Symbol_2>0 4 1</Symbol_2>
+        <Symbol_2>0 0 1</Symbol_2>
         <Title_3>Ch0</Title_3>
-        <Symbol_3>0 4 1</Symbol_3>
+        <Symbol_3>0 0 1</Symbol_3>
         <LogEnabled>0</LogEnabled>
         <GraphEnabled>0</GraphEnabled>
         <ShowTimeLog>1</ShowTimeLog>
@@ -150,21 +130,11 @@
         <mode>0</mode>
     </DisassembleMode>
     <Breakpoints2>
-        <Bp0>_ 0 "STD_LOG2" "{$PROJ_DIR$\..\Src\system.c}.748.7" "" 1 "" 0 0 0</Bp0>
-        <Bp1>_ 0 "STD_LOG2" "{$PROJ_DIR$\..\Src\state.c}.1085.1" "" 1 "" 0 0 0</Bp1>
-        <Bp2>_ 1 "STD_LOG2" "{$PROJ_DIR$\..\Src\main.c}.59.3" "" 1 "" 0 0 0</Bp2>
-        <Bp3>_ 1 "STD_LOG2" "{$PROJ_DIR$\..\Src\system.c}.1349.3" "" 1 "" 0 0 0</Bp3>
-        <Count>4</Count>
+        <Bp0>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\Src\state.c}.752.65" 0 0 1 "" 0 "" 0</Bp0>
+        <Count>1</Count>
     </Breakpoints2>
     <Aliases>
-        <A0>_ "C:\Projects\Solar Streetlight\solar-street-light\Firmware\LT.LED0038.16_FW\Drivers\CMSIS\Device\ST\STM32F3xx\Source\Templates\system_stm32f3xx.c" ""</A0>
-        <A1>_ "C:\Projects\Solar Streetlight\solar-street-light\Firmware\LT.LED0038.16_FW\Drivers\STM32F3xx_HAL_Driver\Src\stm32f3xx_hal.c" ""</A1>
-        <A2>_ "C:\Projects\Solar Streetlight\solar-street-light\Firmware\LT.LED0038.16_FW\Src\main.c" ""</A2>
-        <A3>_ "C:\Projects\Solar Streetlight\solar-street-light\Firmware\LT.LED0038.16_FW\Src\mppt.c" "D:\Project\3SL_NODE_ORIGINAL\LT.LED0038.16_FW\Src\mppt.c"</A3>
-        <A4>_ "C:\Projects\Solar Streetlight\solar-street-light\Firmware\LT.LED0038.16_FW\Src\stm32f3xx_it.c" ""</A4>
-        <A5>_ "C:\Users\r1219\Desktop\3SL_Node_Buzzer_PIR_Chinna\3SL_Node_ Edited\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\Src\main.c" ""</A5>
-        <A6>_ "C:\Users\r1219\Desktop\3SL_Node_Buzzer_PIR_Chinna\3SL_Node_ Edited\3SL_Node_with_comm_packet_v5(cloud_response_modified_dim_led) - Moified_30_09_2018\LT.LED0038.16_FW\Src\mppt.c" ""</A6>
-        <Count>7</Count>
-        <SuppressDialog>1</SuppressDialog>
+        <Count>0</Count>
+        <SuppressDialog>0</SuppressDialog>
     </Aliases>
 </settings>

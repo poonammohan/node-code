@@ -1,2 +1,3 @@
-buzzer.pbi: E:\3slnode-stmicro\ -\ Copy\LT.LED0038.16_FW\Src\buzzer.c \
-  E:\3slnode-stmicro\ -\ Copy\LT.LED0038.16_FW\EWARM/../Inc\buzzer.h
+buzzer.pbi: \
+  C:\Users\Venky\ Rapaka\Pictures\3slnode-stmicro\LT.LED0038.16_FW\Src\buzzer.c \
+  C:\Users\Venky\ Rapaka\Pictures\3slnode-stmicro\LT.LED0038.16_FW\EWARM\..\Inc\buzzer.h

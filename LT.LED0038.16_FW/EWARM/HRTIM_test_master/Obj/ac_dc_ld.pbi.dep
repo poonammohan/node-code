@@ -1,10 +1,11 @@
-ac_dc_ld.pbi: E:\3slnode-stmicro\ -\ Copy\LT.LED0038.16_FW\Src\ac_dc_ld.c \
-  E:\3slnode-stmicro\ -\ Copy\LT.LED0038.16_FW\EWARM/../Inc\ac_dc_ld.h \
-  E:\3slnode-stmicro\ -\ Copy\LT.LED0038.16_FW\EWARM/../Inc/common.h \
+ac_dc_ld.pbi: \
+  C:\Users\Venky\ Rapaka\Pictures\3slnode-stmicro\LT.LED0038.16_FW\Src\ac_dc_ld.c \
+  C:\Users\Venky\ Rapaka\Pictures\3slnode-stmicro\LT.LED0038.16_FW\EWARM\..\Inc\ac_dc_ld.h \
+  C:\Users\Venky\ Rapaka\Pictures\3slnode-stmicro\LT.LED0038.16_FW\EWARM\..\Inc/common.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\stdint.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\ycheck.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\yvals.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\DLib_Defaults.h \
-  C:\\Program\ Files\ (x86)\\IAR\ Systems\\Embedded\ Workbench\ 8.3\\arm\\inc\\c\\DLib_Config_Full.h \
+  C:\\Program\ Files\ (x86)\\IAR\ Systems\\Embedded\ Workbench\ 8.3\\arm\\inc\\c\\DLib_Config_Normal.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\DLib_Product.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\stdbool.h
