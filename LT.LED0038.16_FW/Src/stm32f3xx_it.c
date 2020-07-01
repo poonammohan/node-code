@@ -40,7 +40,7 @@
 extern DMA_HandleTypeDef hdma_adc1;
 extern ADC_HandleTypeDef hadc1;
 extern TIM_HandleTypeDef ThreeSlDcDcLdLoopTim;
-extern TIM_HandleTypeDef htm16; //Added by Madhava
+extern TIM_HandleTypeDef htm16; 
 extern UART_HandleTypeDef Sp1mlUart;
 extern WWDG_HandleTypeDef WwdgHandle;
 
@@ -123,25 +123,21 @@ void WWDG_IRQHandler (void)
 /**
 * @brief This function handles EXTI line[15:10] interrupts.
 */
-void EXTI15_10_IRQHandler(void)    //Added by Madhava
+void EXTI15_10_IRQHandler(void)   
   {
     HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
 
   }
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) { //Added by Madhava
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) { 
   if (GPIO_Pin == GPIO_PIN_10) {
 
 #if 0
-    if(led_GetFlag(LED_MASK_DIM_ENABLE))        // Added By Chinna
+    if(led_GetFlag(LED_MASK_DIM_ENABLE))       
       {
         led_SetFlag(LED_MASK_ENABLE);
       }
 #endif
-    //  if( HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10) != SET)
-    //{
-    //led_ResetFlag(LED_MASK_ENABLE);
     led_ResetFlag(LED_MASK_DIM_ENABLE);
-    //}
 #if 0
     if(dc_dc_ld_GetFlag(DC_DC_LD_MASK_ENABLE) || ac_dc_ld_GetFlag(AC_DC_LD_MASK_ENABLE))
       {
@@ -151,15 +147,12 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) { //Added by Madhava
 #endif
 
 
-#if 0   //disabled by Chinna
-    //HAL_GPIO_WritePin(GPIOA, LD2_Pin, GPIO_PIN_SET);
+#if 0   
     HAL_TIM_PWM_Start(&htm16,TIM_CHANNEL_1);
     while( HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10));
     HAL_TIM_PWM_Stop(&htm16,TIM_CHANNEL_1);
-    //HAL_GPIO_WritePin(GPIOA, LD2_Pin, GPIO_PIN_RESET);
 #endif
   }else {
-    //DO NOTHING
   }
 }
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -47,15 +47,15 @@ typedef enum
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 static MpptStageTypeDef MpptStage = MPPT_INIT;
-//static MpptDutyChangeTypeDef MpptDutyChange = MPPT_DUTY_NO_CHANGE;
+/*      static MpptDutyChangeTypeDef MpptDutyChange = MPPT_DUTY_NO_CHANGE;    */
 static uint16_t MpptBattMaxCurr;
-//static uint16_t MpptBattMaxVolt;
+/*static uint16_t MpptBattMaxVolt;      */
 static uint16_t MpptPwmDutyMax;
 static uint16_t MpptPwmDutyCurr;
 static uint16_t MpptPwmDutyRef;
 static uint16_t MpptBattCurrArray[1000];
 static uint8_t MpptSign = MPPT_POSITIVE;
-//static uint16_t VoltageRef;
+/*static uint16_t VoltageRef;   */
 /* Private function prototypes -----------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
 
@@ -76,7 +76,7 @@ uint16_t mppt_Routine(uint16_t targetVoltage,uint16_t targetCurrent,
         /* Initialize mppt routine */
       case MPPT_INIT:
         MpptBattMaxCurr = 0;
-        //MpptBattMaxVolt = 0;
+        /*MpptBattMaxVolt = 0;*/
         MpptPwmDutyMax = 0;
         MpptPwmDutyCurr = 0;
         MpptStage = MPPT_SCAN;
@@ -87,7 +87,7 @@ uint16_t mppt_Routine(uint16_t targetVoltage,uint16_t targetCurrent,
         if (MpptBattMaxCurr < currentCurrent)
           {
             MpptBattMaxCurr = currentCurrent;
-            //MpptBattMaxVolt = currentVoltage;
+            /*MpptBattMaxVolt = currentVoltage; */
             /* Duty cycle corresponding to maximum battery current */
             MpptPwmDutyMax = currentPwm;
           }
@@ -183,7 +183,7 @@ uint16_t mppt_Routine(uint16_t targetVoltage,uint16_t targetCurrent,
         voltage case. Perturb and observe is not required in this case */
         if (targetVoltage <= currentVoltage)
           {
-            //VoltageRef = currentVoltage;
+            /*VoltageRef = currentVoltage;      */
             MpptStage = TRACK_VOLTAGE;
           }
         break;

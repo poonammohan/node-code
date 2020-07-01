@@ -47,7 +47,7 @@ ADC_HandleTypeDef hadc1Pr;
 DMA_HandleTypeDef hdma_adc1;
 HRTIM_HandleTypeDef hhrtim1;
 static TIM_HandleTypeDef ThreeSlSccTim;
-TIM_HandleTypeDef htm16; //Added by Madhava (htm16)
+TIM_HandleTypeDef htm16; 
 
 TIM_HandleTypeDef ThreeSlLedEnTim;
 TIM_HandleTypeDef ThreeSlLedAnaDimTim;
@@ -126,7 +126,7 @@ static void system_TIM17_Init(void);
 static void system_TIM15_Init(void);
 static void system_TempSensorInit(void);
 static void system_WWDG_Init(void);
-static void MX_TIM16_Init(void);  //Added by Madhava
+static void MX_TIM16_Init(void);  
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 void HAL_HRTIM_MspPostInit(HRTIM_HandleTypeDef *hhrtim);
 
@@ -183,7 +183,7 @@ void system_Init(void)
     system_TIM17_Init();
     system_TIM3_Init();
     system_TIM15_Init();
-    MX_TIM16_Init(); //Added by Madhava
+    MX_TIM16_Init(); 
     system_USART3_UART_Init();
 
     /* Temperature sensor init */
@@ -208,7 +208,7 @@ void system_Init(void)
 * @param None
 * @retval None
 */
-static void MX_TIM16_Init(void)  //Added by Madhava
+static void MX_TIM16_Init(void)  
   {
 
 
@@ -219,26 +219,26 @@ static void MX_TIM16_Init(void)  //Added by Madhava
     htm16.Instance = TIM16;
     htm16.Init.Prescaler = 159;
     htm16.Init.CounterMode = TIM_COUNTERMODE_UP;
-    htm16.Init.Period = 99;      //200 is replaced by 100(chinna)
+    htm16.Init.Period = 99;      /*     200 is replaced by 100(chinna)       */
     htm16.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
     if (HAL_TIM_Base_Init(&htm16) != HAL_OK)
       {
-        // Error_Handler();
+        
       }
     sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
     if (HAL_TIM_ConfigClockSource(&htm16, &sClockSourceConfig) != HAL_OK)
       {
-        //Error_Handler();
+        
       }
     if (HAL_TIM_PWM_Init(&htm16) != HAL_OK)
       {
-        //Error_Handler();
+       
       }
     sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
     sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
     if (HAL_TIMEx_MasterConfigSynchronization(&htm16, &sMasterConfig) != HAL_OK)
       {
-        //Error_Handler();
+   
       }
     sConfigOC.OCMode = TIM_OCMODE_PWM1;
     sConfigOC.Pulse = 50;
@@ -275,11 +275,11 @@ void system_GPIO_Init(void)
     __GPIOD_CLK_ENABLE();
 
     /*Configure GPIO pin Output Level */
-    HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7, GPIO_PIN_RESET);//Added by Sunil GPIO_PIN_5
-    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10, GPIO_PIN_RESET);//AC DC Enable
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);//PIR OUT reset (added by Madhava)
+    HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10, GPIO_PIN_RESET);/*    AC DC Enable        */
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);/*    PIR OUT reset       */ 
     /*Configure GPIO pins : PB6 PB7 */
-    GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7;//Added by Sunil GPIO_PIN_5
+    GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7;
     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
@@ -291,7 +291,7 @@ void system_GPIO_Init(void)
     GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct); */
 
-    GPIO_InitStruct.Pin = GPIO_PIN_10;          //added by Madhava for PIR_OUT
+    GPIO_InitStruct.Pin = GPIO_PIN_10;          /*   added by Madhava for PIR_OUT  */
     GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
     GPIO_InitStruct.Pull = GPIO_PULLDOWN;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -424,7 +424,6 @@ void system_DMA_Init(void)
     /* DMA interrupt init */
     HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 1);
     /* Uncomment to enable DMA Channel 1 Interrupt Request */
-    //  HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
 
   }
 
@@ -544,18 +543,19 @@ void system_TIM2_Init(void)
     ThreeSlSccTim.Instance = THREE_SL_SCC_TIM;
     ThreeSlSccTim.Init.Prescaler = 0;
     ThreeSlSccTim.Init.CounterMode = TIM_COUNTERMODE_UP;
-    ThreeSlSccTim.Init.Period = 600;//THREESL_SCC_PWM_DUTY_MAX;
+    ThreeSlSccTim.Init.Period = THREESL_SCC_PWM_DUTY_MAX;    /*THREESL_SCC_PWM_DUTY_MAX;*/
     ThreeSlSccTim.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
     HAL_TIM_PWM_Init(&ThreeSlSccTim);
 
     ThreeSlSccTim.Instance->CR1|=(TIM_CR1_ARPE);
 
+    
     sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
     sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
     HAL_TIMEx_MasterConfigSynchronization(&ThreeSlSccTim, &sMasterConfig);
 
     sConfigOC.OCMode = TIM_OCMODE_PWM1;
-    sConfigOC.Pulse = THREESL_SCC_PWM_DUTY_MAX+1;
+    sConfigOC.Pulse = THREESL_SCC_PWM_DUTY_MAX+1;       //THREESL_SCC_PWM_DUTY_MAX=1000
     sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
     sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
     HAL_TIM_PWM_ConfigChannel(&ThreeSlSccTim, &sConfigOC, TIM_CHANNEL_1);
@@ -642,7 +642,7 @@ void system_TIM15_Init(void)
     HAL_TIMEx_MasterConfigSynchronization(&ThreeSlLedAnaDimTim, &sMasterConfig);
 
     sConfigOC.OCMode = TIM_OCMODE_PWM1;
-    sConfigOC.Pulse = 10;//THREE_SL_LED_ANA_TIM_PERIOD/2 + 1;
+    sConfigOC.Pulse = 10;       /*      THREE_SL_LED_ANA_TIM_PERIOD/2 + 1;    */
     sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
     sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
     sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
@@ -725,15 +725,10 @@ void system_Monitor(void)
 
     if (panel_GetVoltage() > (panel_GetMinVoltage()))
       {
-        // if(Panel_Charging_Time > 10000)
-        // {
         panel_SetFlag(PANEL_MASK_OK);
         Panel_Charging_Time = 0;
         Panel_Discharging_Time = 0;
-        // }
-        //else{
         Panel_Discharging_Time = 0;
-        //}
       }
     else
       {
@@ -881,7 +876,7 @@ void system_CheckPanelReverse(void)
 
     for (uint8_t count=0; count<noOfReversePanelChSamples; count++)
       {
-        while (!(__HAL_ADC_GET_FLAG(&hadc1Pr, ADC_FLAG_EOC)));
+        while (!(__HAL_ADC_GET_FLAG(&hadc1Pr, ADC_FLAG_EOC))){};
         reversePanelChVal += hadc1Pr.Instance->DR;
       }
 
@@ -1201,8 +1196,7 @@ void system_DcDcLdDim(uint8_t Duty)
 void system_AcDcLdDisable(void)
   {
     /* Disable AC DC */
-    GPIOC->BSRR = (uint32_t)GPIO_PIN_10;//------>originally was there commented by me
-    //  GPIOC->BRR = (uint32_t)GPIO_PIN_10;// Added by Sunil
+    GPIOC->BSRR = (uint32_t)GPIO_PIN_10;/*------>originally was there commented by me   */
   }
 
 /**
@@ -1211,8 +1205,7 @@ void system_AcDcLdDisable(void)
 void system_AcDcLdEnable(void)
   {
     /* Enable AC DC */
-    GPIOC->BRR = (uint32_t)GPIO_PIN_10;//------>originally was there commented by me
-    //  GPIOC->BSRR = (uint32_t)GPIO_PIN_10;// Added by Sunil
+    GPIOC->BRR = (uint32_t)GPIO_PIN_10;/*------>originally was there commented by me    */
   }
 
 /**
@@ -1223,7 +1216,6 @@ void system_AcDcLdOutDisable(void)
     /* Disable Output */
     __HAL_TIM_SET_COMPARE(&ThreeSlLedEnTim, THREE_SL_LED_EN_TIM_AC_DC_OUT_CH,
                           THREE_SL_LED_EN_TIM_OUT_OFF);
-    // AcDcCcrPeriod = __HAL_TIM_GET_COMPARE(&ThreeSlLedEnTim,THREE_SL_LED_EN_TIM_AC_DC_OUT_CH);
   }
 
 /**
@@ -1237,15 +1229,13 @@ void system_AcDcLdOutEnable(void)
     /* Enable Output */
     __HAL_TIM_SET_COMPARE(&ThreeSlLedEnTim, THREE_SL_LED_EN_TIM_AC_DC_OUT_CH,
                           THREE_SL_LED_EN_TIM_OUT_ON);
-    // AcDcCcrPeriod = __HAL_TIM_GET_COMPARE(&ThreeSlLedEnTim,THREE_SL_LED_EN_TIM_AC_DC_OUT_CH);
-
     system_AcDcLdEnable();
   }
 /*********************Added by Sunil***********************************/
 bool system_GetTim3ACCCr_val(void)
   {
     AcDcCcrPeriod = __HAL_TIM_GET_COMPARE(&ThreeSlLedEnTim,THREE_SL_LED_EN_TIM_AC_DC_OUT_CH);
-    if((AcDcCcrPeriod > 0) )//&& (dc_dc_ld_GetOutVoltage()> DC_DC_LD_OUT_VOLT_25) )
+    if((AcDcCcrPeriod > 0) )    /*&& (dc_dc_ld_GetOutVoltage()> DC_DC_LD_OUT_VOLT_25) )*/
       {
         if(dc_dc_ld_GetOutVoltage()> DC_DC_LD_OUT_VOLT_25)
           {
@@ -1370,9 +1360,6 @@ SP1ML
 */
 void system_ResetModuleConn(void)
   {
-    //GPIOB->BRR = (uint32_t)GPIO_PIN_14;
-    //HAL_Delay(1);
-    //GPIOB->BSRR = (uint32_t)GPIO_PIN_14;
     HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14,GPIO_PIN_SET);
   }
 
@@ -1507,11 +1494,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
     if (LedCurrent < LedI_CurrTh/2)
       {
-        DcDcLdDutyChange = LedCurrentGain>>6;//LedCurrentGain>>2;
+        DcDcLdDutyChange = LedCurrentGain>>6;/*LedCurrentGain>>2;*/
       }
     else
       {
-        DcDcLdDutyChange = LedCurrentGain>>6;//LedCurrentGain>>4;
+        DcDcLdDutyChange = LedCurrentGain>>6;
       }
 
     DcDcLdDutyPeriod += DcDcLdDutyChange;
@@ -1553,16 +1540,15 @@ void HAL_SYSTICK_Callback(void)
       }
 
     Tick_1000s++;
-    if (Tick_1000s > 1000000)//reset after ~17 mins
+    if (Tick_1000s > 1000000)/*reset after ~17 mins*/
       {
         Batt_Tick_1000s = true;
         Tick_1000s = 0;
       }
 
     Tick_1h++;
-    if (Tick_1h > 3600000)//reset after 60 mins
+    if (Tick_1h > 3600000)/*reset after 60 mins*/
       {
-        //    NVIC_SystemReset();
       }
 
     Uart_Wait_Tick++;

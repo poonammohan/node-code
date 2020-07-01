@@ -47,11 +47,11 @@
 /* Private variables ---------------------------------------------------------*/
 ThreeSL_StateTypeDef ThreeSL_State;
 static LED_StateTypeDef CurrentState_LED = LED_STATE_OFF;
-//static LED_StateTypeDef NextState_LED = LED_STATE_OFF;
+/*static LED_StateTypeDef NextState_LED = LED_STATE_OFF;        */
 static SCC_StateTypeDef CurrentState_SCC = SCC_STATE_OFF;
-//static SCC_StateTypeDef NextState_SCC = SCC_STATE_OFF;
+/*static SCC_StateTypeDef NextState_SCC = SCC_STATE_OFF;        */
 static Conn_StateTypeDef CurrentState_Conn;
-//static Conn_StateTypeDef NextState_Conn;
+/*static Conn_StateTypeDef NextState_Conn;      */
 
 static bool LedStateChange = false;
 static uint32_t LedStateChangeTick;
@@ -59,25 +59,24 @@ static uint32_t LedStateChangeTick;
 static uint8_t State_SubSystem;
 static uint8_t State_SensorStatus;
 static uint8_t State_BatteryStatus;
-//static uint8_t ledIntensityDefault=1;//Added By Chinna for setting Initial LED Intensity
+/*static uint8_t ledIntensityDefault=1;  for setting Initial LED Intensity      */
 extern int32_t Panel_Charging_Time;
 extern int32_t Panel_Discharging_Time;
 
 static BatteryChargingModeTypeDef currentBattState = BATTERY_CHARGING_MODE_OFF;
 static uint16_t countBattLow = 0;
 uint32_t Led_default=0;
-//static uint32_t sample_duty_led=0;
+/*static uint32_t sample_duty_led=0;    */
 extern uint32_t Sytem_Reset_Trigger;
 extern TIM_HandleTypeDef ThreeSlLedEnTim;
 extern UART_HandleTypeDef Sp1mlUart;
-extern TIM_HandleTypeDef htm16; //Added By Chinna
+extern TIM_HandleTypeDef htm16; 
 extern uint8_t UartRxData[UART_RX_DATABUFF_SIZE];
 extern uint8_t UartTxData[UART_TX_DATABUFF_SIZE];
 extern uint16_t UartRxDataStartPntr;
 extern uint16_t UartRxDataLength;
 extern uint32_t LedCurrent;
 extern uint16_t DcDcLdOutVoltage;
-extern uint32_t LedI_Th ;
 extern uint16_t BattMinVoltage;
 extern uint16_t BattMaxVoltage;
 extern uint16_t BattMinDischrgVoltage;
@@ -128,12 +127,12 @@ static void (*StateTable_Conn[2])(void) =
     state_Conn_On
   };
 /* Exported functions --------------------------------------------------------*/
-//static uint32_t DIMM_ZERO = 0;
-static uint32_t DIMM_ONE = 0.5*LED_I_MAX;      // At  25% Dimm level the LED current is same as Offset current.
+/*static uint32_t DIMM_ZERO = 0;        */
+static uint32_t DIMM_ONE = 0.5*LED_I_MAX;      /* At  25% Dimm level the LED current is same as Offset current. */
 static uint32_t DIMM_TWO = 0.6*LED_I_MAX;
 static uint32_t DIMM_THREE = 0.7*LED_I_MAX;
-//static uint32_t DIMM_FOUR = LED_I_MAX;
-//static int cntr=0;
+/*static uint32_t DIMM_FOUR = LED_I_MAX;        */
+/*static int cntr=0;    */
 /**
 * @brief This function initialized LEDs configuration to factory settings
 */
@@ -149,7 +148,7 @@ void state_Off_Led(void)
   {
     /* Reset battery low check counter */
     countBattLow = 0;
-    LedStateChange = false;       // Setting the LED statechange to false by defaullt */
+    LedStateChange = false;       /* Setting the LED statechange to false by defaullt */
 
     system_DcDcLdOutDisable();
     system_AcDcLdOutDisable();
@@ -192,7 +191,7 @@ void state_StartUp_Led(void)
     /* Ignore LED current monitoring in startup, to avoid false triggering of
     output short circuit protection */
     system_SetIgnoreLedCurrent(true);
-    GPIOB->BSRR = (uint32_t)GPIO_PIN_5;//Added by Sunil
+    GPIOB->BSRR = (uint32_t)GPIO_PIN_5;
 
     ThreeSL_State.state_LED = LED_STATE_ON;
   }
@@ -221,21 +220,21 @@ void state_On_Led(void)
 
         if (led_GetFlag(LED_MASK_DIM_ENABLE))
           {
-            if (ac_dc_ld_GetFlag(AC_DC_LD_MASK_ENABLE))//AC DC
+            if (ac_dc_ld_GetFlag(AC_DC_LD_MASK_ENABLE)) /* AC DC */
               {
                 system_AcDcSetDim(20);
               }
             else
               {
-                system_AcDcSetDim(2);//Idle value
+                system_AcDcSetDim(2);   /*  Idle value   */
               }
           }
         else
           {
-            //led_SetThreshI(DIMM_FOUR);//DC DC
-            if (ac_dc_ld_GetFlag(AC_DC_LD_MASK_ENABLE))//AC DC
+            /*led_SetThreshI(DIMM_FOUR);        DC DC   */
+            if (ac_dc_ld_GetFlag(AC_DC_LD_MASK_ENABLE))/*  AC DC  */
               {
-                system_AcDcSetDim(2);//Idle value
+                system_AcDcSetDim(2);
               }
           }
       }
@@ -415,7 +414,7 @@ static void state_BattChg_SCC()
 
                 pwmDuty = mppt_Routine((battery_GetMaxVoltage()),
                                        battery_GetMaxCurrent(),
-                                       battery_GetVoltage(),battery_GetChargngCurrent(),//battery_GetChargngCurrent()
+                                       battery_GetVoltage(),battery_GetChargngCurrent(),
                                        system_GetSccPwm());
               }
 
@@ -481,7 +480,7 @@ status
 */
 void state_Conn_On(void)
   {
-    if (system_GetUartWaitTick() >= STATE_UARTWAITTICK)//5 min // we are incrementing in wrong place need to change the 
+    if (system_GetUartWaitTick() >= STATE_UARTWAITTICK) /*  5 min  we are incrementing in wrong place need to change the */
      {
        ThreeSL_State.state_Conn = Conn_STATE_START_UP;
      }
@@ -546,13 +545,13 @@ void state_Conn_On(void)
                       {
                         changeState = true;
                         led_SetThreshI(DIMM_TWO);
-                        conn_SetPacketData(ON_OFF_INDEX, 50 | 0x80);     //Added By Chinna for User Action
+                        conn_SetPacketData(ON_OFF_INDEX, 50 | 0x80);     /* for User Action  */
                       }
-                    else if (conn_GetPacketData(ON_OFF_INDEX) >= 0x33 && conn_GetPacketData(ON_OFF_INDEX) <= 0x4B)                                    //75% bright
+                    else if (conn_GetPacketData(ON_OFF_INDEX) >= 0x33 && conn_GetPacketData(ON_OFF_INDEX) <= 0x4B)     /*75% bright*/
                       {
                         changeState = true;
                         led_SetThreshI(DIMM_THREE);
-                        conn_SetPacketData(ON_OFF_INDEX, 75 | 0x80);     //Added By Chinna for User Action
+                        conn_SetPacketData(ON_OFF_INDEX, 75 | 0x80);     /* for User Action */
                       }
                   }
                 else if(conn_GetPacketData(ON_OFF_INDEX) ==100)
@@ -567,24 +566,21 @@ void state_Conn_On(void)
                     state_StartUp_Led();
 
                   }
-                //**************** Switching from Battery to AC ************//
+                /* *************** Switching from Battery to AC *********** */
                 if(conn_GetPacketData(ON_OFF_INDEX) > 100 && conn_GetPacketData(ON_OFF_INDEX)<=110)
                   {
                     ThreeSL_State.state_LED = LED_STATE_START_UP;
                   }
-                /* *************** Switching from Battery to AC and system will reset ***********/
+                /* *************** Switching from Battery to AC and system will reset ********** */
                 if(conn_GetPacketData(ON_OFF_INDEX) > 110 && conn_GetPacketData(ON_OFF_INDEX) <=120)
                   {
-                    //BattMinVoltage = BATTERY_MINIMUM_VOLTAGE;
-                    //BattMaxVoltage = BATTERY_MAXIMUM_VOLTAGE;
-                    //BattMinDischrgVoltage = BATTERY_MIN_DISCHRG_VOLT;
                     ThreeSL_State.state_LED = LED_STATE_START_UP;
                     conn_SetPacketData(ON_OFF_INDEX, 0 | 0x80);
                     HAL_Delay(10000);
                   }
               }
 
-            //**************** Start the Buzzer************//
+            /* *************** Start the Buzzer*********** */
             if(conn_GetPacketData(ON_OFF_INDEX) > 120 && conn_GetPacketData(ON_OFF_INDEX) <=130)
               {
                 HAL_TIM_PWM_Start(&htm16,TIM_CHANNEL_1);
@@ -780,8 +776,6 @@ void SM_ThreeSl(void)
   {
     static bool prevLedOnFlag = false;
     static bool currLedOnFlag = false;
-    //static bool changeState = false;
-    //static uint32_t changeStateTick;
 
     StateTable_LED[CurrentState_LED]();   /* Function Pointer array for LED States*/
     StateTable_SCC[CurrentState_SCC]();   /* Function Pointer array for Solar Charge Controller(SCC) States*/
@@ -812,12 +806,11 @@ void SM_ThreeSl(void)
         ThreeSL_State.state_LED = LED_STATE_OFF;
 
         changeState = true;
-        //changeStateTick = HAL_GetTick();
       }
     prevLedOnFlag = currLedOnFlag;
 
     /* Change state when change state is true and time is away by 100ms */
-    if ((changeState == true))// && (HAL_GetTick() == (changeStateTick + 100)))
+    if ((changeState == true))
       {
         changeState = false;
 

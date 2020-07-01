@@ -285,7 +285,7 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef* htim)
         GPIO_InitStruct.Alternate = GPIO_AF1_TIM16;
         HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-        /**TIM16 GPIO Configuration    //Added by Madhava(for PWM buzzer)
+        /**TIM16 GPIO Configuration    (for PWM buzzer)
         PA12     ------> TIM16_CH1
         */
         GPIO_InitStruct.Pin = GPIO_PIN_12;

@@ -76,12 +76,12 @@ static uint8_t StateFlags_Battery = 0x01;
 static uint16_t BattMinVoltage = BATTERY_MINIMUM_VOLTAGE;
 static uint16_t BattMinDischrgVoltage = BATTERY_MIN_DISCHRG_VOLT;
 static uint16_t BattFltVoltage = BATTERY_FLOAT_VOLTAGE;
-uint16_t BattFltVoltage_TC;//Temperature compensated float voltage
+static uint16_t BattFltVoltage_TC;/*Temperature compensated float voltage*/
 static uint16_t BattMaxVoltage = BATTERY_MAXIMUM_VOLTAGE;
-uint16_t BattMaxVoltage_TC;//Temperature compensated maximum voltage
+uint16_t BattMaxVoltage_TC;/*Temperature compensated maximum voltage*/
 static uint16_t BattFltCurrent = BATTERY_FLOAT_CURRENT_TH;
 static uint16_t BattMaxChargingCurrent = BATTERY_MAXIMUM_CHARGING_CURRENT;
-//static uint16_t BattDeepDischrgTh = BATTERY_DEEP_DISCHRG_THRESHOLD;
+/*static uint16_t BattDeepDischrgTh = BATTERY_DEEP_DISCHRG_THRESHOLD*/
 
 static uint16_t BattChargingCurrent = 0;
 static uint16_t BattDischargingCurrent = 0;
@@ -89,7 +89,7 @@ uint16_t BattVoltage = 0;
 
 
 /* Private function prototypes -----------------------------------------------*/
-//static void battery_Control(BatteryEnabeTypeDef);
+/*static void battery_Control(BatteryEnabeTypeDef)*/
 BatteryPresentTypeDef battery_Is_Present(void);
 BatteryStatusTypeDef battery_Is_Ok(void);
 BatteryChargedTypeDef battery_Is_Charged(void);
@@ -231,13 +231,5 @@ bool battery_GetFlag(uint16_t flag)
     return false;
   }
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -32,9 +32,8 @@
 */
 /* Includes ------------------------------------------------------------------*/
 #include "connectivity.h"
-#include "system.h"//this file to be handled better in future
+#include "system.h"
 
-//#include "system.h"
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
@@ -44,7 +43,7 @@ static DataQue TxQ;
 static uint8_t PacketRxData[PACKET_LENGTH];
 static uint8_t PacketTxData[PACKET_LENGTH];
 static bool Flag_ReadPacketData = false;
-//static bool Flag_SendPacketData = false;
+/*static bool Flag_SendPacketData = false;*/
 /* Private function prototypes -----------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
 
@@ -178,7 +177,7 @@ void conn_SetSendPacketStatus(bool status)
         TxQ.length = (TxQ.endNxtPntr + DATABUFF_SIZE) - TxQ.startPntr;
       }
 
-    //Flag_SendPacketData = status;
+    /*Flag_SendPacketData = status;*/
   }
 
 void conn_ResetConn(void)
@@ -192,7 +191,7 @@ void conn_ResetConn(void)
     TxQ.length = 0;
 
     Flag_ReadPacketData = false;
-    //Flag_SendPacketData = false;
+    /*Flag_SendPacketData = false;*/
   }
 
 /**

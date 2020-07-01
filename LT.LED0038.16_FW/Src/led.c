@@ -39,7 +39,7 @@
 /* Private variables ---------------------------------------------------------*/
 static uint8_t StateFlags_Led = 0x00;
 extern uint32_t DIMM_TWO;
-uint32_t LedI_Th = LED_I_MAX;
+static uint32_t LedI_Th = LED_I_MAX;
 
 /* Private function prototypes -----------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/

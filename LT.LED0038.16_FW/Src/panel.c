@@ -61,7 +61,7 @@ static uint16_t PanelMaxVoltage = PANEL_MAXIMUM_VOLTAGE;
 static uint16_t PanelMpptVoltage = PANEL_MPPT_VOLTAGE;
 static uint16_t PanelVoltage;
 /* Private function prototypes -----------------------------------------------*/
-//static void Panel_Control(PanelEnabeTypeDef);
+/*static void Panel_Control(PanelEnabeTypeDef); */
 PanelPresentTypeDef Panel_Is_Present(void);
 PanelStatusTypeDef panel_Is_Ok(void);
 /* Exported functions --------------------------------------------------------*/

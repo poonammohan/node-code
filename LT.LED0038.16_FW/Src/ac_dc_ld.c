@@ -71,12 +71,5 @@ bool ac_dc_ld_GetFlag(uint16_t flag)
     }
   }
 
-/**
-* @}
-*/
-
-/**
-* @}
-*/
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
