@@ -1,0 +1,29 @@
+# Compiled binaries
+*.bin
+*.elf
+*.hex
+*.map
+
+# Trash
+*.bak
+
+# IAR project "Debug" directory
+Debug/
+
+# IAR project "Release" directory
+Release/
+
+# IAR project settings directory
+settings/
+
+# IAR backup files
+Backup*
+
+# IAR .dep files
+*.dep
+
+LT.LED0038.16_FW/EWARM/settings
+LT.LED0038.16_FW/EWARM/HRTIM_test_master
+LT.LED0038.16_FW/EWARM/*.ewd
+LT.LED0038.16_FW/EWARM/*.ewp
+LT.LED0038.16_FW/EWARM/*.c
