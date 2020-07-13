@@ -32,8 +32,8 @@
   */
   
   /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef AC_DC_LD_H
-#define AC_DC_LD_H
+#ifndef __AC_DC_LD_H
+#define __AC_DC_LD_H
 
 #ifdef __cplusplus
  extern "C" {

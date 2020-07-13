@@ -50,13 +50,13 @@
 #define DC_DC_LD_DUTY_MAX                0.70
 #define DC_DC_LD_DUTY_MIN                0.03   
 
-#define DC_DC_LD_OUT_VOLT_MAX            3800   /*FOr OVP ~ 49V*/
-#define DC_DC_LD_OUT_VOLT_MIN            1750   /*24.5V  */          
+#define DC_DC_LD_OUT_VOLT_MAX            3800//FOr OVP ~ 49V
+#define DC_DC_LD_OUT_VOLT_MIN            1900//24.5V            
 /***************************Added by Sunil************************************/
-#define DC_DC_LD_OUT_VOLT_30             2327   /*FOr 30v ~ 30V*/
-#define DC_DC_LD_OUT_VOLT_25             1940   /*FOr 25v ~ 25V*/
-#define DC_DC_LD_OUT_VOLT_20             1551   /*FOr 20v ~ 20V*/
-#define DC_DC_LD_OUT_VOLT_15             1164   /*FOr 15v ~ 15V*/
+#define DC_DC_LD_OUT_VOLT_30             2327//FOr 30v ~ 30V
+#define DC_DC_LD_OUT_VOLT_25             1940//FOr 25v ~ 25V
+#define DC_DC_LD_OUT_VOLT_20             1551//FOr 20v ~ 20V
+#define DC_DC_LD_OUT_VOLT_15             1164//FOr 15v ~ 15V
 /***************************Added by Sunil*************************************/
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/

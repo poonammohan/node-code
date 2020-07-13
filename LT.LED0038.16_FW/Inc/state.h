@@ -32,8 +32,8 @@
   */
   
   /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef STATE_H
-#define STATE_H
+#ifndef __STATE_H
+#define __STATE_H
 
 #ifdef __cplusplus
  extern "C" {

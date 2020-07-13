@@ -32,8 +32,8 @@
   */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef STM32F3xx_IT_H
-#define STM32F3xx_IT_H
+#ifndef __STM32F3xx_IT_H
+#define __STM32F3xx_IT_H
 
 #ifdef __cplusplus
  extern "C" {

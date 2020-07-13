@@ -32,8 +32,8 @@
   */
   
   /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef CONNECTIVITY_H
-#define CONNECTIVITY_H
+#ifndef __CONNECTIVITY_H
+#define __CONNECTIVITY_H
 
 #ifdef __cplusplus
  extern "C" {
@@ -41,10 +41,10 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "common.h"   
-/*
-#define UART_RX_DATABUFF_SIZE                   1000
-#define UART_TX_DATABUFF_SIZE                   1000*/
-#define DATABUFF_SIZE                           1000    /*This value should be greater than PACKET_LENGTH   */
+   
+//#define UART_RX_DATABUFF_SIZE                   1000
+//#define UART_TX_DATABUFF_SIZE                   1000
+#define DATABUFF_SIZE                           1000//This value should be greater than PACKET_LENGTH   
    
 #define PACKET_LENGTH                           20   
 #define PACKET_STOP_IDENTIFIER                  0xBA
@@ -64,8 +64,8 @@
 #define SUB_SYSTEM_INDEX                        4   
 #define SENSOR_STATUS_INDEX                     5
 #define BATTERY_STATUS_INDEX                    6
-#define LED_CURRENT_INDEX                       12      
-#define LED_VOLTAGE_INDEX                       13      
+#define LED_CURRENT_INDEX                       12      // Added By Chinna
+#define LED_VOLTAGE_INDEX                       13      // Added By Chinna
 #define BATTERY_CURRENT_INDEX                   14
 #define BATTERY_VOLTAGE_INDEX                   15
 #define PANEL_CURRENT_INDEX                     16
@@ -88,8 +88,10 @@ void conn_SetReadPacketDataStatus(bool);
 bool conn_GetReadPacketDataStatus(void);
 uint8_t conn_GetPacketData(uint16_t);
 void conn_SetPacketData(uint16_t,uint8_t);
+void dupconn_SetPacketData(uint16_t,uint8_t);
 void conn_SetSendPacketStatus(bool);
 void conn_ResetConn(void);
+void logDatatoPC(void);
 #ifdef __cplusplus
 }
 #endif
