@@ -32,8 +32,8 @@
   */
   
   /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __SYSTEM_H
-#define __SYSTEM_H
+#ifndef SYSTEM_H
+#define SYSTEM_H
 
 #ifdef __cplusplus
  extern "C" {
@@ -66,7 +66,7 @@
 #define THREE_SL_LED_ANA_DIM_TIM                TIM15   
 #define THREE_SL_LED_ANA_TIM_OUT_CH             TIM_CHANNEL_1   
 #define THREE_SL_LED_ANA_TIM_PRESC              1   
-#define THREE_SL_LED_ANA_TIM_PERIOD             533//53332
+#define THREE_SL_LED_ANA_TIM_PERIOD             533     /*53332*/
    
 #define ADC_BATT_VOLTAGE_INDEX                  1
 #define ADC_BATT_CHARGING_CURRENT_INDEX         3
@@ -95,15 +95,15 @@
 #define MCU_VDD                                 3.3
 #define ADC_RESOLUTION                          4096
 #define LED_CURRENT_ZERO_OFFSET                 60
-#define LED_CURRENT_SENSE_R                     0.075//in ohms
-#define DC_DC_SENSE_R1                          15//in kohms
-#define DC_DC_SENSE_R2                          1//in kohms
-#define BATT_SENSE_R1                           18//in kohms
-#define BATT_SENSE_R2                           3.3//in kohms
+#define LED_CURRENT_SENSE_R                     0.075   /*in ohms*/
+#define DC_DC_SENSE_R1                          15      /*in kohms*/
+#define DC_DC_SENSE_R2                          1       /*in kohms*/
+#define BATT_SENSE_R1                           18      /*in kohms*/
+#define BATT_SENSE_R2                           3.3     /*in kohms*/
 
 #define OVER_TEMPERATURE_LIMIT                  80   
    
-#define REVERSE_PANEL_CH_TH                     1900// ~ 7V
+#define REVERSE_PANEL_CH_TH                     1900    /* ~ 7V*/
    
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
@@ -153,7 +153,7 @@ bool system_GetBattTick_10(void);
 void system_SetBattTick_10(bool);
 bool system_GetBattTick_1000s(void);
 void system_SetBattTick_1000s(bool);
-bool system_GetTim3ACCCr_val(void);//Added by sunil
+bool system_GetTim3ACCCr_val(void);
 void system_DcDcLdDim(uint8_t);
 #ifdef __cplusplus
 }

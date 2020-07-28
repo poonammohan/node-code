@@ -43,9 +43,7 @@
 #include "common.h"   
 
 //uint32_t BattMaxChargingCurrent;
-uint32_t PanelMaxVolt;
-uint32_t PanelMinVolt;
-uint32_t PanelMPPTVoltage;
+
 
 void setConfigParams(void);
 #ifdef __cplusplus

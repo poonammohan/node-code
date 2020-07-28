@@ -49,77 +49,76 @@ extern ThreeSL_StateTypeDef ThreeSL_State;
 extern uint16_t BattMaxVoltage;
 extern uint16_t BattMinVoltage;
 extern uint16_t BattMinDischrgVoltage;
-extern UART_HandleTypeDef huart2;			//Added By Venky
-uint8_t Rx_Buff[10]; 			//Added By Venky
+extern UART_HandleTypeDef huart2;
+uint8_t Rx_Buff[20];
 /* Private function prototypes -----------------------------------------------*/
 int dc_dc_Led_count = 1;
 bool configFlag;
 
 int main(void)
-{
-  /* MCU Configuration----------------------------------------------------------*/
-  
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
-  
-  /* Configure the system clock
-  Do not change clock frequency settings, it might result in board damage */
-  SystemClock_Config();
-  
-  /* Check if the system has resumed from WWDG reset */
-  if (__HAL_RCC_GET_FLAG(RCC_FLAG_WWDGRST) != RESET)
   {
-    /* Insert code here */
-  }
-  
-  /* Clear reset flags in any case */
-  __HAL_RCC_CLEAR_RESET_FLAGS();  
-  
-  /* Check if panel is connected in reverse */
-  system_CheckPanelReverse();
-  
-  /* Initialize required peripherals */
-  system_Init();        // All MCC peripherals initialized in system.c
-  HAL_Delay(1);         // Delay of 1 ms just it mak sure the intializsations
-  /* Set status of LED driver, charge controller and connectivity */    // Initialize the default states for LED, Solar Charge Controller, Connection
-  ThreeSL_State.state_LED = LED_STATE_OFF;
-  ThreeSL_State.state_SCC = SCC_STATE_START_UP;
-  ThreeSL_State.state_Conn = Conn_STATE_ON;
-  
-  /* Setting the DIM flag so that the defaultly the light will be in dimm condition depending on PIR output the light will turn on Fully */
-  //led_SetFlag(LED_MASK_DIM_ENABLE);   //Added By Chinna
-  
-  /* Take several values of analog signals to stabilize system at startup */
-  for (uint16_t count=0; count<60000; count++)
-  {
-    system_UpdateSysParams();
-  }
-  
-  /* Calculate constant multiplier for computing battery current from 
-  output LED current */
-  system_CalcBattCurrK();  
-  HAL_UART_Receive_IT(&huart2, Rx_Buff, 10);
-  
-  
-  /* Infinite loop */
-  while(1){
-    //while (configFlag)
-    //{
-      //setConfigParams();
-      system_UpdateSysParams();
-      SM_ThreeSl();    /* Runs the main State Machine */
-      //populateDummyPacket();
-      logDatatoPC();
-      setConfigParams();
-   // }
-  }
-}
+    /* MCU Configuration----------------------------------------------------------*/
 
-    
+    /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+    HAL_Init();
+
+    /* Configure the system clock
+    Do not change clock frequency settings, it might result in board damage */
+    SystemClock_Config();
+
+    /* Check if the system has resumed from WWDG reset */
+    if (__HAL_RCC_GET_FLAG(RCC_FLAG_WWDGRST) != RESET)
+      {
+        /* Insert code here */
+      }
+
+    /* Clear reset flags in any case */
+    __HAL_RCC_CLEAR_RESET_FLAGS();
+
+    /* Check if panel is connected in reverse */
+    system_CheckPanelReverse();
+
+    /* Initialize required peripherals */
+    system_Init();        /* All MCC peripherals initialized in system.c        */
+    HAL_Delay(1);         /* Delay of 1 ms just it mak sure the intializsations */
+    /* Set status of LED driver, charge controller and connectivity  Initialize the default states for LED, Solar Charge Controller, Connection */
+    ThreeSL_State.state_LED = LED_STATE_OFF;
+    ThreeSL_State.state_SCC = SCC_STATE_START_UP;
+    ThreeSL_State.state_Conn = Conn_STATE_ON;
+
+    /* Setting the DIM flag so that the defaultly the light will be in dimm condition depending on PIR output the light will turn on Fully */
+
+    /* Take several values of analog signals to stabilize system at startup */
+    for (uint16_t count=0; count<60000; count++)
+      {
+        system_UpdateSysParams();
+      }
+
+    /* Calculate constant multiplier for computing battery current from
+    output LED current */
+    system_CalcBattCurrK();
+#ifdef TEST_AUTOMATION  
+  	HAL_UART_Receive_IT(&huart2, Rx_Buff, 20);
+#endif
+    /* Infinite loop */
+    while (1)
+      {
+        system_UpdateSysParams();
+        SM_ThreeSl();    /* Runs the main State Machine */
+#ifdef TEST_AUTOMATION
+      	logDatatoPC();
+      	setConfigParams();
+     	// memset(Rx_Buff,0,sizeof(Rx_Buff));
+   	// }
+#endif
+      }
+  }
+
+
 int32_t cmpfunc (const void * a, const void * b)
-{
-  return ( *(uint32_t*)a - *(uint32_t*)b );
-}
+  {
+    return ( *(uint32_t*)a - *(uint32_t*)b );
+  }
 
 
 #ifdef USE_FULL_ASSERT
@@ -132,11 +131,11 @@ int32_t cmpfunc (const void * a, const void * b)
 * @retval None
 */
 void assert_failed(uint8_t* file, uint32_t line)
-{
-  /* User can add his own implementation to report the file name and line number,
-  ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
-  
-}
+  {
+    /* User can add his own implementation to report the file name and line number,
+    ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+
+  }
 
 
 
@@ -144,10 +143,10 @@ void assert_failed(uint8_t* file, uint32_t line)
 
 /**
 * @}
-*/ 
+*/
 
 /**
 * @}
-*/ 
+*/
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

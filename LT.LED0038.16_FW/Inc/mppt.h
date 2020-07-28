@@ -32,8 +32,8 @@
   */
   
   /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __MPPT_H
-#define __MPPT_H
+#ifndef MPPT_H
+#define MPPT_H
 
 #ifdef __cplusplus
  extern "C" {
@@ -42,8 +42,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "common.h"
    
-#define MPPT_PWM_DUTY_MAX       1000//same as timer period ARR value
-#define MPPT_PWM_DUTY_UB        0.87*MPPT_PWM_DUTY_MAX//duty cycle can never cross 900 (on 1000 scale)
+#define MPPT_PWM_DUTY_MAX       1000    /*same as timer period ARR value*/
+#define MPPT_PWM_DUTY_UB        0.87*MPPT_PWM_DUTY_MAX  /*duty cycle can never cross 900 (on 1000 scale)*/
 #define MPPT_PWM_DUTY_RESET     0.55*MPPT_PWM_DUTY_MAX
    
 #define MPPT_POSITIVE                1

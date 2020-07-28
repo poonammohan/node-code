@@ -36,7 +36,8 @@
 #include <string.h>
 #include "led.h"
 
-extern uint8_t Rx_Buff[10];
+
+extern uint8_t Rx_Buff[20];
 char string[3];
 char var;
 extern bool configFlag;
@@ -50,11 +51,15 @@ extern uint16_t BattFltVoltage; //this will always be 13.8V
 extern uint16_t BattMaxVoltage;
 extern uint16_t BattMaxChargingCurrent; // not using in the firmware
 extern uint16_t BattDeepDischrgTh;
+uint16_t PanelMaxVolt;
+uint16_t PanelMinVolt;
+uint16_t PanelMPPTVoltage;
 
+#ifdef TEST_AUTOMATION
 void setConfigParams(void){
   if(configFlag==1){
-    sprintf(string,"%d%d", Rx_Buff[0]-'0',Rx_Buff[1]-'0');
-    num= atoi(string);
+    sprintf(string,"%d%d", Rx_Buff[0]-'0',Rx_Buff[1]-'0'); 
+    num= atoi(string); 
     if(num>0 && num <60){
       LedI_Th=(num/30)*100;
     }
@@ -65,7 +70,6 @@ void setConfigParams(void){
       BattMaxVoltage=2999; //max voltage is 15.6V
       BattMinVoltage=2208; //min voltage is 11.4V
       BattMinDischrgVoltage=2208; //11.4V 
-        
     }
     if(Rx_Buff[2]-'0'==2){ //LoFePo4 battery
       BattMaxVoltage=2806; //max voltage is 14.6V
@@ -74,13 +78,13 @@ void setConfigParams(void){
     }    
     sprintf(string,"%d%d", Rx_Buff[5]-'0',Rx_Buff[6]-'0'); 
     num= atoi(string);
-    PanelMaxVolt=2300;  //13.9 V
-    PanelMinVolt=4096;
-    PanelMPPTVoltage=3075;
+    PanelMaxVolt=4096;  //21.29
+    PanelMinVolt=2300;  //11.9
+    PanelMPPTVoltage=3075;      //15.9
   }
   configFlag=0;
-  memset(Rx_Buff,0,sizeof(Rx_Buff));
+  //memset(Rx_Buff,0,sizeof(Rx_Buff));
 }
-
+#endif
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
